@@ -6,8 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let idx;
 
     const postFiles = [
-        "posts/post-1.html",
-        "posts/post-2.html"
+"posts/chat-gpt-c-developer-donations.html",
+"posts/chat-gpt-c-seinfeld-crash-course.html",
+"posts/chat-gpt-contributing-to-cpython.html",
+"posts/chat-gpt-optimizing-code-with-knuth.html",
+"posts/chat-gpt-simpsons-guide-smart-pointers.html",
+"posts/chat-gpt-static-html-blog-hosting.html",
     ];
 
     // Fetch the content of a post file
