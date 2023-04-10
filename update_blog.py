@@ -24,7 +24,7 @@ def update_index_html(post_data):
         for post in post_data:
             article_tag = soup.new_tag("article")
             h2_tag = soup.new_tag("h2")
-            a_tag = soup.new_tag("a", href=f"posts/{post['file']}")
+            a_tag = soup.new_tag("a", href=f"{post['file']}")
             a_tag.string = post["title"]
             h2_tag.append(a_tag)
             article_tag.append(h2_tag)
@@ -39,23 +39,12 @@ def update_index_html(post_data):
         file.write(str(soup))
 
 # Update search.js
-def update_search_js(post_data):
+def update_search_js(post_files):
     with open(search_js_file, "r", encoding="utf-8") as file:
         content = file.read()
-        search_data_re = r"const postData = \[(.*?)\];"
-        search_data = re.search(search_data_re, content, re.DOTALL).group(1)
-
-        new_data = []
-        for post in post_data:
-            new_data.append(f"""{{
-                id: {post['id']},
-                title: "{post['title']}",
-                content: "{post['summary']}",
-                href: "posts/{post['file']}"
-            }}""")
-
-        new_data_str = ",\n        ".join(new_data)
-        content = re.sub(search_data_re, f"const postData = [\n        {new_data_str}\n    ];", content)
+        post_files_re = r"const postFiles = \[(.*?)\];"
+        post_files_str = ',\n        '.join([f'"{file}"' for file in post_files])
+        content = re.sub(post_files_re, f"const postFiles = [\n        {post_files_str}\n    ];", content)
 
     with open(search_js_file, "w", encoding="utf-8") as file:
         file.write(content)
@@ -64,18 +53,19 @@ def update_search_js(post_data):
 def main():
     post_data = []
 
-    for i, file in enumerate(sorted(os.listdir(posts_dir))):
-        if file.endswith(".html"):
-            title, summary = extract_post_data(f"{posts_dir}{file}")
-            post_data.append({
-                "id": i + 1,
-                "file": file,
-                "title": title,
-                "summary": summary
-            })
+    post_files = sorted([f"{posts_dir}{file}" for file in os.listdir(posts_dir) if file.endswith(".html")])
+
+    for i, file in enumerate(post_files):
+        title, summary = extract_post_data(file)
+        post_data.append({
+            "id": i + 1,
+            "file": file,
+            "title": title,
+            "summary": summary
+        })
 
     update_index_html(post_data)
-    update_search_js(post_data)
+    update_search_js(post_files)
 
 if __name__ == "__main__":
     main()
