@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+    <channel>
+        <title>Your Podcast Title</title>
+        <link>https://yourwebsite.com</link>
+        <language>en-us</language>
+        <description>Your podcast description</description>
+        <itunes:author>Your Name</itunes:author>
+        <itunes:summary>Your podcast summary</itunes:summary>
+        <itunes:owner>
+            <itunes:name>Your Name</itunes:name>
+            <itunes:email>your.email@example.com</itunes:email>
+        </itunes:owner>
+        <itunes:image href="https://yourwebsite.com/podcast-cover.jpg"/>
+        <itunes:category text="Technology"/>
+
+        <!-- Example episode -->
+        <item>
+            <title>Episode 1: Your Episode Title</title>
+            <description>Your episode description</description>
+            <pubDate>Tue, 01 Jan 2023 12:00:00 GMT</pubDate>
+            <enclosure url="https://yourwebsite.com/path/to/your/episode1.mp3" type="audio/mpeg"/>
+        </item>
+    </channel>
+</rss>
