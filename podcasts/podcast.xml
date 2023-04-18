@@ -20,5 +20,5 @@
             <pubDate>Tue, 01 Jan 2023 12:00:00 GMT</pubDate>
             <enclosure url="https://yourwebsite.com/path/to/your/episode1.mp3" type="audio/mpeg" />
         </item>
-    <item><title>0002: Baby Penguins</title><description>Test episode about baby penguins.</description><pubDate>Mon, 17 Apr 2023 21:45:31 GMT</pubDate><enclosure url="https://JonathanGrant.github.io/jonathangrant.github.io/podcasts/audio/baby_penguins2.wav" type="audio/mpeg" /></item></channel>
+    <item><title>0002: Baby Penguins</title><description>Test episode about baby penguins.</description><pubDate>Mon, 17 Apr 2023 21:45:31 GMT</pubDate><enclosure url="https://JonathanGrant.github.io/jonathangrant.github.io/podcasts/audio/baby_penguins2.wav" type="audio/mpeg" /></item><item><title>0003: Baby Penguins</title><description>Test episode about baby penguins.</description><pubDate>Mon, 17 Apr 2023 21:52:56 GMT</pubDate><enclosure url="https://JonathanGrant.github.io/jonathangrant.github.io/podcasts/audio/baby_penguins3.wav" type="audio/mpeg" /></item></channel>
 </rss>
