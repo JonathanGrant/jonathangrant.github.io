@@ -1,17 +1,23 @@
-<rss xmlns:ns0="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
     <channel>
-        <title>Your Podcast Title</title>
-        <link>https://yourwebsite.com</link>
+        <title>PodcastGPT</title>
+        <link>https://JonathanGrant.github.io/</link>
         <language>en-us</language>
         <description>Your podcast description</description>
-        <ns0:author>Your Name</ns0:author>
-        <ns0:summary>Your podcast summary</ns0:summary>
-        <ns0:owner>
-            <ns0:name>Your Name</ns0:name>
-            <ns0:email>your.email@example.com</ns0:email>
-        </ns0:owner>
-        <ns0:image href="https://yourwebsite.com/podcast-cover.jpg" />
-        <ns0:category text="Technology" />
+        <itunes:author>Your Name</itunes:author>
+        <itunes:summary>Your podcast summary</itunes:summary>
+        <itunes:owner>
+            <itunes:name>Your Name</itunes:name>
+            <itunes:email>your.email@example.com</itunes:email>
+        </itunes:owner>
+        <itunes:image href="https://yourwebsite.com/podcast-cover.jpg" />
+        <itunes:category text="Technology" />
 
-    <item><title>0002: Baby Penguins</title><description>Test episode about baby penguins.</description><pubDate>Mon, 17 Apr 2023 21:45:31 GMT</pubDate><enclosure url="https://JonathanGrant.github.io/jonathangrant.github.io/podcasts/audio/baby_penguins2.wav" type="audio/mpeg" /></item><item><title>0003: Baby Penguins</title><description>Test episode about baby penguins.</description><pubDate>Mon, 17 Apr 2023 21:52:56 GMT</pubDate><enclosure url="https://JonathanGrant.github.io/jonathangrant.github.io/podcasts/audio/baby_penguins3.wav" type="audio/mpeg" /></item></channel>
+        <item>
+            <title>0002: Baby Penguins</title>
+            <description>Test episode about baby penguins.</description>
+            <pubDate>Mon, 17 Apr 2023 21:45:31 GMT</pubDate>
+            <enclosure url="https://JonathanGrant.github.io/podcasts/audio/baby_penguins2.wav" type="audio/mpeg" />
+        </item>
+    </channel>
 </rss>
