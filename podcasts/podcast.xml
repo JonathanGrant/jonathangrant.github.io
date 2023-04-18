@@ -4,13 +4,13 @@
         <link>https://JonathanGrant.github.io/</link>
         <language>en-us</language>
         <description>Your podcast description</description>
-        <itunes:author>Your Name</itunes:author>
-        <itunes:summary>Your podcast summary</itunes:summary>
+        <itunes:author>Jonathan Grant</itunes:author>
+        <itunes:summary>AI Generated and Sometimes Written Podcasts</itunes:summary>
         <itunes:owner>
-            <itunes:name>Your Name</itunes:name>
-            <itunes:email>your.email@example.com</itunes:email>
+            <itunes:name>Jonathan Grant</itunes:name>
+            <itunes:email>jonathanallengrant@gmail.com</itunes:email>
         </itunes:owner>
-        <itunes:image href="https://yourwebsite.com/podcast-cover.jpg" />
+        <itunes:image href="https://JonathanGrant.github.io/logo.png" />
         <itunes:category text="Technology" />
         <itunes:explicit>no</itunes:explicit>
 
