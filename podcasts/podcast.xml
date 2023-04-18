@@ -49,7 +49,7 @@
       <title>0003: Baby Penguins</title>
       <description>Test episode about baby penguins.</description>
       <pubDate>Mon, 17 Apr 2023 22:09:45 GMT</pubDate>
-      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/baby_penguins3.wav" type="audio/mpeg" length="1035065"/>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/baby_penguins3.wav" type="audio/wav" length="1035065"/>
     </item>
   </channel>
   
