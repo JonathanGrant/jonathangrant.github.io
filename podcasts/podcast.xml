@@ -1,107 +1,169 @@
 <?xml version="1.0" ?>
 <rss xmlns:ns0="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+	
   
   
     
   
-  <channel>
+  
+	<channel>
+		
     
     
         
     
-    <title>PodcastGPT</title>
+    
+		<title>PodcastGPT</title>
+		
     
     
         
     
-    <link>https://JonathanGrant.github.io/</link>
+    
+		<link>https://JonathanGrant.github.io/</link>
+		
     
     
         
     
-    <language>en-us</language>
+    
+		<language>en-us</language>
+		
     
     
         
     
-    <description>Your podcast description</description>
+    
+		<description>Your podcast description</description>
+		
     
     
         
     
-    <ns0:author>Jonathan Grant</ns0:author>
+    
+		<ns0:author>Jonathan Grant</ns0:author>
+		
     
     
         
     
-    <ns0:summary>AI Generated and Sometimes Written Podcasts</ns0:summary>
+    
+		<ns0:summary>AI Generated and Sometimes Written Podcasts</ns0:summary>
+		
     
     
         
     
-    <ns0:owner>
+    
+		<ns0:owner>
+			
       
       
             
       
-      <ns0:name>Jonathan Grant</ns0:name>
+      
+			<ns0:name>Jonathan Grant</ns0:name>
+			
       
       
             
       
-      <ns0:email>jonathanallengrant@gmail.com</ns0:email>
+      
+			<ns0:email>jonathanallengrant@gmail.com</ns0:email>
+			
       
       
         
     
-    </ns0:owner>
+    
+		</ns0:owner>
+		
     
     
         
     
-    <ns0:image href="https://JonathanGrant.github.io/podcasts/logo.jpeg"/>
+    
+		<ns0:image href="https://JonathanGrant.github.io/podcasts/logo.jpeg"/>
+		
     
     
         
     
-    <ns0:category text="Technology"/>
+    
+		<ns0:category text="Technology"/>
+		
     
     
         
     
-    <ns0:explicit>no</ns0:explicit>
+    
+		<ns0:explicit>no</ns0:explicit>
+		
     
     
 
     
     
-    <item>
+    
+		<item>
+			
       
       
-      <title>0003: Baby Penguins</title>
+      
+			<title>0003: Baby Penguins</title>
+			
       
       
-      <description>Test episode about baby penguins.</description>
+      
+			<description>Test episode about baby penguins.</description>
+			
       
       
-      <pubDate>Mon, 17 Apr 2023 22:09:45 GMT</pubDate>
+      
+			<pubDate>Mon, 17 Apr 2023 22:09:45 GMT</pubDate>
+			
       
       
-      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/baby_penguins3.wav" type="audio/wav" length="1035065"/>
+      
+			<enclosure url="https://JonathanGrant.github.io/podcasts/audio/baby_penguins3.wav" type="audio/wav" length="1035065"/>
+			
       
     
-    </item>
+    
+		</item>
+		
     
   
-    <item>
-      <title>Ancient to Present Asian History</title>
-      <description>Test episode class about asian history</description>
-      <pubDate>Sat, 22 Apr 2023 14:25:45 GMT</pubDate>
-      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/ancient_to_present_asian_history.mpeg" type="audio/mpeg" length="1258500"/>
-    </item>
-  </channel>
+    
+		<item>
+			
+      
+			<title>Ancient to Present Asian History</title>
+			
+      
+			<description>Test episode class about asian history</description>
+			
+      
+			<pubDate>Sat, 22 Apr 2023 14:25:45 GMT</pubDate>
+			
+      
+			<enclosure url="https://JonathanGrant.github.io/podcasts/audio/ancient_to_present_asian_history.mpeg" type="audio/mpeg" length="1258500"/>
+			
+    
+		</item>
+		
+  
+		<item>
+			<title>Ancient South American History</title>
+			<description>Test episode class about Ancient South American History</description>
+			<pubDate>Sat, 22 Apr 2023 14:32:02 GMT</pubDate>
+			<enclosure url="https://JonathanGrant.github.io/podcasts/audio/ancient_south_american_history.mpeg" type="audio/mpeg" length="1359664"/>
+		</item>
+	</channel>
+	
   
   
+
 
 
 </rss>
