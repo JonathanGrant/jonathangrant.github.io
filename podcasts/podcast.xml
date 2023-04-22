@@ -50,5 +50,11 @@
       <pubDate>Sat, 22 Apr 2023 15:06:30 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/animals_of_bora_bora_and_their_quirky_behaviours.mpeg" type="audio/mpeg" length="2508140"/>
     </item>
+    <item>
+      <title>History of Bora Bora</title>
+      <description>Test episode class about History of Bora Bora</description>
+      <pubDate>Sat, 22 Apr 2023 15:09:29 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/history_of_bora_bora.mpeg" type="audio/mpeg" length="3297409"/>
+    </item>
   </channel>
 </rss>
