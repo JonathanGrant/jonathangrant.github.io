@@ -913,5 +913,15 @@ Ready for more?</description>
       <pubDate>Sun, 23 Apr 2023 17:53:57 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/thezvi_on_car_seats_as_contraception.mpeg" type="audio/mpeg" length="1583179"/>
     </item>
+    <item>
+      <title>LW Rob Bensinger The basic reasons I expect AGI ruin</title>
+      <description>I've been citing AGI Ruin: A List of Lethalities to explain why the situation with AI looks lethally dangerous to me. But that post is relatively long, and emphasizes specific open technical problems over &quot;the basics&quot;.
+Here are 10 things I'd focus on if I were giving &quot;the basics&quot; on why I'm so worried:[1]
+1. General intelligence is very powerful, and once we can build it at all, STEM-capable artificial general intelligence (AGI) is likely to vastly outperform human intelligence immediately (or very quickly).
+When I say &quot;general intelligence&quot;, I'm usually thinking about &quot;whatever it is that lets human brains do astrophysics, category theory, etc. even though our brains evolved under literally zero selection pressure to solve astrophysics or category theory problems&quot;.
+It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on some definitions, so to be clear about the threshold of generality I have in mind, I'll specifically talk about &quot;STEM-level AGI&quot;, though I expect such systems to be good at non-STEM tasks too.</description>
+      <pubDate>Sun, 23 Apr 2023 18:05:15 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/lw_rob_bensinger_the_basic_reasons_i_expect_agi_ruin.mpeg" type="audio/mpeg" length="845133"/>
+    </item>
   </channel>
 </rss>
