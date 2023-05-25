@@ -307,7 +307,8 @@ Why does everyone doubt that AI will become able to manipulate humans? What, lik
 Scott seems to put a lot of hope in ‘well if we can extrapolate deception ability over time then we can figure out when we should stop and stop.’ I seriously urge him to think this through and ask if that sounds like the way humans work, or would act, in such situations, even if we had a relatively clear danger line which we probably don’t get - even if deception increases steadily who knows if that leads to an effectiveness step function, and even if it doesn’t, what deception level is ‘dangerous’ and what isn’t? Especially with the not-quite-dangerous AIs giving the arguments about why not to worry. And that’s, as Scott notes, assuming there isn’t any deception regarding ability to deceive, and so on.
 There’s a bunch of talk about probabilistic watermarking. Scott seems far more hopeful than anyone else I’ve read on that subject. I notice I expect all the suggested methods here not to work so well against an intelligent adversary, but there is hope they could beat a non-intelligent adversary that is blindly copying output or otherwise not taking steps to evade you. 
 Which is oddly consistent with Scott’s other approaches - trying to find ways to defeat a stationary or unintelligent foe, that reliably wouldn’t work otherwise, because you got to start somewhere. 
-Good competing news summaries are available from Jack Clark at ImportAI, link goes to latest. As you’d expect, mostly covers similar stories to the ones I cover, although in a very different style. This week’s post talked about several things including the paper Emergent autonomous scientific research capabilities of large language models (arXiv), where scientists created a researching agent that scared them.
+Good competing news summaries are available from Jack Clark at ImportAI, link goes to latest. As you’d expect, mostly covers similar stories to the ones I cover, although in a very different style. This week’s post talked about several things including the paper Emergent autonomous scientific research capabilities of large language models (
+        ), where scientists created a researching agent that scared them.
 Announcing Amazon Bedrock. Amazon plans to make a variety of foundational models (LLMs) available through AWS. This will be a one-stop shop to get the compute you need in efficient form, and they plan to offer bespoke fine tuning off even a small handful of examples, with the goal being that customers will mostly be creating custom models. 
 Amazon is also making coding aid Amazon CodeWhisperer freely available. 
 Kevin Fisher announces he is putting together the Cybernetic Symbioscene Grant program for funding ambitious tools for human cognition x LLMs, says to DM him if you want to help. 
@@ -1014,12 +1015,6 @@ It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on 
       <description>Title:Q-malizing flow and infinitesimal density ratio estimation</description>
       <pubDate>Wed, 24 May 2023 20:34:59 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_test_title:q-malizing_flow_and_infinitesimal_density_ratio_estimation.mpeg" type="audio/mpeg" length="4497481"/>
-    </item>
-    <item>
-      <title>Arxiv Test Title:Hedonic Prices and Quality Adjusted Price Indices Powered by AI</title>
-      <description>Title:Hedonic Prices and Quality Adjusted Price Indices Powered by AI</description>
-      <pubDate>Wed, 24 May 2023 20:46:18 GMT</pubDate>
-      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_test_title:hedonic_prices_and_quality_adjusted_price_indices_powered_by_ai.mpeg" type="audio/mpeg" length="13680906"/>
     </item>
     <item>
       <title>Arxiv Test Title:Hedonic Prices and Quality Adjusted Price Indices Powered by AI</title>
