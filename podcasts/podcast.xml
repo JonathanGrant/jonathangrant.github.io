@@ -1052,5 +1052,11 @@ It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on 
       <pubDate>Fri, 26 May 2023 07:13:16 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_test_title:the_false_promise_of_imitating_proprietary_llms.mp3" type="audio/mpeg" length="13354142"/>
     </item>
+    <item>
+      <title>Arxiv Test Title:Understanding the Capabilities of Large Language Models for Automated Planning</title>
+      <description>ChatGPT generated podcast using model='gpt-3.5-turbo' for https://arxiv.org/abs/2305.16151</description>
+      <pubDate>Fri, 26 May 2023 10:13:39 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_test_title:understanding_the_capabilities_of_large_language_models_for_automated_planning.mp3" type="audio/mp3" length="8863680"/>
+    </item>
   </channel>
 </rss>
