@@ -1148,5 +1148,11 @@ It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on 
       <pubDate>Tue, 13 Jun 2023 18:13:21 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_summary_title_multi_view_frequency_attention_alternative_to_cnn_frontends_for_automatic_speech_recognition.mp3" type="audio/mp3" length="781248"/>
     </item>
+    <item>
+      <title>Arxiv Summary Title Underwater Acoustic Target Recognition based on Smoothness inducing Regularization and Spectrogram based Data Augmentation</title>
+      <description>ChatGPT generated podcast using model='gpt-4' for https://arxiv.org/abs/2306.06945v1</description>
+      <pubDate>Tue, 13 Jun 2023 18:14:50 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_summary_title_underwater_acoustic_target_recognition_based_on_smoothness_inducing_regularization_and_spectrogram_based_data_augmentation.mp3" type="audio/mp3" length="284832"/>
+    </item>
   </channel>
 </rss>
