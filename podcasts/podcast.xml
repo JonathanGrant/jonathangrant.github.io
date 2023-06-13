@@ -1178,5 +1178,11 @@ It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on 
       <pubDate>Tue, 13 Jun 2023 19:09:47 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_summary_title_adversarial_constrained_bidding_via_minimax_regret_optimization_with_causality_aware_reinforcement_learning.mp3" type="audio/mp3" length="1182432"/>
     </item>
+    <item>
+      <title>Arxiv Summary Title AI Ethics on Blockchain Topic Analysis on Twitter Data for Blockchain Security</title>
+      <description>ChatGPT generated podcast using model='gpt-3.5-turbo-16k' for https://arxiv.org/abs/2212.06951v4</description>
+      <pubDate>Tue, 13 Jun 2023 19:12:29 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_summary_title_ai_ethics_on_blockchain_topic_analysis_on_twitter_data_for_blockchain_security.mp3" type="audio/mp3" length="17760"/>
+    </item>
   </channel>
 </rss>
