@@ -1106,5 +1106,11 @@ It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on 
       <pubDate>Mon, 12 Jun 2023 10:47:15 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_test_title_executive_function_a_contrastive_value_policy_for_resampling_and_relabeling_perceptions_via_hindsight_summarization_.mp3" type="audio/mp3" length="5776800"/>
     </item>
+    <item>
+      <title>Arxiv Test Title Mathematical conjecture generation using machine intelligence</title>
+      <description>ChatGPT generated podcast using model='gpt-4' for https://arxiv.org/abs/2306.07277</description>
+      <pubDate>Tue, 13 Jun 2023 17:58:05 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_test_title_mathematical_conjecture_generation_using_machine_intelligence.mp3" type="audio/mp3" length="5619360"/>
+    </item>
   </channel>
 </rss>
