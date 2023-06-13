@@ -1160,5 +1160,11 @@ It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on 
       <pubDate>Tue, 13 Jun 2023 18:31:14 GMT</pubDate>
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_summary_title_weakly_supervised_scientific_document_classification_via_retrieval_augmented_multi_stage_training.mp3" type="audio/mp3" length="1556448"/>
     </item>
+    <item>
+      <title>Arxiv Summary Title Fair Learning to Rank with Distribution free Risk Control</title>
+      <description>ChatGPT generated podcast using model='gpt-3.5-turbo-16k' for https://arxiv.org/abs/2306.07188v1</description>
+      <pubDate>Tue, 13 Jun 2023 19:07:07 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/arxiv_summary_title_fair_learning_to_rank_with_distribution_free_risk_control.mp3" type="audio/mp3" length="751296"/>
+    </item>
   </channel>
 </rss>
