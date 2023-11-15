@@ -1337,5 +1337,12 @@ It's possible that we should already be thinking of GPT-4 as &quot;AGI&quot; on 
       <enclosure url="https://JonathanGrant.github.io/podcasts/audio/(new_openai_apise5ad0ed1-48bf-4e36-b3c2-072c013cd8fe.mp3" type="audio/mp3" length="30731040"/>
       <guid>01ad54a0-e931-4bc5-9a6f-1e0c7ae8a528</guid>
     </item>
+    <item>
+      <title>(New OpenAI APIs v1) [MoneyStuff] Money Stuff: WeWork’s Rescue Wasn’t Real</title>
+      <description>Test MoneyStuff tts: Money Stuff: WeWork’s Rescue Wasn’t Real</description>
+      <pubDate>Wed, 15 Nov 2023 21:22:25 GMT</pubDate>
+      <enclosure url="https://JonathanGrant.github.io/podcasts/audio/(new_openai_apis32f405b7-8d0c-4c28-8112-3437521bb67b.mp3" type="audio/mp3" length="31006560"/>
+      <guid>c342d3bc-afe2-4d29-9e7f-10b7c192cbc0</guid>
+    </item>
   </channel>
 </rss>
