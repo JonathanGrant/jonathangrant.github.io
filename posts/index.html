@@ -1,1477 +1,564 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="color-scheme" content="dark light" />
-    <title>SEINFELD: “The Tick” — One-Pager</title>
-    <meta
-      name="description"
-      content="A one-page, beautifully formatted reading experience for the Seinfeld fan script “The Tick”."
-    />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEINFELD: "The Tick" — Script Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,700&family=Literata:opsz,wght@7..72,350,500,700&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
-      rel="stylesheet"
-    />
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EDE5D8;
+  --brown: #2C1810;
+  --brown-light: #5C4033;
+  --mustard: #D4A843;
+  --mustard-light: #E8C96A;
+  --mustard-dark: #B8922E;
+  --orange: #C67A3C;
+  --orange-light: #D99A66;
+  --red: #8B3A3A;
+  --red-light: #A85454;
+  --gray: #8A7E72;
+  --gray-light: #B5AA9D;
+  --shadow: rgba(44, 24, 16, 0.12);
+  --shadow-heavy: rgba(44, 24, 16, 0.25);
+}
 
-    <style>
-      :root {
-        --ink: #0b0f14;
-        --ink-2: #101826;
-        --paper: #f7f3ea;
-        --paper-2: #efe8d9;
-        --muted: rgba(247, 243, 234, 0.72);
-        --muted-2: rgba(11, 15, 20, 0.64);
-        --grid: rgba(247, 243, 234, 0.08);
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-        --acid: #b9ff5a;
-        --amber: #ffcc66;
-        --red: #ff5468;
-        --blue: #66b7ff;
+body {
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+  background-color: var(--cream);
+  color: var(--brown);
+  line-height: 1.6;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(44, 24, 16, 0.02) 28px,
+      rgba(44, 24, 16, 0.02) 29px
+    ),
+    radial-gradient(ellipse at 20% 50%, rgba(212, 168, 67, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse at 80% 20%, rgba(198, 122, 60, 0.03) 0%, transparent 60%);
+  min-height: 100vh;
+}
 
-        --radius-lg: 22px;
-        --radius-md: 14px;
-        --radius-sm: 10px;
-        --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
-        --shadow-soft: 0 14px 55px rgba(0, 0, 0, 0.35);
+/* ========== HEADER ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, #2C1810 0%, #3D261A 100%);
+  border-bottom: 3px solid var(--mustard);
+  box-shadow: 0 4px 20px var(--shadow-heavy);
+  padding: 0;
+}
 
-        --title: "Fraunces", ui-serif, Georgia, serif;
-        --body: "Literata", ui-serif, Georgia, serif;
-        --mono: "Fragment Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 24px 0;
+}
 
-        --max: 1160px;
-      }
+.title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
 
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        margin: 0;
-        color: var(--paper);
-        background: radial-gradient(1200px 800px at 12% 16%, #16233a 0%, rgba(22, 35, 58, 0) 55%),
-          radial-gradient(900px 700px at 86% 20%, rgba(185, 255, 90, 0.12) 0%, rgba(185, 255, 90, 0) 55%),
-          radial-gradient(1000px 900px at 65% 88%, rgba(255, 204, 102, 0.12) 0%, rgba(255, 204, 102, 0) 60%),
-          linear-gradient(180deg, #070a0e 0%, #0a1018 38%, #070a0e 100%);
-        font-family: var(--body);
-        letter-spacing: 0.01em;
-        overflow-x: hidden;
-      }
+.show-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--mustard);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-      /* Grain + scanline atmosphere */
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background: linear-gradient(transparent 0 66%, rgba(0, 0, 0, 0.06) 66% 100%);
-        background-size: 100% 4px;
-        opacity: 0.22;
-        mix-blend-mode: soft-light;
-        z-index: 1;
-      }
-      body::after {
-        content: "";
-        position: fixed;
-        inset: -40%;
-        pointer-events: none;
-        background: radial-gradient(circle at 15% 20%, rgba(185, 255, 90, 0.09) 0%, rgba(0, 0, 0, 0) 55%),
-          radial-gradient(circle at 80% 30%, rgba(102, 183, 255, 0.08) 0%, rgba(0,  0, 0, 0) 58%),
-          radial-gradient(circle at 55% 85%, rgba(255, 204, 102, 0.09) 0%, rgba(0, 0, 0, 0) 60%);
-        filter: url(#noiseFilter);
-        opacity: 0.55;
-        mix-blend-mode: overlay;
-        z-index: 1;
-        transform: rotate(-4deg);
-      }
+.episode-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--orange-light);
+  letter-spacing: 0.5px;
+}
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      button,
-      input {
-        font: inherit;
-      }
+.tabs {
+  display: flex;
+  gap: 4px;
+}
 
-      .wrap {
-        position: relative;
-        z-index: 2;
-      }
+.tab-btn {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(255,255,255,0.06);
+  color: var(--gray-light);
+  position: relative;
+  bottom: -1px;
+}
 
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-        backdrop-filter: blur(12px);
-        background: linear-gradient(180deg, rgba(7, 10, 14, 0.9) 0%, rgba(7, 10, 14, 0.68) 70%, rgba(7, 10, 14, 0) 100%);
-        border-bottom: 1px solid rgba(247, 243, 234, 0.08);
-      }
-      .topbar-inner {
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 14px 18px 12px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
+.tab-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: #F5F0E8;
+}
 
-      .brand {
-        display: flex;
-        align-items: baseline;
-        gap: 10px;
-        min-width: 0;
-      }
-      .brand .mark {
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        padding: 7px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(185, 255, 90, 0.28);
-        background: rgba(185, 255, 90, 0.08);
-        color: rgba(185, 255, 90, 0.92);
-        white-space: nowrap;
-      }
-      .brand .title {
-        min-width: 0;
-        font-family: var(--title);
-        font-weight: 700;
-        font-size: 18px;
-        letter-spacing: 0.01em;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+.tab-btn.active {
+  background: var(--mustard);
+  color: var(--brown);
+  box-shadow: 0 -2px 8px rgba(212, 168, 67, 0.3);
+}
 
-      .spacer {
-        flex: 1;
-      }
+/* ========== MAIN CONTENT ========== */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 120px;
+  position: relative;
+}
 
-      .top-actions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 9px 11px;
-        border-radius: 999px;
-        border: 1px solid rgba(247, 243, 234, 0.12);
-        background: rgba(247, 243, 234, 0.06);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      }
+.script-panel {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
 
-      .search {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        width: min(520px, 46vw);
-      }
-      .search label {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: rgba(247, 243, 234, 0.7);
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
-      .search input {
-        width: 100%;
-        background: transparent;
-        border: 0;
-        outline: none;
-        color: var(--paper);
-        font-family: var(--mono);
-        font-size: 13px;
-        letter-spacing: 0.02em;
-      }
-      .search input::placeholder {
-        color: rgba(247, 243, 234, 0.42);
-      }
+.script-panel.active {
+  display: block;
+}
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        border-radius: 999px;
-        padding: 9px 12px;
-        border: 1px solid rgba(247, 243, 234, 0.12);
-        background: rgba(247, 243, 234, 0.06);
-        cursor: pointer;
-        transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-        border-color: rgba(185, 255, 90, 0.28);
-        background: rgba(185, 255, 90, 0.07);
-      }
-      .btn:active {
-        transform: translateY(0px);
-      }
-      .btn[aria-pressed="true"] {
-        border-color: rgba(185, 255, 90, 0.42);
-        background: rgba(185, 255, 90, 0.1);
-      }
-      .btn kbd {
-        font-family: var(--mono);
-        font-size: 11px;
-        padding: 2px 6px;
-        border-radius: 8px;
-        border: 1px solid rgba(247, 243, 234, 0.14);
-        background: rgba(0, 0, 0, 0.22);
-        color: rgba(247, 243, 234, 0.8);
-      }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-      .progress {
-        height: 2px;
-        background: rgba(247, 243, 234, 0.12);
-      }
-      .progress > div {
-        height: 100%;
-        width: 0%;
-        background: linear-gradient(90deg, rgba(185, 255, 90, 0.1) 0%, rgba(185, 255, 90, 0.9) 35%, rgba(255, 204, 102, 0.9) 75%, rgba(102, 183, 255, 0.55) 100%);
-        box-shadow: 0 0 24px rgba(185, 255, 90, 0.35);
-      }
+/* ========== SCRIPT ELEMENTS ========== */
+.episode-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--brown);
+  margin: 20px 0 30px;
+  letter-spacing: 1px;
+}
 
-      .layout {
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 22px 18px 70px;
-        display: grid;
-        grid-template-columns: 340px 1fr;
-        gap: 18px;
-      }
+.act-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--red);
+  margin: 48px 0 24px;
+  padding: 16px 0;
+  border-top: 2px solid var(--mustard);
+  border-bottom: 2px solid var(--mustard);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  scroll-margin-top: 120px;
+}
 
-      .panel {
-        border-radius: var(--radius-lg);
-        border: 1px solid rgba(247, 243, 234, 0.12);
-        background: linear-gradient(180deg, rgba(16, 24, 38, 0.7) 0%, rgba(11, 15, 20, 0.75) 60%, rgba(11, 15, 20, 0.82) 100%);
-        box-shadow: var(--shadow-soft);
-        overflow: hidden;
-        position: sticky;
-        top: 78px;
-        align-self: start;
-      }
+.scene-heading {
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin: 36px 0 16px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, rgba(198,122,60,0.1) 0%, transparent 100%);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 4px 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  scroll-margin-top: 120px;
+}
 
-      .panel .tape {
-        position: relative;
-        border-bottom: 1px solid rgba(247, 243, 234, 0.12);
-        background: linear-gradient(90deg, rgba(185, 255, 90, 0.12) 0%, rgba(255, 204, 102, 0.08) 45%, rgba(102, 183, 255, 0.1) 100%);
-        padding: 10px 0;
-        overflow: hidden;
-      }
-      .tape .row {
-        display: flex;
-        gap: 22px;
-        white-space: nowrap;
-        will-change: transform;
-        animation: tape 18s linear infinite;
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding-left: 18px;
-      }
-      .tape .row:nth-child(2) {
-        opacity: 0.55;
-        animation-duration: 26s;
-        animation-direction: reverse;
-        padding-top: 7px;
-      }
-      .tape .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(247, 243, 234, 0.14);
-        background: rgba(7, 10, 14, 0.22);
-      }
-      .tape .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: rgba(185, 255, 90, 0.92);
-        box-shadow: 0 0 14px rgba(185, 255, 90, 0.35);
-      }
-      .tape .dot.r {
-        background: rgba(255, 84, 104, 0.9);
-        box-shadow: 0 0 14px rgba(255, 84, 104, 0.25);
-      }
-      .tape .dot.a {
-        background: rgba(255, 204, 102, 0.9);
-        box-shadow: 0 0 14px rgba(255, 204, 102, 0.25);
-      }
+.character-name {
+  font-weight: 700;
+  color: var(--brown);
+  margin-top: 20px;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
 
-      @keyframes tape {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
+.stage-direction {
+  font-style: italic;
+  color: var(--gray);
+  margin: 8px 0;
+  padding-left: 24px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
 
-      .panel-inner {
-        padding: 16px 16px 18px;
-      }
+.dialogue {
+  margin: 4px 0 12px;
+  padding-left: 24px;
+  line-height: 1.65;
+  font-size: 0.98rem;
+}
 
-      .hero {
-        padding: 16px 0 10px;
-      }
-      .hero h1 {
-        margin: 0;
-        font-family: var(--title);
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 1.05;
-        letter-spacing: 0.01em;
-      }
-      .hero p {
-        margin: 10px 0 0;
-        color: rgba(247, 243, 234, 0.78);
-        font-size: 14px;
-        line-height: 1.55;
-      }
-      .meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 12px;
-      }
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border-radius: 999px;
-        padding: 7px 10px;
-        border: 1px solid rgba(247, 243, 234, 0.12);
-        background: rgba(247, 243, 234, 0.06);
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(247, 243, 234, 0.85);
-      }
-      .badge b {
-        font-weight: 400;
-        color: rgba(185, 255, 90, 0.9);
-      }
+.divider {
+  border: none;
+  border-top: 1px solid var(--gray-light);
+  margin: 28px auto;
+  width: 60%;
+  opacity: 0.5;
+}
 
-      .nav {
-        margin-top: 14px;
-        border-top: 1px solid rgba(247, 243, 234, 0.1);
-        padding-top: 14px;
-      }
-      .nav h2 {
-        margin: 0 0 10px;
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: rgba(247, 243, 234, 0.72);
-      }
-      .nav .acts {
-        display: grid;
-        gap: 10px;
-      }
+.inline-italic {
+  font-style: italic;
+  color: var(--gray);
+}
 
-      details.act {
-        border-radius: var(--radius-md);
-        border: 1px solid rgba(247, 243, 234, 0.12);
-        background: rgba(7, 10, 14, 0.25);
-        overflow: hidden;
-      }
-      details.act[open] {
-        border-color: rgba(185, 255, 90, 0.22);
-        box-shadow: 0 14px 60px rgba(185, 255, 90, 0.08);
-      }
-      details.act > summary {
-        list-style: none;
-        cursor: pointer;
-        padding: 12px 12px;
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 12px;
-      }
-      details.act > summary::-webkit-details-marker {
-        display: none;
-      }
-      .act-title {
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: rgba(247, 243, 234, 0.88);
-      }
-      .act-title span {
-        color: rgba(185, 255, 90, 0.92);
-      }
-      .act-count {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: rgba(247, 243, 234, 0.55);
-      }
-      .scene-links {
-        padding: 0 10px 10px;
-        display: grid;
-        gap: 6px;
-      }
-      .scene-links a {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 8px 10px;
-        border-radius: 12px;
-        border: 1px solid rgba(247, 243, 234, 0.08);
-        background: rgba(247, 243, 234, 0.04);
-        transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
-      }
-      .scene-links a:hover {
-        transform: translateY(-1px);
-        border-color: rgba(185, 255, 90, 0.2);
-        background: rgba(185, 255, 90, 0.06);
-      }
-      .scene-links .left {
-        min-width: 0;
-        display: inline-flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-      .scene-links .snum {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(255, 204, 102, 0.85);
-      }
-      .scene-links .sname {
-        font-size: 12px;
-        color: rgba(247, 243, 234, 0.84);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .scene-links .tag {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: rgba(247, 243, 234, 0.5);
-      }
+/* ========== SCENE NAVIGATOR ========== */
+.nav-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: var(--brown);
+  color: var(--mustard);
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow-heavy);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      .paper {
-        border-radius: var(--radius-lg);
-        border: 1px solid rgba(247, 243, 234, 0.12);
-        background: radial-gradient(900px 650px at 12% 18%, rgba(255, 204, 102, 0.11) 0%, rgba(255, 204, 102, 0) 55%),
-          radial-gradient(900px 650px at 84% 24%, rgba(102, 183, 255, 0.12) 0%, rgba(102, 183, 255, 0) 58%),
-          linear-gradient(180deg, rgba(247, 243, 234, 0.98) 0%, rgba(239, 232, 217, 0.96) 100%);
-        color: var(--ink);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-        position: relative;
-      }
+.nav-fab:hover {
+  background: var(--red);
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px var(--shadow-heavy);
+}
 
-      .paper::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: repeating-linear-gradient(
-            180deg,
-            rgba(11, 15, 20, 0.04) 0px,
-            rgba(11, 15, 20, 0.04) 1px,
-            rgba(0, 0, 0, 0) 1px,
-            rgba(0, 0, 0, 0) 24px
-          ),
-          radial-gradient(1200px 900px at 40% -10%, rgba(11, 15, 20, 0.06) 0%, rgba(0, 0, 0, 0) 56%);
-        opacity: 0.38;
-        pointer-events: none;
-      }
+.nav-fab svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
 
-      .paper-inner {
-        position: relative;
-        padding: 26px 26px 36px;
-      }
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(44, 24, 16, 0.6);
+  backdrop-filter: blur(3px);
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  animation: overlayIn 0.2s ease;
+}
 
-      .paper-head {
-        display: grid;
-        gap: 10px;
-        padding-bottom: 16px;
-        border-bottom: 1px solid rgba(11, 15, 20, 0.12);
-      }
-      .paper-head .kicker {
-        font-family: var(--mono);
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: rgba(11, 15, 20, 0.6);
-        font-size: 11px;
-      }
-      .paper-head h2 {
-        margin: 0;
-        font-family: var(--title);
-        font-size: 40px;
-        line-height: 1.03;
-        letter-spacing: 0.01em;
-      }
-      .paper-head p {
-        margin: 0;
-        color: rgba(11, 15, 20, 0.68);
-        font-size: 15px;
-        line-height: 1.6;
-        max-width: 66ch;
-      }
+.modal-overlay.open {
+  display: flex;
+}
 
-      .paper-actions {
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-      .paper-actions .mini {
-        background: rgba(11, 15, 20, 0.04);
-        border: 1px solid rgba(11, 15, 20, 0.12);
-        color: rgba(11, 15, 20, 0.8);
-      }
-      .paper-actions .mini:hover {
-        border-color: rgba(11, 15, 20, 0.22);
-        background: rgba(11, 15, 20, 0.06);
-      }
-      .paper-actions .mini[aria-pressed="true"] {
-        border-color: rgba(11, 15, 20, 0.32);
-        background: rgba(11, 15, 20, 0.08);
-      }
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-      .stats {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 12px;
-      }
-      .stat {
-        border-radius: 14px;
-        border: 1px solid rgba(11, 15, 20, 0.12);
-        background: rgba(255, 255, 255, 0.6);
-        padding: 10px 12px;
-        min-width: 160px;
-      }
-      .stat .k {
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: rgba(11, 15, 20, 0.55);
-      }
-      .stat .v {
-        margin-top: 6px;
-        font-family: var(--title);
-        font-size: 18px;
-        color: rgba(11, 15, 20, 0.86);
-      }
+.modal-drawer {
+  background: var(--cream);
+  width: 100%;
+  max-width: 600px;
+  max-height: 70vh;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 40px var(--shadow-heavy);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: drawerUp 0.3s ease;
+}
 
-      .content {
-        margin-top: 18px;
-        display: grid;
-        gap: 16px;
-      }
+@keyframes drawerUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
 
-      section.act-section {
-        scroll-margin-top: 95px;
-        border-radius: 20px;
-        border: 1px solid rgba(11, 15, 20, 0.12);
-        background: rgba(255, 255, 255, 0.66);
-        box-shadow: 0 18px 70px rgba(11, 15, 20, 0.12);
-        overflow: hidden;
-      }
-      .act-header {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 16px 16px 12px;
-        border-bottom: 1px solid rgba(11, 15, 20, 0.12);
-        background: linear-gradient(90deg, rgba(185, 255, 90, 0.16) 0%, rgba(255, 204, 102, 0.12) 45%, rgba(102, 183, 255, 0.14) 100%);
-      }
-      .act-header h3 {
-        margin: 0;
-        font-family: var(--mono);
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        font-size: 12px;
-        color: rgba(11, 15, 20, 0.7);
-      }
-      .act-header .act-name {
-        margin-top: 6px;
-        font-family: var(--title);
-        font-size: 24px;
-        color: rgba(11, 15, 20, 0.9);
-      }
-      .act-header .act-meta {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(11, 15, 20, 0.6);
-        white-space: nowrap;
-      }
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 2px solid var(--mustard);
+  background: linear-gradient(180deg, #2C1810 0%, #3D261A 100%);
+  flex-shrink: 0;
+}
 
-      .scenes {
-        padding: 14px;
-        display: grid;
-        gap: 12px;
-      }
+.modal-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--mustard);
+  letter-spacing: 1px;
+}
 
-      article.scene {
-        scroll-margin-top: 95px;
-        border-radius: 18px;
-        border: 1px solid rgba(11, 15, 20, 0.12);
-        background: rgba(247, 243, 234, 0.52);
-        position: relative;
-        overflow: hidden;
-      }
-      article.scene::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: repeating-linear-gradient(
-            90deg,
-            rgba(11, 15, 20, 0.06) 0px,
-            rgba(11, 15, 20, 0.06) 1px,
-            rgba(0, 0, 0, 0) 1px,
-            rgba(0, 0, 0, 0) 18px
-          );
-        opacity: 0.35;
-        pointer-events: none;
-      }
-      .scene-head {
-        position: relative;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 14px 14px 10px;
-        border-bottom: 1px solid rgba(11, 15, 20, 0.12);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.2) 100%);
-      }
-      .scene-head .left {
-        min-width: 0;
-      }
-      .scene-kicker {
-        font-family: var(--mono);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        font-size: 11px;
-        color: rgba(11, 15, 20, 0.6);
-      }
-      .scene-title {
-        margin-top: 6px;
-        font-family: var(--title);
-        font-weight: 700;
-        font-size: 18px;
-        color: rgba(11, 15, 20, 0.9);
-        line-height: 1.2;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .scene-tools {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-      .scene-tools .mini {
-        padding: 8px 10px;
-      }
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--gray-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 0.15s;
+}
 
-      .scene-body {
-        position: relative;
-        padding: 14px 14px 16px;
-        display: grid;
-        gap: 10px;
-      }
+.modal-close:hover {
+  color: var(--mustard);
+}
 
-      .stage {
-        border-left: 3px solid rgba(255, 204, 102, 0.45);
-        padding-left: 10px;
-        color: rgba(11, 15, 20, 0.7);
-        font-style: italic;
-        line-height: 1.55;
-      }
-      .note {
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(11, 15, 20, 0.58);
-        border: 1px dashed rgba(11, 15, 20, 0.18);
-        border-radius: 14px;
-        padding: 10px 12px;
-        background: rgba(255, 255, 255, 0.55);
-      }
+.modal-body {
+  overflow-y: auto;
+  padding: 12px 0;
+}
 
-      .dialogue {
-        display: grid;
-        grid-template-columns: 150px 1fr;
-        gap: 12px;
-        align-items: start;
-        padding: 10px 12px;
-        border-radius: 14px;
-        border: 1px solid rgba(11, 15, 20, 0.12);
-        background: rgba(255, 255, 255, 0.62);
-      }
-      .dialogue .who {
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(11, 15, 20, 0.78);
-        padding-top: 2px;
-      }
-      .dialogue .said {
-        color: rgba(11, 15, 20, 0.86);
-        line-height: 1.62;
-        font-size: 15px;
-      }
-      .dialogue .said p {
-        margin: 0;
-      }
-      .dialogue .said p + p {
-        margin-top: 8px;
-      }
-      .dialogue em {
-        font-style: italic;
-        color: rgba(11, 15, 20, 0.7);
-      }
-      .dialogue strong {
-        font-weight: 700;
-      }
+.nav-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--red);
+  padding: 8px 24px 4px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-      .para {
-        color: rgba(11, 15, 20, 0.82);
-        line-height: 1.65;
-        font-size: 15px;
-      }
-      .para p {
-        margin: 0;
-      }
-      .para p + p {
-        margin-top: 10px;
-      }
+.nav-scene-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.88rem;
+  color: var(--brown-light);
+  padding: 10px 24px 10px 36px;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1.4;
+}
 
-      mark.hit {
-        background: rgba(185, 255, 90, 0.42);
-        color: rgba(11, 15, 20, 0.92);
-        padding: 0 0.08em;
-        border-radius: 6px;
-      }
+.nav-scene-btn:hover {
+  background: rgba(212, 168, 67, 0.15);
+  color: var(--brown);
+}
 
-      .mutedline {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: rgba(11, 15, 20, 0.55);
-      }
+/* ========== ACT PROGRESS INDICATOR ========== */
+.act-indicator {
+  position: fixed;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-      .hide-stage .stage {
-        display: none;
-      }
+.act-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gray-light);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
 
-      .empty {
-        margin-top: 16px;
-        padding: 14px 16px;
-        border-radius: 18px;
-        border: 1px solid rgba(11, 15, 20, 0.14);
-        background: rgba(255, 255, 255, 0.62);
-        color: rgba(11, 15, 20, 0.75);
-        line-height: 1.5;
-      }
+.act-dot.active {
+  background: var(--mustard);
+  border-color: var(--brown);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(212, 168, 67, 0.4);
+}
 
-      .toast {
-        position: fixed;
-        left: 50%;
-        bottom: 18px;
-        transform: translateX(-50%);
-        z-index: 60;
-        display: none;
-        border-radius: 999px;
-        border: 1px solid rgba(247, 243, 234, 0.14);
-        background: rgba(7, 10, 14, 0.8);
-        backdrop-filter: blur(10px);
-        color: rgba(247, 243, 234, 0.92);
-        padding: 10px 12px;
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
-      }
-      .toast.show {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        animation: pop 160ms ease-out;
-      }
-      @keyframes pop {
-        from {
-          transform: translateX(-50%) translateY(10px);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(-50%) translateY(0px);
-          opacity: 1;
-        }
-      }
+/* ========== SCROLL TO TOP ========== */
+.scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 96px;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--brown);
+  background: var(--cream);
+  color: var(--brown);
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
 
-      @media (max-width: 980px) {
-        .layout {
-          grid-template-columns: 1fr;
-        }
-        .panel {
-          position: relative;
-          top: auto;
-        }
-        .search {
-          width: min(520px, 54vw);
-        }
-      }
-      @media (max-width: 640px) {
-        .topbar-inner {
-          padding: 12px 12px 10px;
-        }
-        .brand .title {
-          font-size: 16px;
-        }
-        .search {
-          display: none;
-        }
-        .paper-inner {
-          padding: 18px 14px 26px;
-        }
-        .paper-head h2 {
-          font-size: 32px;
-        }
-        .dialogue {
-          grid-template-columns: 1fr;
-          gap: 8px;
-        }
-        .dialogue .who {
-          opacity: 0.75;
-        }
-      }
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-      @media (prefers-reduced-motion: reduce) {
-        .tape .row {
-          animation: none;
-        }
-        .btn:hover {
-          transform: none;
-        }
-      }
-    </style>
-  </head>
+.scroll-top:hover {
+  background: var(--mustard);
+  border-color: var(--mustard);
+}
 
-  <body>
-    <!-- Inline SVG noise filter -->
-    <svg aria-hidden="true" width="0" height="0" style="position: absolute">
-      <filter id="noiseFilter">
-        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" />
-        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0" />
-      </filter>
-    </svg>
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 12px 16px 0;
+  }
 
-    <div class="wrap">
-      <div class="topbar">
-        <div class="topbar-inner">
-          <div class="brand" aria-label="Page title">
-            <div class="mark">ONE PAGER</div>
-            <div class="title">SEINFELD: “The Tick”</div>
-          </div>
+  .show-title {
+    font-size: 1.3rem;
+  }
 
-          <div class="spacer"></div>
+  .episode-title {
+    font-size: 1rem;
+  }
 
-          <div class="pill search" role="search">
-            <label for="q">FIND</label>
-            <input id="q" type="search" autocomplete="off" placeholder="Spread… hog… kill switch… CFTC…" />
-          </div>
+  .tab-btn {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+  }
 
-          <div class="top-actions">
-            <button id="toggle-stage" class="btn" type="button" aria-pressed="false" title="Toggle stage directions (S)">
-              Stage <kbd>S</kbd>
-            </button>
-            <button id="clear" class="btn" type="button" title="Clear search (Esc)">Clear</button>
-          </div>
-        </div>
-        <div class="progress" aria-hidden="true"><div id="progressbar"></div></div>
-      </div>
+  .main {
+    padding: 20px 16px 100px;
+  }
 
-      <div class="layout">
-        <aside class="panel" aria-label="Navigation panel">
-          <div class="tape" aria-hidden="true">
-            <div class="row">
-              <span class="chip"><span class="dot"></span>ES +1 TICK</span>
-              <span class="chip"><span class="dot a"></span>HE CALENDAR SPREAD</span>
-              <span class="chip"><span class="dot r"></span>FOMC: EMERGENCY STATEMENT</span>
-              <span class="chip"><span class="dot"></span>MNQ ICEBERG?</span>
-              <span class="chip"><span class="dot a"></span>CO-LOCATE: 84TH STREET</span>
-              <span class="chip"><span class="dot"></span>INSIDE THE SPREAD</span>
-              <span class="chip"><span class="dot r"></span>LIMIT DOWN</span>
-              <span class="chip"><span class="dot"></span>FLATTEN ALL</span>
-              <span class="chip"><span class="dot a"></span>VPOC MAGNET</span>
-              <span class="chip"><span class="dot"></span>SCALP. REPEAT.</span>
-              <span class="chip"><span class="dot r"></span>TRIVIAL LOSSES</span>
-              <span class="chip"><span class="dot"></span>MICROSECONDS</span>
-            </div>
-            <div class="row">
-              <span class="chip"><span class="dot"></span>ES +1 TICK</span>
-              <span class="chip"><span class="dot a"></span>HE CALENDAR SPREAD</span>
-              <span class="chip"><span class="dot r"></span>FOMC: EMERGENCY STATEMENT</span>
-              <span class="chip"><span class="dot"></span>MNQ ICEBERG?</span>
-              <span class="chip"><span class="dot a"></span>CO-LOCATE: 84TH STREET</span>
-              <span class="chip"><span class="dot"></span>INSIDE THE SPREAD</span>
-              <span class="chip"><span class="dot r"></span>LIMIT DOWN</span>
-              <span class="chip"><span class="dot"></span>FLATTEN ALL</span>
-              <span class="chip"><span class="dot a"></span>VPOC MAGNET</span>
-              <span class="chip"><span class="dot"></span>SCALP. REPEAT.</span>
-              <span class="chip"><span class="dot r"></span>TRIVIAL LOSSES</span>
-              <span class="chip"><span class="dot"></span>MICROSECONDS</span>
-            </div>
-          </div>
+  .episode-heading {
+    font-size: 1.5rem;
+  }
 
-          <div class="panel-inner">
-            <div class="hero">
-              <h1>“The Tick”</h1>
-              <p>
-                A Seinfeld-style fan script where the gang collides with market microstructure: co-location fantasies,
-                hog futures horror, and one dangerously un-kill-switched algorithm.
-              </p>
-              <div class="meta" id="meta">
-                <span class="badge">Acts <b id="actCount">—</b></span>
-                <span class="badge">Scenes <b id="sceneCount">—</b></span>
-                <span class="badge">Matches <b id="matchCount">—</b></span>
-              </div>
-            </div>
+  .act-heading {
+    font-size: 1.2rem;
+  }
 
-            <div class="nav">
-              <h2>Jump</h2>
-              <div class="acts" id="navActs"></div>
-              <div id="navEmpty" class="empty" style="display: none">
-                No scenes match your search. Try a character name (JERRY, GEORGE, ELAINE, KRAMER) or a motif (hog,
-                spread, tick, CFTC).
-              </div>
-            </div>
-          </div>
-        </aside>
+  .scene-heading {
+    font-size: 0.95rem;
+  }
 
-        <main class="paper" aria-label="Script content">
-          <div class="paper-inner">
-            <div class="paper-head">
-              <div class="kicker">Formatted from <span style="font-family: var(--mono)">01_draft.txt</span></div>
-              <h2>SEINFELD: “The Tick”</h2>
-              <p>
-                Designed for fast reading: collapsible navigation, copy-per-scene, stage-direction toggle, and text
-                search that actually respects the rhythm of a script.
-              </p>
-              <div class="paper-actions">
-                <button id="expandAll" class="btn mini" type="button">Open all acts</button>
-                <button id="collapseAll" class="btn mini" type="button">Close all acts</button>
-                <button id="jumpTop" class="btn mini" type="button">Back to top</button>
-              </div>
-              <div class="stats" id="stats"></div>
-            </div>
+  .act-indicator {
+    display: none;
+  }
 
-            <div class="content" id="content"></div>
-          </div>
-        </main>
-      </div>
+  .nav-fab {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .scroll-top {
+    right: 78px;
+    bottom: 20px;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tabs {
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    font-size: 0.7rem;
+    padding: 7px 10px;
+    flex: 1;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="header">
+  <div class="header-inner">
+    <div class="title-row">
+      <span class="show-title">Seinfeld</span>
+      <span class="episode-title">&ldquo;The Tick&rdquo;</span>
     </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="draft1" onclick="switchTab('draft1')">First Draft</button>
+      <button class="tab-btn" data-tab="draft2" onclick="switchTab('draft2')">Second Draft</button>
+      <button class="tab-btn" data-tab="final" onclick="switchTab('final')">Final Script</button>
+    </div>
+  </div>
+</header>
 
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<!-- ====== ACT PROGRESS DOTS ====== -->
+<div class="act-indicator" id="actIndicator"></div>
 
-    <script>
-      const $ = (sel, root = document) => root.querySelector(sel);
-      const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+<!-- ====== MAIN CONTENT ====== -->
+<main class="main">
+  <div class="script-panel active" id="panel-draft1"></div>
+  <div class="script-panel" id="panel-draft2"></div>
+  <div class="script-panel" id="panel-final"></div>
+</main>
 
-      const toast = (() => {
-        const el = $("#toast");
-        let t = null;
-        return {
-          show(msg) {
-            el.textContent = msg;
-            el.classList.add("show");
-            clearTimeout(t);
-            t = setTimeout(() => el.classList.remove("show"), 1100);
-          },
-        };
-      })();
+<!-- ====== SCENE NAVIGATOR FAB ====== -->
+<button class="nav-fab" id="navFab" title="Scene Navigator" onclick="openNav()">
+  <svg viewBox="0 0 24 24"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h12v2H3v-2z"/></svg>
+</button>
 
-      function escapeHtml(s) {
-        return s
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#39;");
-      }
+<!-- ====== SCROLL TO TOP ====== -->
+<button class="scroll-top" id="scrollTop" title="Scroll to top" onclick="window.scrollTo({top:0})">
+  &#9650;
+</button>
 
-      function formatInline(text) {
-        const safe = escapeHtml(text);
-        // Bold **...**
-        const withBold = safe.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-        // Italic *...*
-        return withBold.replace(/\*(.+?)\*/g, "<em>$1</em>");
-      }
+<!-- ====== SCENE NAVIGATOR MODAL ====== -->
+<div class="modal-overlay" id="navModal" onclick="closeNavIfOverlay(event)">
+  <div class="modal-drawer">
+    <div class="modal-header">
+      <h2>Scene Navigator</h2>
+      <button class="modal-close" onclick="closeNav()">&times;</button>
+    </div>
+    <div class="modal-body" id="navBody"></div>
+  </div>
+</div>
 
-      function normalizeDashes(s) {
-        return s.replaceAll("–", "-").replaceAll("—", "-");
-      }
-
-      function parseActs(raw) {
-        const text = raw.replace(/\r\n/g, "\n");
-        const starts = Array.from(text.matchAll(/--- START OF ACT (\d+) ---/g));
-        if (starts.length === 0) return [];
-
-        const acts = [];
-        for (let i = 0; i < starts.length; i++) {
-          const actNo = Number(starts[i][1]);
-          const startIdx = starts[i].index ?? 0;
-          const endIdx = i + 1 < starts.length ? starts[i + 1].index ?? text.length : text.length;
-          const chunk = text.slice(startIdx, endIdx);
-
-          const scenes = parseScenes(chunk);
-          acts.push({
-            no: actNo,
-            title: `Act ${actNo}`,
-            scenes,
-          });
-        }
-        return acts;
-      }
-
-      function parseScenes(actChunk) {
-        const lines = actChunk.split("\n");
-        const sceneHeaders = [];
-        for (let i = 0; i < lines.length; i++) {
-          const m = lines[i].match(/^### Scene (\d+)\s+[–-]\s+(.+)$/);
-          if (m) sceneHeaders.push({ idx: i, no: Number(m[1]), name: m[2].trim() });
-        }
-        if (sceneHeaders.length === 0) return [];
-
-        const scenes = [];
-        for (let i = 0; i < sceneHeaders.length; i++) {
-          const head = sceneHeaders[i];
-          const start = head.idx + 1;
-          const end = i + 1 < sceneHeaders.length ? sceneHeaders[i + 1].idx : lines.length;
-          const body = lines.slice(start, end).join("\n").trim();
-          scenes.push({ no: head.no, name: head.name, body });
-        }
-        return scenes;
-      }
-
-      function sceneId(actNo, sceneNo) {
-        return `a${actNo}-s${String(sceneNo).padStart(2, "0")}`;
-      }
-
-      function parseSceneBody(bodyText) {
-        const lines = bodyText.split("\n");
-        const blocks = [];
-        let i = 0;
-
-        const isHr = (l) => l.trim() === "---";
-        const isEmpty = (l) => l.trim().length === 0;
-        const isNote = (l) => /^\*\*\[.*\]\*\*$/.test(l.trim());
-        const isStageLine = (l) => {
-          const t = l.trim();
-          return t.startsWith("*") && t.endsWith("*") && !t.startsWith("**");
-        };
-        const isCue = (l) => {
-          const t = l.trim();
-          return t.startsWith("**") && t.endsWith("**") && t.includes(":");
-        };
-
-        while (i < lines.length) {
-          const line = lines[i];
-          if (isEmpty(line) || isHr(line)) {
-            i++;
-            continue;
-          }
-
-          if (isNote(line)) {
-            blocks.push({ type: "note", text: line.trim().slice(2, -2) });
-            i++;
-            continue;
-          }
-
-          if (isStageLine(line)) {
-            const t = line.trim();
-            blocks.push({ type: "stage", html: formatInline(t.slice(1, -1)) });
-            i++;
-            continue;
-          }
-
-          if (isCue(line)) {
-            const cueRaw = line.trim().replace(/^\*\*/, "").replace(/\*\*$/, "");
-            const cue = cueRaw.endsWith(":") ? cueRaw.slice(0, -1) : cueRaw;
-            i++;
-            const saidLines = [];
-            while (i < lines.length && !isEmpty(lines[i]) && !isCue(lines[i]) && !isNote(lines[i]) && !isHr(lines[i])) {
-              if (isStageLine(lines[i])) break; // stage direction gets its own block
-              saidLines.push(lines[i]);
-              i++;
-            }
-            const said = saidLines.join("\n").trim();
-            blocks.push({
-              type: "dialogue",
-              who: cue,
-              html: said.length ? formatInline(said).replace(/\n+/g, "</p><p>") : "",
-            });
-            continue;
-          }
-
-          // Paragraph block: collect until blank / hr / cue / note
-          const para = [];
-          while (i < lines.length && !isEmpty(lines[i]) && !isCue(lines[i]) && !isNote(lines[i]) && !isHr(lines[i])) {
-            if (isStageLine(lines[i])) break;
-            para.push(lines[i]);
-            i++;
-          }
-          const text = para.join("\n").trim();
-          if (text.length) {
-            blocks.push({ type: "para", html: formatInline(text).replace(/\n+/g, "</p><p>") });
-          } else {
-            i++;
-          }
-        }
-
-        return blocks;
-      }
-
-      function render(acts) {
-        const content = $("#content");
-        const navActs = $("#navActs");
-        content.innerHTML = "";
-        navActs.innerHTML = "";
-
-        let totalScenes = 0;
-        for (const act of acts) totalScenes += act.scenes.length;
-        $("#actCount").textContent = String(acts.length);
-        $("#sceneCount").textContent = String(totalScenes);
-        $("#matchCount").textContent = "—";
-
-        // Stats cards (paper)
-        const stats = $("#stats");
-        stats.innerHTML = "";
-        const cards = [
-          { k: "Format", v: "1-page reader" },
-          { k: "Navigation", v: "Acts + Scenes" },
-          { k: "Controls", v: "Search + Copy" },
-        ];
-        for (const c of cards) {
-          const d = document.createElement("div");
-          d.className = "stat";
-          d.innerHTML = `<div class="k">${escapeHtml(c.k)}</div><div class="v">${escapeHtml(c.v)}</div>`;
-          stats.appendChild(d);
-        }
-
-        const frag = document.createDocumentFragment();
-
-        for (const act of acts) {
-          const actSection = document.createElement("section");
-          actSection.className = "act-section";
-          actSection.id = `act-${act.no}`;
-
-          const actHeader = document.createElement("div");
-          actHeader.className = "act-header";
-          actHeader.innerHTML = `
-            <div>
-              <h3>ACT</h3>
-              <div class="act-name">${escapeHtml(String(act.no).padStart(2, "0"))}</div>
-            </div>
-            <div class="act-meta">${escapeHtml(String(act.scenes.length))} scenes</div>
-          `;
-          actSection.appendChild(actHeader);
-
-          const scenesWrap = document.createElement("div");
-          scenesWrap.className = "scenes";
-
-          for (const scene of act.scenes) {
-            const id = sceneId(act.no, scene.no);
-            const article = document.createElement("article");
-            article.className = "scene";
-            article.id = id;
-            article.dataset.sceneText = normalizeDashes(scene.body).toLowerCase();
-            article.dataset.sceneTitle = normalizeDashes(scene.name).toLowerCase();
-            article.dataset.act = String(act.no);
-            article.dataset.scene = String(scene.no);
-
-            const head = document.createElement("div");
-            head.className = "scene-head";
-            head.innerHTML = `
-              <div class="left">
-                <div class="scene-kicker">Scene ${escapeHtml(String(scene.no).padStart(2, "0"))}</div>
-                <div class="scene-title" title="${escapeHtml(scene.name)}">${escapeHtml(scene.name)}</div>
-              </div>
-              <div class="scene-tools">
-                <button class="btn mini copy" type="button" title="Copy this scene">Copy</button>
-                <a class="btn mini" href="#act-${act.no}" title="Back to act">Act</a>
-              </div>
-            `;
-            article.appendChild(head);
-
-            const body = document.createElement("div");
-            body.className = "scene-body";
-            const blocks = parseSceneBody(scene.body);
-            for (const b of blocks) {
-              if (b.type === "stage") {
-                const p = document.createElement("div");
-                p.className = "stage";
-                p.innerHTML = b.html;
-                body.appendChild(p);
-              } else if (b.type === "note") {
-                const p = document.createElement("div");
-                p.className = "note";
-                p.textContent = b.text;
-                body.appendChild(p);
-              } else if (b.type === "dialogue") {
-                const d = document.createElement("div");
-                d.className = "dialogue";
-                const who = document.createElement("div");
-                who.className = "who";
-                who.textContent = b.who;
-                const said = document.createElement("div");
-                said.className = "said";
-                said.innerHTML = b.html ? `<p>${b.html}</p>` : "";
-                d.appendChild(who);
-                d.appendChild(said);
-                body.appendChild(d);
-              } else if (b.type === "para") {
-                const p = document.createElement("div");
-                p.className = "para";
-                p.innerHTML = `<p>${b.html}</p>`;
-                body.appendChild(p);
-              }
-            }
-            article.appendChild(body);
-            scenesWrap.appendChild(article);
-          }
-
-          actSection.appendChild(scenesWrap);
-          frag.appendChild(actSection);
-        }
-
-        content.appendChild(frag);
-
-        // Nav
-        for (const act of acts) {
-          const det = document.createElement("details");
-          det.className = "act";
-          det.open = act.no === 1;
-
-          const sum = document.createElement("summary");
-          sum.innerHTML = `
-            <div class="act-title"><span>Act</span> ${escapeHtml(String(act.no).padStart(2, "0"))}</div>
-            <div class="act-count">${escapeHtml(String(act.scenes.length))} scenes</div>
-          `;
-          det.appendChild(sum);
-
-          const links = document.createElement("div");
-          links.className = "scene-links";
-          for (const scene of act.scenes) {
-            const a = document.createElement("a");
-            a.href = `#${sceneId(act.no, scene.no)}`;
-            a.dataset.act = String(act.no);
-            a.dataset.scene = String(scene.no);
-            a.innerHTML = `
-              <span class="left">
-                <span class="snum">S${escapeHtml(String(scene.no).padStart(2, "0"))}</span>
-                <span class="sname">${escapeHtml(scene.name)}</span>
-              </span>
-              <span class="tag">↗</span>
-            `;
-            links.appendChild(a);
-          }
-          det.appendChild(links);
-          navActs.appendChild(det);
-        }
-
-        // Copy buttons
-        $$(".copy").forEach((btn) => {
-          btn.addEventListener("click", async (e) => {
-            const sceneEl = e.currentTarget.closest("article.scene");
-            const actNo = sceneEl?.dataset.act ?? "?";
-            const sceneNo = sceneEl?.dataset.scene ?? "?";
-            const title = $(".scene-title", sceneEl)?.textContent ?? "";
-            const plain = sceneEl?.innerText ?? "";
-            const payload = `ACT ${actNo} — SCENE ${sceneNo}\n${title}\n\n${plain}`.trim();
-            try {
-              await navigator.clipboard.writeText(payload);
-              toast.show("Copied scene to clipboard.");
-            } catch {
-              toast.show("Copy failed (clipboard blocked).");
-            }
-          });
-        });
-      }
-
-      function unmark(root) {
-        $$(".hit", root).forEach((m) => {
-          const txt = document.createTextNode(m.textContent || "");
-          m.replaceWith(txt);
-        });
-      }
-
-      function markText(el, query) {
-        if (!query) return;
-        const q = query.toLowerCase();
-        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
-          acceptNode(node) {
-            if (!node.nodeValue) return NodeFilter.FILTER_REJECT;
-            if (!node.nodeValue.toLowerCase().includes(q)) return NodeFilter.FILTER_REJECT;
-            if (node.parentElement && (node.parentElement.tagName === "SCRIPT" || node.parentElement.tagName === "STYLE"))
-              return NodeFilter.FILTER_REJECT;
-            return NodeFilter.FILTER_ACCEPT;
-          },
-        });
-
-        const nodes = [];
-        while (walker.nextNode()) nodes.push(walker.currentNode);
-
-        for (const n of nodes) {
-          const text = n.nodeValue;
-          const idx = text.toLowerCase().indexOf(q);
-          if (idx < 0) continue;
-          const before = text.slice(0, idx);
-          const hit = text.slice(idx, idx + query.length);
-          const after = text.slice(idx + query.length);
-
-          const frag = document.createDocumentFragment();
-          if (before) frag.appendChild(document.createTextNode(before));
-          const mark = document.createElement("mark");
-          mark.className = "hit";
-          mark.textContent = hit;
-          frag.appendChild(mark);
-          if (after) frag.appendChild(document.createTextNode(after));
-
-          n.parentNode?.replaceChild(frag, n);
-        }
-      }
-
-      function applyFilter(query) {
-        const q = normalizeDashes(query.trim()).toLowerCase();
-        let matches = 0;
-
-        // Remove previous highlighting
-        unmark(document);
-
-        const scenes = $$(".scene");
-        for (const s of scenes) {
-          const hay = `${s.dataset.sceneTitle || ""}\n${s.dataset.sceneText || ""}`;
-          const ok = !q || hay.includes(q);
-          s.style.display = ok ? "" : "none";
-          if (ok && q) {
-            matches++;
-            // Highlight first match per scene for signal, not confetti
-            markText(s, q);
-          }
-        }
-
-        // Nav visibility: hide scene links that are filtered out
-        const navLinks = $$(".scene-links a");
-        for (const a of navLinks) {
-          const act = a.dataset.act;
-          const scene = a.dataset.scene;
-          const id = sceneId(Number(act), Number(scene));
-          const sceneEl = document.getElementById(id);
-          const visible = sceneEl && sceneEl.style.display !== "none";
-          a.style.display = visible ? "" : "none";
-        }
-
-        // Hide entire acts in nav if all scenes hidden
-        $$(".act").forEach((det) => {
-          const hasAny = $$(".scene-links a", det).some((a) => a.style.display !== "none");
-          det.style.display = hasAny ? "" : "none";
-        });
-
-        const anyNavActs = $$(".act").some((d) => d.style.display !== "none");
-        $("#navEmpty").style.display = anyNavActs ? "none" : "";
-
-        $("#matchCount").textContent = q ? String(matches) : "—";
-      }
-
-      function updateProgress() {
-        const doc = document.documentElement;
-        const max = doc.scrollHeight - doc.clientHeight;
-        const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
-        $("#progressbar").style.width = `${pct}%`;
-      }
-
-      function boot() {
-        const source = document.getElementById("script-source").textContent || "";
-        const acts = parseActs(source);
-        render(acts);
-
-        // Controls
-        const q = $("#q");
-        q.addEventListener("input", () => applyFilter(q.value));
-
-        $("#clear").addEventListener("click", () => {
-          q.value = "";
-          applyFilter("");
-          q.focus();
-        });
-
-        const stageBtn = $("#toggle-stage");
-        stageBtn.addEventListener("click", () => {
-          const next = document.body.classList.toggle("hide-stage");
-          stageBtn.setAttribute("aria-pressed", next ? "true" : "false");
-        });
-
-        $("#expandAll").addEventListener("click", () => $$(".act").forEach((d) => (d.open = true)));
-        $("#collapseAll").addEventListener("click", () => $$(".act").forEach((d) => (d.open = false)));
-        $("#jumpTop").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-        // Shortcuts
-        window.addEventListener("keydown", (e) => {
-          const activeTag = (document.activeElement && document.activeElement.tagName) || "";
-          if (e.key === "Escape") {
-            if (q.value) {
-              q.value = "";
-              applyFilter("");
-            }
-            return;
-          }
-          if (activeTag === "INPUT" || activeTag === "TEXTAREA") return;
-          if (e.key.toLowerCase() === "s" && !e.metaKey && !e.ctrlKey && !e.altKey) {
-            stageBtn.click();
-          }
-          if (e.key.toLowerCase() === "g" && !e.metaKey && !e.ctrlKey && !e.altKey) {
-            q.focus();
-            q.select();
-          }
-        });
-
-        // Progress
-        updateProgress();
-        window.addEventListener("scroll", () => requestAnimationFrame(updateProgress), { passive: true });
-
-        // Default: show initial counts
-        applyFilter("");
-      }
-
-      boot();
-    </script>
-
-    <!-- Raw source (kept inside the HTML so the page works even when opened directly as a file). -->
-    <script id="script-source" type="text/plain">
+<!-- ====== RAW SCRIPT DATA ====== -->
+<script type="text/plain" id="raw-draft1">
 --- START OF ACT 1 ---
 
 # SEINFELD: "The Tick"
@@ -1522,7 +609,7 @@ She picks GREAT restaurants, that's not the point. She works at a proprietary tr
 Before lunch?
 
 **GEORGE:**
-Before LUNCH! She's scalping E-mini S&P 500 futures. She buys, she sells, same second. Sometimes less than a second. She doesn't even HOLD anything!
+Before LUNCH! She's scalping E-mini S&amp;P 500 futures. She buys, she sells, same second. Sometimes less than a second. She doesn't even HOLD anything!
 
 **JERRY:**
 So she makes forty-eight grand by essentially doing nothing.
@@ -1728,7 +815,7 @@ Beautiful, isn't it?
 *(walking toward it, horrified)* It's like the Matrix... but with pork.
 
 **PETERMAN:**
-I need you to watch the hog spreads, Elaine. Track the front-month contract. Report back to me with daily P&L.
+I need you to watch the hog spreads, Elaine. Track the front-month contract. Report back to me with daily P&amp;L.
 
 **ELAINE:**
 Mr. Peterman, I don't know what ANY of this means. What's— *(squinting at screen)* —what's "HEQ24 last 89.425"?
@@ -2900,7 +1987,7 @@ Your trading history shows... *(scrolling)* ...exclusively 1-lot positions on Mi
 Twenty-three round trips of PRECISION.
 
 **AGENT ROSS:**
-Your net P&L for the entire period is negative three hundred and forty-seven dollars.
+Your net P&amp;L for the entire period is negative three hundred and forty-seven dollars.
 
 *Beat.*
 
@@ -3042,7 +2129,7 @@ And now what?
 **GEORGE:**
 Now we wait. Price reverts to the mean, the algo sells, we collect the tick.
 
-*A few seconds pass. New text: "EXIT: Sold 1 ES @ 4487.50 — P&L: +$12.50"*
+*A few seconds pass. New text: "EXIT: Sold 1 ES @ 4487.50 — P&amp;L: +$12.50"*
 
 **GEORGE:**
 TWELVE-FIFTY! One tick! Clean! Beautiful!
@@ -3053,7 +2140,7 @@ Twelve-fifty. You've been working on this for three days to make twelve-fifty.
 **GEORGE:**
 It's not about ONE tick, Jerry. It's about REPETITION. Watch.
 
-*New text scrolls: "SIGNAL: Long 1 ES @ 4487.00..." then seconds later: "EXIT: Sold 1 ES @ 4487.50 — P&L: +$25.00"*
+*New text scrolls: "SIGNAL: Long 1 ES @ 4487.00..." then seconds later: "EXIT: Sold 1 ES @ 4487.50 — P&amp;L: +$25.00"*
 
 **GEORGE:**
 Two ticks that time! Twenty-five dollars!
@@ -3469,6 +2556,4198 @@ You LOST on the micros.
 **KRAMER
 
 --- END OF EPISODE ---
-    </script>
-  </body>
+</script>
+
+<script type="text/plain" id="raw-draft2">
+--- START OF ACT 1 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 1
+
+---
+
+### Scene 1 – Jerry's Stand-up (Cold Open)
+
+*(Spotlight on Jerry at the comedy club)*
+
+**JERRY:**
+They say time is money. On the Chicago Mercantile Exchange, one millisecond IS money. These guys are upset if light isn't traveling fast enough. Light! The fastest thing in the universe, and some guy in a fleece vest in Chicago is screaming, "C'mon, MOVE IT!" You can't honk at light. But somebody in Chicago found a way to be annoyed at the speed of light. That's the pinnacle of human impatience.
+
+---
+
+### Scene 2 – Monk's Café (Day)
+
+*(Jerry and George in their usual booth. George is vibrating with energy, leaning across the table.)*
+
+**GEORGE:**
+Jerry. Jerry, Jerry, Jerry.
+
+**JERRY:**
+That's my name, what are we doing?
+
+**GEORGE:**
+Sandra made forty-eight thousand dollars before lunch yesterday.
+
+**JERRY:**
+What does Sandra do, rob banks?
+
+**GEORGE:**
+She scalps E-mini S&amp;P 500 futures on the CME. ES contracts, Jerry. She sits there, she buys, she sells—sometimes in the SAME SECOND—and she walks away with forty-eight thousand dollars. Then she has a yogurt.
+
+**JERRY:**
+In the same second?
+
+**GEORGE:**
+She doesn't even HOLD it. She captures a tick. One tick. You know what a tick is on the ES?
+
+**JERRY:**
+I feel like I'm about to.
+
+**GEORGE:**
+Zero-point-two-five index points. Twelve dollars and fifty cents per contract. She does it over and over and over, hundreds of times a day, with algorithms and co-located servers—
+
+**JERRY:**
+You've been dating this woman for a week and a half. How do you already know her income?
+
+**GEORGE:**
+I have DESIRE, Jerry. Raw, uncut desire.
+
+**JERRY:**
+That's never worked for you in any context.
+
+**GEORGE:**
+Twelve-fifty a tick. TWELVE-FIFTY. I once drove forty minutes to Jersey to save twelve-fifty on a shirt. Exposed myself to the Turnpike for twelve-fifty!
+
+**JERRY:**
+And now you want to expose yourself to the Chicago Mercantile Exchange.
+
+**GEORGE:**
+I'm good with numbers.
+
+**JERRY:**
+You bounced a check at a bakery last month.
+
+**GEORGE:**
+That was a TIMING issue! The funds were in transit!
+
+*(George's phone rings. He puts it on speaker.)*
+
+**GEORGE:**
+Sandra! You're on speaker. Jerry's here.
+
+**SANDRA** *(on phone)*:
+George, I told you about my work to IMPRESS you, not to give you a career plan.
+
+**GEORGE:**
+And I AM impressed! So impressed that I want to do it too. What's the problem?
+
+**SANDRA:**
+The problem is that HFT scalping requires discipline, risk management, and emotional control.
+
+**JERRY:**
+*(mouthing to George)* Hang up.
+
+**GEORGE:**
+I HAVE emotional control!
+
+**SANDRA:**
+George, last week you screamed at a Panda Express cashier for twelve minutes because they were out of orange chicken.
+
+**GEORGE:**
+The SIGN said orange chicken! That's a binding offer, Sandra!
+
+**SANDRA:**
+*(sighing)* I'll let you try the simulator. ONE session.
+
+**GEORGE:**
+*(pumping his fist silently)* That's all I need. One shot. One tick at a time.
+
+*(George hangs up. Turns to Jerry, manic.)*
+
+**GEORGE:**
+This is it, Jerry. This is the thing. Every few years, a door opens—
+
+**JERRY:**
+And you usually walk into the door frame.
+
+**GEORGE:**
+Not this time. The universe OWES me a tick.
+
+---
+
+### Scene 3 – Jerry's Apartment (Later that day)
+
+*(Jerry is reading on the couch. The door BURSTS open. Kramer slides in, followed by a MASSIVE server rack on a hand dolly. It barely fits through the doorway. Cables are dangling. A power strip is duct-taped to the side.)*
+
+**JERRY:**
+What... is that?
+
+**KRAMER:**
+Dell PowerEdge R740. Dual Xeon processors, 256 gigs of RAM, 10-gigabit NIC. I got it from a guy at a bankruptcy auction in Secaucus.
+
+**JERRY:**
+And it's in my apartment because...?
+
+**KRAMER:**
+Co-location, Jerry.
+
+**JERRY:**
+Co... location.
+
+**KRAMER:**
+You know how the big HFT firms—Citadel, Jump Trading, Tower Research—they put their servers physically inside the CME data center in Aurora, Illinois? Right next to the matching engine? So their orders get there microseconds before everyone else?
+
+**JERRY:**
+I'm aware of none of this.
+
+**KRAMER:**
+Well, I can't afford a rack in Aurora. But the Spectrum internet hub for this whole neighborhood? It's in the basement of the building NEXT DOOR. I'm talking thirty, maybe forty feet of copper between me and the main trunk line. That's practically co-located!
+
+**JERRY:**
+It's... it's not, though.
+
+**KRAMER:**
+Jerry, every microsecond of latency costs money. It's like— you know when you're at the deli, and the guy in front of you can't decide between the roast beef and the turkey? That hesitation? That's jitter. That's PACKET JITTER. And I will NOT be behind that guy.
+
+**JERRY:**
+You don't even know what a packet IS.
+
+**KRAMER:**
+I know it jitters, and I don't like it.
+
+*(Kramer starts wheeling the server rack toward the wall near Jerry's desk.)*
+
+**JERRY:**
+Oh no. No, no, no. That is NOT staying here.
+
+**KRAMER:**
+Just temporary. Two, three weeks tops. I'm going to be trading Micro E-mini Nasdaq futures on the Globex platform. MNQ. One-tenth the size of the full contract. You gotta start micro to go macro.
+
+**JERRY:**
+You're going to be trading futures. From MY apartment.
+
+**KRAMER:**
+You won't even know it's here.
+
+*(Kramer plugs in the server. It begins HUMMING loudly. Jerry's desk lamp FLICKERS. The TV turns on by itself to static. From below, there's a THUMP THUMP THUMP—Newman banging on his ceiling.)*
+
+**NEWMAN** *(muffled, from below)*:
+WHAT IS THAT?!
+
+**KRAMER:**
+*(adjusting cables, unfazed)* See? Barely noticeable.
+
+**JERRY:**
+My lights are dimming. You're pulling so much power my apartment is BROWNOUT-ING.
+
+**KRAMER:**
+That's the processors spinning up. Once they're warm, it levels off.
+
+**JERRY:**
+"Once they're WARM?" This isn't a crock pot, Kramer!
+
+**KRAMER:**
+*(standing back, admiring the rack)* You know what, I think it really ties the room together.
+
+**JERRY:**
+GET IT—
+
+**KRAMER:**
+*(putting a hand on Jerry's shoulder)* Jerry. Jerry. When I'm pulling down six figures scalping the Nasdaq at the speed of light from your living room... you'll thank me. I'll cut you in. Consider it... rent.
+
+**JERRY:**
+You already don't pay rent HERE. You don't pay rent ANYWHERE. You're the only person I know who has a negative cost of living.
+
+**KRAMER:**
+That's called efficiency, Jerry. Low overhead. It's the first rule of trading.
+
+*(Kramer exits. The server continues humming. Jerry stares at it. The TV flickers again. Another THUMP from Newman below.)*
+
+**JERRY:**
+*(to himself)* I'm a data center now.
+
+---
+
+### Scene 4 – J. Peterman's Office (Day)
+
+*(Peterman stands behind his desk with the gravitas of a man addressing the United Nations. Elaine sits across from him, notepad in hand.)*
+
+**PETERMAN:**
+Elaine. The pension fund.
+
+**ELAINE:**
+What about the pension fund?
+
+**PETERMAN:**
+I've restructured it. Entirely.
+
+**ELAINE:**
+...Restructured it how?
+
+**PETERMAN:**
+I've moved everything—every last cent—into CME commodity futures.
+
+**ELAINE:**
+*(pen stops moving)* I'm sorry?
+
+**PETERMAN:**
+Specifically, lean hog futures. HE contracts. Traded on the Globex electronic platform, settled against the CME Lean Hog Index.
+
+**ELAINE:**
+Lean... hog futures. The pension fund.
+
+**PETERMAN:**
+In 1987, I was in Bruges. Cobblestone streets. Fog rolling off the Langerei canal. I locked eyes with a pig farmer across a courtyard, and in that instant, Elaine, I understood something about LEVERAGE that no business school could teach.
+
+**ELAINE:**
+What could you possibly have understood from—
+
+**PETERMAN:**
+That man raised four hundred pigs on six acres of Flemish clay. THAT is leverage. And now, thanks to the derivatives market, we can participate in that same ancient dance without so much as touching a snout.
+
+**ELAINE:**
+Mr. Peterman, the employees' retirement savings are in PIGS?
+
+**PETERMAN:**
+Not IN pigs, Elaine. In the IDEA of pigs. The futures contract is a beautiful abstraction—a promise of pork, floating in the ether of commerce. I've purchased forty contracts.
+
+**ELAINE:**
+How much is forty contracts?
+
+**PETERMAN:**
+Each contract represents forty thousand pounds of lean hog carcass.
+
+**ELAINE:**
+*(doing math on the notepad, eyes slowly widening)* That's... that's 1.6 million pounds of—
+
+**PETERMAN:**
+You're going to monitor the account. I've had a Bloomberg Terminal installed at your desk.
+
+**ELAINE:**
+I don't know how to use a Bloomberg Terminal!
+
+**PETERMAN:**
+Elaine, the Bloomberg Terminal is merely a window into the soul of the market. You look through it, and the hogs will speak to you.
+
+**ELAINE:**
+The hogs will NOT—
+
+**PETERMAN:**
+Here's the login. The password is "BrugesPigFarmer," one word, capital B, capital P, capital F.
+
+*(Peterman hands her a Post-it note and turns to gaze out his window, hands clasped behind his back, as if surveying an empire.)*
+
+**PETERMAN:**
+I have a feeling about this one, Elaine. The kind of feeling you only get when the wind shifts and you smell the sty from half a mile away.
+
+*(Elaine stares at the Post-it, then looks up at nothing.)*
+
+**ELAINE:**
+*(quietly, to herself)* I went to Tufts for this.
+
+---
+
+**[END OF ACT 1]**
+
+--- END OF ACT 1 ---
+
+--- START OF ACT 2 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 2
+
+---
+
+### Scene 5 – Sandra's Trading Floor (Day)
+
+*(A sleek, intense proprietary trading floor. Rows of monitors everywhere displaying order books, charts, scrolling numbers. TRADERS sit in focused silence. George enters wearing a brand new quarter-zip pullover, clearly purchased for this occasion. Sandra meets him at the door.)*
+
+**SANDRA:**
+You bought a fleece vest.
+
+**GEORGE:**
+Quarter-zip. I looked up what quantitative traders wear. This is the uniform.
+
+**SANDRA:**
+It's not a uniform, George. People just get cold in the office.
+
+**GEORGE:**
+I'm ASSIMILATING, Sandra. Let me assimilate.
+
+*(Sandra leads him to a workstation. Two monitors show the ES order book—a DOM ladder with bid and ask prices stacked vertically, quantities flashing and updating rapidly.)*
+
+**SANDRA:**
+Okay. This is the order book. Level II data. The DOM ladder. On the left side, you've got your resting bid orders—people willing to buy. On the right, your resting asks—people willing to sell. The spread right now is one tick. 4500.25 bid, 4500.50 ask.
+
+**GEORGE:**
+One tick. Twelve-fifty.
+
+**SANDRA:**
+We make money capturing that spread. We buy on the bid, sell on the ask, over and over. The key is LIMIT orders. You place your order at a specific price and WAIT for it to get filled. You do NOT use market orders. Ever. A market order says "fill me at whatever price is available." In a thin book, that's suicide.
+
+**GEORGE:**
+Limit orders. Got it. Wait for the fill. I'm a patient person.
+
+**SANDRA:**
+*(staring at him)*
+
+**GEORGE:**
+I can BE patient.
+
+*(Nearby, a trader named DANNY executes a trade without looking up from his sandwich. He takes a bite of turkey club, clicks once, stares at the screen for about one second, clicks again, and goes back to eating.)*
+
+**GEORGE:**
+What just happened?
+
+**SANDRA:**
+Danny just scalped fifty contracts for two ticks. Half a point on ES.
+
+**GEORGE:**
+While eating a SANDWICH?
+
+**DANNY:**
+*(mouth full, not looking up)* Turkey club.
+
+**GEORGE:**
+How much did he just make?
+
+**SANDRA:**
+Fifty contracts, two ticks, twelve-fifty a tick. Twelve hundred and fifty dollars. Minus commissions.
+
+**GEORGE:**
+*(whispering)* In one BITE.
+
+**SANDRA:**
+Okay. Here's the simulator. It's connected to live market data, but the money isn't real. You have a simulated balance of fifty thousand dollars. Start with five contracts. LIMIT orders only. Work the bid, wait for your fill, take one tick, get out.
+
+**GEORGE:**
+Five contracts. Sure. Absolutely. Conservative. Prudent.
+
+*(Sandra walks away to her own station. George sits down. He cracks his knuckles. He studies the DOM ladder for approximately four seconds.)*
+
+**GEORGE:**
+*(muttering)* Okay. Bid at 4500.25... ask at 4500.50... there's size on the bid... the ask is thinning out...
+
+*(His hand hovers over the keyboard. A bead of sweat forms. His eyes dart. Then, in one explosive motion, he LUNGES at the keyboard.)*
+
+**GEORGE:**
+*(typing furiously)* BUY. MARKET. TWO HUNDRED.
+
+*(A loud FILL TONE sounds from the workstation. Multiple heads turn. Sandra SPINS in her chair.)*
+
+**SANDRA:**
+GEORGE!
+
+**GEORGE:**
+*(frozen, staring at the screen)* What... what are all these numbers?
+
+**SANDRA:**
+*(rushing over)* You market-ordered TWO HUNDRED contracts?! Into THIS book?! There were maybe eighty lots on the offer! You ate through THREE levels of the book! You just got filled at 50, 75, AND 4501 even!
+
+**GEORGE:**
+Is that bad?
+
+**SANDRA:**
+You got three ticks of slippage on a SIMULATED account! Your average fill is 4500.75! You need price to go to 4501.00 just to BREAK EVEN!
+
+**GEORGE:**
+*(a dialog box pops up on screen)* Oh, it's asking me something. Confirm risk acknowledgment for—
+
+*(He clicks "ACCEPT" without reading.)*
+
+**SANDRA:**
+Did you just click through the risk warning?!
+
+**GEORGE:**
+I click through everything! Terms of service, privacy policies, organ donor forms—you click ACCEPT and you MOVE ON, Sandra!
+
+*(The screen flashes red. His P&amp;L reads: -$7,500.)*
+
+**GEORGE:**
+Wait. I LOST seven thousand—how did I LOSE—I just GOT here!
+
+**SANDRA:**
+You market-ordered into thin liquidity during a micro-pullback. The passive offers pulled and you got filled through air.
+
+**GEORGE:**
+*(staring at the screen in genuine bewilderment)* I GOT FILLED?! I didn't even know I was HUNGRY!
+
+*(Danny takes another bite of his sandwich, glances over.)*
+
+**DANNY:**
+*(chewing)* Was that you?
+
+**GEORGE:**
+Was WHAT me?
+
+**DANNY:**
+That print on the tape. We all saw a two-hundred-lot market buy and figured someone's algo broke.
+
+**GEORGE:**
+*(quietly)* That was me.
+
+**DANNY:**
+*(turning back to his screens, zero affect)* Huh.
+
+*(Sandra pinches the bridge of her nose.)*
+
+**SANDRA:**
+Simulator's off, George.
+
+**GEORGE:**
+One more try. ONE more try. I understand now. Limit orders. Patience. I've LEARNED, Sandra.
+
+**SANDRA:**
+You were on the simulator for eleven seconds.
+
+**GEORGE:**
+And in those eleven seconds I've experienced more growth than most people experience in a LIFETIME.
+
+---
+
+### Scene 6 – Jerry's Apartment / Kramer's "Trading Floor" (Evening)
+
+*(The apartment has been further transformed. Kramer has added SIX monitors arranged in two rows on a folding table next to the server rack. A string of Christmas lights frames the setup. Sierra Chart is open on every screen showing the MNQ DOM ladder. Jerry enters from the bedroom holding his laptop, staring at a loading screen.)*
+
+**JERRY:**
+My internet is now slower than it was in 1997. I just tried to load my email and the little spinning wheel has been going for so long it owes me rent.
+
+**KRAMER:**
+That's bandwidth prioritization, Jerry. The server needs the pipe.
+
+**JERRY:**
+YOUR server needs MY pipe?
+
+**KRAMER:**
+I'm streaming live tick data from the Globex feed. Every trade, every bid, every ask—millions of messages per second. Your email can wait.
+
+**JERRY:**
+My email cannot WAIT, Kramer. I'm a person who receives electronic correspondence!
+
+*(Jerry notices the Christmas lights.)*
+
+**JERRY:**
+What are the Christmas lights for?
+
+**KRAMER:**
+Ambiance, Jerry. The great traders, they have a whole VIBE. You think Paul Tudor Jones trades under fluorescent lights? No. He's got mood. He's got AURA.
+
+**JERRY:**
+You have Christmas lights and a Dell from a bankruptcy sale. That's not aura, that's a dorm room.
+
+*(Kramer sits down and starts working the DOM ladder. His fingers move with surprising speed.)*
+
+**KRAMER:**
+Okay, okay, watch this. See this? *(pointing)* There's 300 lots sitting on the MNQ bid at 15,450. Been there for two minutes. But every time price trades down to 15,451—one tick above—the 300 lots drop to 150, then 75, then they vanish completely. Then they reappear a second later.
+
+**JERRY:**
+And?
+
+**KRAMER:**
+That's an ICEBERG order, Jerry. Somebody's hiding a massive position. They show a little on the surface—maybe 50 lots visible—but underneath? There's HUNDREDS more. They refill every time a chunk gets eaten. You can't see the real size unless you're watching the time and sales print.
+
+**JERRY:**
+So your strategy is to spot something that's specifically designed to be hidden.
+
+**KRAMER:**
+And then I trade in FRONT of it. If there's a hidden whale buyer at 450, I buy at 451, ride the support, and sell into the pop.
+
+**JERRY:**
+What if the whale goes away?
+
+**KRAMER:**
+*(dismissive)* Whales don't just GO AWAY, Jerry.
+
+**JERRY:**
+I think that's literally what's happening to actual whales.
+
+*(Kramer ignores him, hunched over the keyboard. He clicks rapidly. A position appears: Long 2 MNQ at 15,452.00.)*
+
+**KRAMER:**
+I'm in. Two lots. Now we wait.
+
+*(They both stare at the screen. Price ticks: 15,452.00... 15,451.75... 15,451.50...)
+
+**JERRY:**
+It's going down.
+
+**KRAMER:**
+It's COILING, Jerry. Like a spring.
+
+**JERRY:**
+It's going down MORE.
+
+*(15,451.00... 15,450.75... The iceberg at 15,450 starts getting hit. The 300 lots are now 200... 150... 100...)
+
+**KRAMER:**
+*(leaning forward)* Come on, come on, come on...
+
+**JERRY:**
+Your whale is getting harpooned.
+
+*(15,450.00... the iceberg disappears entirely. Price drops to 15,449.50. Kramer is now down 10 ticks on 2 lots. He stares. His hand drifts across the keyboard and— SLAMS a large red button.)*
+
+*(Every screen goes flat. Every position: zero. A confirmation tone chimes: "ALL POSITIONS FLATTENED.")*
+
+**JERRY:**
+What did you just do?
+
+**KRAMER:**
+*(sitting back, crossing his arms)* Flatten All. Closed everything. It's called taking profits, Jerry.
+
+**JERRY:**
+Was there profit?
+
+**KRAMER:**
+There was EXPERIENCE.
+
+**JERRY:**
+How much did you lose?
+
+**KRAMER:**
+*(checking a napkin where he's been keeping notes)* On paper? Forty... seven dollars. But in KNOWLEDGE? Jerry, you can't put a price on knowledge.
+
+**JERRY:**
+Forty-seven dollars. That IS the price you just put on knowledge.
+
+**KRAMER:**
+The iceberg thing was a fluke. Tomorrow, I'm implementing my own algorithmic logic. Handwritten. On napkins.
+
+**JERRY:**
+On NAPKINS?
+
+**KRAMER:**
+The great algos weren't born in computers, Jerry. They were born in the MIND. The napkin is just the intermediary.
+
+*(Kramer pulls out a stack of Monk's napkins covered in arrows, circles, and the word "BUY" written at various angles. Jerry picks one up.)*
+
+**JERRY:**
+This just says "BUY" with an arrow pointing up, and then "BUY AGAIN" with a BIGGER arrow pointing up.
+
+**KRAMER:**
+That's phase one.
+
+**JERRY:**
+What's phase two?
+
+**KRAMER:**
+*(grabbing the napkin back)* Proprietary.
+
+---
+
+### Scene 7 – Monk's Café (Evening)
+
+*(Jerry, George, and Elaine at the booth. Elaine has her phone out, staring at it with barely concealed horror. George is sullen. Jerry has a cup of coffee and the weary look of a man whose apartment has become a data center.)*
+
+**JERRY:**
+So how was everybody's day in the financial markets?
+
+**GEORGE:**
+I don't want to talk about it.
+
+**JERRY:**
+Eleven seconds on the simulator and you need a cooling-off period?
+
+**GEORGE:**
+I'm STUDYING, Jerry. I'm watching order flow videos on YouTube. There's a whole world I didn't know about. Cumulative delta. Footprint charts. Volume profile. Did you know that every price level has a measurable amount of volume traded at it, and the level with the MOST volume is called the VPOC?
+
+**JERRY:**
+I did not know that, and I was happier.
+
+**GEORGE:**
+Volume Point of Control. It's the price level with the highest engagement. The most activity. And it occurs to me, Jerry, that relationships are the same way. Where have Sandra and I exchanged the most volume? Where is our VPOC?
+
+**JERRY:**
+I'm afraid to ask.
+
+**GEORGE:**
+ARGUMENTS, Jerry. Our VPOC is arguing. That's where the most volume is. That's the highest engagement level. That's the price level we keep coming back to.
+
+**JERRY:**
+You don't have a point of control in ANY relationship.
+
+**GEORGE:**
+I'm going back to that trading floor. I just need to learn the language. Speak the dialect. Sandra will see a different George.
+
+**JERRY:**
+Everyone who's ever met you hopes to see a different George.
+
+*(Elaine, who has been staring at her phone, suddenly makes a sound like air leaving a tire.)*
+
+**ELAINE:**
+Oh no.
+
+**JERRY:**
+What?
+
+**ELAINE:**
+I was on the Bloomberg app—Peterman made me install the Bloomberg app—and I was trying to figure out what all these numbers mean, and I think I... I think I bought something.
+
+**JERRY:**
+You THINK you bought something?
+
+**ELAINE:**
+I was trying to bookmark the lean hog screen. The button said "BUY." I thought it was like a SAVE button!
+
+**JERRY:**
+In what universe does "BUY" mean "SAVE?"
+
+**ELAINE:**
+I don't know! I was confused! Everything on this terminal is abbreviations and flashing colors! It's like the Matrix, but with pork!
+
+**GEORGE:**
+How many contracts?
+
+**ELAINE:**
+*(looking at phone)* Forty. It says forty HE contracts. Is that a lot?
+
+**JERRY:**
+Each lean hog contract is forty thousand pounds.
+
+**ELAINE:**
+Forty thousand pounds of WHAT?
+
+**JERRY:**
+Of lean hog. You bought forty contracts. That's 1.6 million pounds of pork.
+
+*(Elaine's face goes through the five stages of grief in about three seconds.)*
+
+**ELAINE:**
+*(whispering)* One point six MILLION pounds?
+
+**JERRY:**
+That's four blue whales made of ham.
+
+**ELAINE:**
+What happens if I don't sell them? What happens when the contract EXPIRES?
+
+**GEORGE:**
+You take delivery.
+
+**ELAINE:**
+DELIVERY?! Of WHAT?!
+
+**GEORGE:**
+Of 1.6 million pounds of lean hog carcass. They'd send it to a CME-approved warehouse, and—
+
+**ELAINE:**
+I don't have a HOG ROOM! Where am I supposed to put 1.6 million pounds of pig?! I work on 57TH STREET!
+
+**JERRY:**
+You could rent a U-Haul. Forty thousand of them.
+
+**ELAINE:**
+*(head in hands)* Oh God. Oh God oh God oh God.
+
+**GEORGE:**
+You know, if you looked at the order flow on the HE contract, you could probably gauge the directional—
+
+**ELAINE:**
+George. If a single pig shows up at my office, I am blaming YOU.
+
+**GEORGE:**
+How is this MY fault?
+
+**ELAINE:**
+Everything is your fault! You started this! You and your TICKS!
+
+*(George opens his mouth to protest, then closes it. He turns to Jerry.)*
+
+**GEORGE:**
+*(quietly)* She doesn't understand the tick.
+
+**JERRY:**
+Nobody understands the tick, George. That's the whole problem.
+
+---
+
+**[END OF ACT 2]**
+
+--- END OF ACT 2 ---
+
+--- START OF ACT 3 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 3
+
+---
+
+### Scene 8 – Sandra's Trading Floor (Morning)
+
+*(George is back at the trading floor. He's wearing the same quarter-zip but has added reading glasses he clearly doesn't need. He's carrying a spiral notebook filled with hand-drawn charts. Sandra watches him approach with the expression of someone who sees a car accident developing in slow motion.)*
+
+**SANDRA:**
+You're back.
+
+**GEORGE:**
+I've been studying.
+
+**SANDRA:**
+George, it's been two days.
+
+**GEORGE:**
+Two days and fourteen hours of YouTube. I haven't slept. I ate dinner over a volume profile. I got hummus on a footprint chart and it actually IMPROVED the analysis.
+
+*(He opens the notebook. It's dense with annotations.)*
+
+**GEORGE:**
+I've been studying delta divergence. Cumulative delta versus price action. When the net of aggressive market buys minus market sells diverges from where price is heading, it reveals what the passive limit orders are doing behind the scenes. It's like reading the SUBTEXT, Sandra. And I am VERY good at subtext. I once detected a slight change in tone in a voicemail from my mother that correctly predicted a six-week estrangement.
+
+**SANDRA:**
+*(despite herself, slightly impressed)* Okay. What are you seeing on the ES right now?
+
+*(George sits at the simulator station. He studies the DOM, the cumulative delta chart, and the time and sales window with genuine focus. For a long moment, he's quiet. Sandra watches.)*
+
+**GEORGE:**
+Price is making new highs. We just printed 4512.00. But look at cumulative delta. It's FALLING. Every new high is printing on LESS aggressive buying. The market buy orders are drying up, but the passive sell limit orders on the ask are getting hit over and over and they keep REFILLING.
+
+**SANDRA:**
+Go on.
+
+**GEORGE:**
+That's absorption. The passive sellers are absorbing the aggressive buyers. The buyers think they're pushing through, but they're walking into a wall they can't see. This move is a TRAP.
+
+*(Sandra stares at him. Danny, mid-sandwich as always, swivels slightly.)*
+
+**SANDRA:**
+That's... actually a legitimate read.
+
+**GEORGE:**
+*(trying to contain his glee)* I'd like to go short. Ten contracts. LIMIT order on the ask at 4512.00.
+
+**SANDRA:**
+*(long pause)* ...Ten contracts. On the simulator.
+
+**GEORGE:**
+On the simulator.
+
+**SANDRA:**
+Limit order only. You take the scalp at two ticks, and you GET OUT. That means you cover at 4511.50 and you walk away.
+
+**GEORGE:**
+Two ticks. Absolutely. In and out. Like a surgical strike.
+
+*(Sandra nods. George places the order. They wait. The order fills: Short 10 ES at 4512.00.)*
+
+**GEORGE:**
+*(whispering)* I'm in.
+
+*(Price ticks: 4511.75... 4511.50. He's up two ticks. $500 in simulated profit. Sandra points at the screen.)*
+
+**SANDRA:**
+There's your two ticks. Cover it. NOW.
+
+**GEORGE:**
+*(staring at the screen, not moving)* It's still going.
+
+**SANDRA:**
+George. Take the scalp.
+
+**GEORGE:**
+Look at the delta, Sandra. It's ACCELERATING to the downside. There's a vacuum below. The buy stops are lining up at 4511 and when they trigger it's going to cascade—
+
+**SANDRA:**
+You are on a SIMULATOR doing your FIRST successful trade. Take. The. Scalp.
+
+*(4511.25... 4511.00... He's up four ticks. $1,000. George's eyes are glazed. He's tasting something he's never tasted before.)*
+
+**GEORGE:**
+I'm not a scalper. I'm a VISIONARY.
+
+**SANDRA:**
+Oh no.
+
+*(4510.75... 4510.50... He's up six ticks. $1,500.)*
+
+**GEORGE:**
+You see this? You SEE this?! I was BORN for this!
+
+*(4510.25... 4510.00. He's up eight ticks. $2,000. George STANDS UP from his chair.)*
+
+**GEORGE:**
+TWO THOUSAND DOLLARS, SANDRA! On a LIMIT ORDER! With PATIENCE! WHO bounces checks at bakeries NOW?!
+
+**SANDRA:**
+George, take the profit. Please.
+
+**GEORGE:**
+Not yet. This is going to 4508. I can FEEL it.
+
+*(Beat. 4510.25. Price ticks back up. 4510.50.)*
+
+**SANDRA:**
+It's reversing. Close it.
+
+**GEORGE:**
+That's just a pullback. Healthy retracement. The thesis is intact.
+
+*(4511.00. 4511.50. He's back to breakeven. Sandra's jaw is tight.)*
+
+**SANDRA:**
+You've given back EVERY tick. Close the position.
+
+**GEORGE:**
+*(sitting back down, knuckles white on the desk)* It'll come back. The delta divergence was REAL. I SAW it.
+
+*(4512.00. Back to his entry. 4512.25. He's now underwater. 4512.50. Down two ticks.)*
+
+**GEORGE:**
+*(quietly)* Okay. This is temporary.
+
+**SANDRA:**
+George—
+
+**GEORGE:**
+I'm going to ADD. I'm adding ten more contracts. Average down. Short ten more at 4512.50, the average entry improves to—
+
+**SANDRA:**
+You are NOT averaging into a loser on a SIMULATOR in front of my ENTIRE FIRM—
+
+*(George has already placed the order. Short 20 ES contracts. Average entry 4512.25.)*
+
+**GEORGE:**
+Now I only need it to go to 4512.00 to break even. That's ONE tick, Sandra. One tick. The market OWES me one tick.
+
+**SANDRA:**
+The market doesn't OWE anybody ANYTHING!
+
+*(4513.00. 4513.50. 4514.00. Price is ripping higher. George is now down $3,500. Then $5,000. His face has gone the color of old oatmeal.)*
+
+**GEORGE:**
+*(voice cracking)* The tape doesn't know who it's dealing with.
+
+**SANDRA:**
+You're fighting the tape!
+
+**GEORGE:**
+I WAS RIGHT! The divergence was THERE! I READ it!
+
+**SANDRA:**
+And then you turned a SCALP into a POSITION TRADE! That is the number one way retail traders blow up!
+
+*(4515.00. Down $5,500. 4515.50. Down $6,500. Sandra leans over him and hits a key. "POSITION FLATTENED. REALIZED P&amp;L: -$8,500.")*
+
+**GEORGE:**
+*(staring at the screen)* You liquidated me.
+
+**SANDRA:**
+I force-liquidated you because you were down eight thousand five hundred dollars on a trade that was UP two thousand dollars four minutes ago.
+
+**GEORGE:**
+*(quietly, almost to himself)* I was right. I was just... early.
+
+**SANDRA:**
+In HFT, early IS wrong.
+
+**GEORGE:**
+*(looking up at her)* Early is wrong? My whole LIFE has been a timing issue, Sandra! The bakery, the check, the—
+
+**SANDRA:**
+I have absolutely no idea what you're talking about.
+
+*(Danny takes a bite of his sandwich. Glances over.)*
+
+**DANNY:**
+Hey, visionary—you know what we call your delta divergence trade? A donation.
+
+*(George stares straight ahead, shell-shocked.)*
+
+**GEORGE:**
+*(almost inaudibly)* The divergence was real.
+
+---
+
+### Scene 9 – J. Peterman's Office (Day)
+
+*(Elaine is at her desk in front of the Bloomberg Terminal, phone wedged between her shoulder and ear. The terminal displays lean hog futures charts in aggressive red. Peterman's office door is open behind her.)*
+
+**ELAINE:**
+*(into phone)* Yes. Hi. I need to close a futures position. Lean hog. HE contracts. Forty of them.
+
+**BROKER** *(on phone)*:
+Certainly, ma'am. Account number?
+
+**ELAINE:**
+J. Peterman Industries, account ending 4471.
+
+**BROKER:**
+I see the position. Forty long April lean hog contracts. Ma'am, are you aware that First Notice Day is in six days?
+
+**ELAINE:**
+I am VERY aware. That is WHY I am calling.
+
+**BROKER:**
+You'll need to place an offsetting sell order for all forty contracts before the notice date, otherwise the position will go to settlement. You'll be assigned based on the CME Lean Hog Index.
+
+**ELAINE:**
+Great. Sell forty. Do it. Sell them now. Sell them YESTERDAY.
+
+**BROKER:**
+I'll need authorization from the primary account holder. A Mr.... Peterman?
+
+**ELAINE:**
+*(closing her eyes)* Of course you do.
+
+*(Elaine marches into Peterman's office. He's standing at his window, gazing out with his hands clasped behind his back, as if surveying a great hog empire.)*
+
+**ELAINE:**
+Mr. Peterman. I need you to authorize closing the lean hog position. First Notice Day is in less than a week. If we don't sell—
+
+**PETERMAN:**
+Close it? Elaine, we're just getting STARTED. Do you know who Harold Krebbs was?
+
+**ELAINE:**
+I do not.
+
+**PETERMAN:**
+The great soybean trader of 1976. They called him "The Bean King of La Salle Street." Everyone told Harold to close his position. His broker. His wife. His parish priest. And what did Harold do?
+
+**ELAINE:**
+He closed it?
+
+**PETERMAN:**
+He DOUBLED it. And three weeks later, a frost hit the Mississippi Delta, and Harold Krebbs retired to Sardinia with eleven million dollars and a woman named Francesca.
+
+**ELAINE:**
+Mr. Peterman, Harold Krebbs isn't—we're not—this is a PENSION FUND—
+
+**PETERMAN:**
+*(picking up his phone)* Yes, hello. Brokerage account 4471. I'd like to INCREASE our lean hog position. Add twenty contracts to the existing forty.
+
+**ELAINE:**
+*(lunging)* NO! No no no—Mr. Peterman, HANG UP—
+
+**PETERMAN:**
+*(into phone)* Yes, twenty additional contracts. Market order. *(to Elaine)* Elaine, please. I'm on the phone.
+
+**ELAINE:**
+You're buying TWENTY MORE?! We're already down—do you know how much we've LOST?!
+
+**PETERMAN:**
+*(hanging up, serene)* Lost, Elaine? Or invested in the FUTURE of pigs?
+
+**ELAINE:**
+LOST! Just LOST! The USDA Hogs and Pigs Report came out this morning showing the largest hog inventory surplus in THREE YEARS! Prices are cratering!
+
+**PETERMAN:**
+A surplus today is a scarcity tomorrow. The pig is a resilient animal, Elaine. It adapts. It endures.
+
+**ELAINE:**
+It's a PIG, Mr. Peterman! It doesn't have a STRATEGY!
+
+**PETERMAN:**
+Neither did Harold Krebbs. And yet.
+
+*(Elaine backs out of his office. Returns to her desk. Picks up the phone.)*
+
+**ELAINE:**
+*(into phone)* Hi. Yes. I was just on with someone about the lean hog position. Account 4471. It just got BIGGER, didn't it?
+
+**BROKER:**
+Yes ma'am. You now hold sixty long contracts. That's 2.4 million pounds of lean hog equivalent. Ma'am, in twenty years of clearing futures, I've never had someone call me in tears about lean hogs.
+
+**ELAINE:**
+I'm not in TEARS!
+
+**BROKER:**
+...Not yet, ma'am.
+
+*(Elaine hangs up. Stares at the Bloomberg Terminal. The red numbers stare back.)*
+
+**ELAINE:**
+*(whispering)* 2.4 million pounds.
+
+---
+
+### Scene 10 – Jerry's Apartment (Evening)
+
+*(The server rack hums. Kramer is at his trading station, but he's not trading. He's staring at the MNQ DOM ladder with the intensity of a man who has witnessed a crime.)*
+
+**KRAMER:**
+Jerry. Come here. Come HERE.
+
+*(Jerry shuffles over from the kitchen, holding a sandwich.)*
+
+**JERRY:**
+What?
+
+**KRAMER:**
+*(pointing at the screen)* You see this? Right here. 15,620 on the MNQ bid. There's 500 lots showing. Watch.
+
+*(They watch. The 500 lots sit there. Price trades down toward them. At 15,621—one tick above—the 500 lots suddenly vanish. Price drops through 15,620. Then, a second later, 500 lots reappear on the bid at 15,618, two levels lower.)*
+
+**KRAMER:**
+THERE! You see that?! They put up 500 lots, they PULL them before they get hit, and the algos that SAW the 500 lots and bought in front of them are now trapped! Then the spoofer sells into the panic and moves the fake bid down again! It's a PHANTOM ORDER, Jerry!
+
+**JERRY:**
+Okay.
+
+**KRAMER:**
+That is SPOOFING. Illegal under the Dodd-Frank Wall Street Reform Act, Section 747. You place orders you never intend to execute in order to manipulate the visible depth of the order book. Navinder Sarao did this to the ES in 2010 and they extradited him from LONDON.
+
+**JERRY:**
+How do you know all this?
+
+**KRAMER:**
+I've been RESEARCHING, Jerry. I'm in the game now. And this guy—this phantom bidder—he's doing exactly what I was trying to do, except he's doing it BETTER, and it's making me SICK.
+
+**JERRY:**
+So someone is doing your strategy more effectively, and you're upset?
+
+**KRAMER:**
+He's doing MY move! I invented front-running invisible orders!
+
+**JERRY:**
+First of all, you didn't invent it. Second of all, it's a federal crime.
+
+**KRAMER:**
+Only if you get CAUGHT, Jerry.
+
+*(Kramer grabs Jerry's phone off the counter.)*
+
+**JERRY:**
+What are you—hey—
+
+**KRAMER:**
+I'm calling the CFTC tip line. The Commodity Futures Trading Commission has a whistleblower program. If my tip leads to enforcement action, I could get ten to thirty percent of the monetary sanctions. I could make MORE from reporting this guy than from trading!
+
+**JERRY:**
+Kramer, I don't think you should—
+
+*(Kramer dials. It rings. An AGENT picks up.)*
+
+**KRAMER:**
+Yes, hello. I'd like to report a case of spoofing on the CME Globex platform. Micro E-mini Nasdaq-100 futures. MNQ.
+
+**AGENT** *(on phone)*:
+Okay, sir. Can you describe the activity?
+
+**KRAMER:**
+Large visible orders placed on the bid—500 lots or more—designed to create the appearance of support. Other traders buy in front of the fake bid, then the orders are pulled before they execute, trapping the buyers. The spoofer then sells into the move and re-layers the phantom bids at a lower level.
+
+**AGENT:**
+That does sound like textbook spoofing. Can you tell me how you identified this pattern?
+
+**KRAMER:**
+Well, I was watching the DOM—the depth of market ladder—and I noticed the order sizes were inconsistent with actual fill patterns. The time and sales didn't show corresponding prints at those levels. So either the orders were being pulled or modified within milliseconds of being posted.
+
+**AGENT:**
+Very thorough. And what is your own trading activity on this instrument?
+
+**KRAMER:**
+Oh, I've been placing orders in front of these large visible bids, trying to ride the momentum they create, and then canceling my orders if the big bid starts to disappear.
+
+*(Jerry's eyes go wide. He starts making a THROAT-CUTTING gesture.)*
+
+**AGENT:**
+*(pause)* Sir... you're saying you place orders with the intention of canceling them based on whether other orders remain in the book?
+
+**KRAMER:**
+Right, right. And sometimes I'll put up a bigger order to make it LOOK like there's more interest at a level, to see if other people join, and then I adjust.
+
+**JERRY:**
+*(loud whispering)* KRAMER. STOP TALKING.
+
+**KRAMER:**
+*(waving Jerry off)* And
+
+--- END OF ACT 3 ---
+
+--- START OF ACT 4 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 4
+
+---
+
+### Scene 11 – Monk's Café (Day)
+
+*(Jerry and Elaine are in the booth. George enters carrying a battered ThinkPad laptop under his arm like a sacred text. He has the energy of a man who has not slept but has found religion.)*
+
+**GEORGE:**
+She dumped me.
+
+**JERRY:**
+Sandra?
+
+**GEORGE:**
+She said I was "untradeable." That's what she said. Like I'm a toxic ASSET, Jerry.
+
+**ELAINE:**
+What happened?
+
+**GEORGE:**
+*(sitting down heavily)* I used a trading term in an... inappropriate context.
+
+**JERRY:**
+What trading term?
+
+**GEORGE:**
+I can't say it.
+
+**ELAINE:**
+Say it.
+
+**GEORGE:**
+It was taken out of CONTEXT.
+
+**JERRY:**
+What context makes a trading term romantic?
+
+**GEORGE:**
+*(long pause, staring at the table)* ...I said I wanted to be inside her spread.
+
+*(Dead silence. A WAITER walks past with a tray of food.)*
+
+**ELAINE:**
+*(quietly)* Oh my God.
+
+**GEORGE:**
+The spread! The BID-ASK spread! It's where the market maker LIVES, Sandra! You BUY the bid, you SELL the ask, and you live INSIDE THE SPREAD! It's the most NATURAL metaphor for—
+
+**JERRY:**
+There is nothing natural about what you just described.
+
+**GEORGE:**
+It's a TRADING TERM!
+
+**ELAINE:**
+Oh, that's SO much worse. You thought it was romantic because it was a trading term.
+
+**GEORGE:**
+It IS romantic! The spread is where value is CREATED! It's where two counterparties MEET! There's beauty in the spread, Elaine!
+
+**ELAINE:**
+Please stop saying "spread."
+
+**GEORGE:**
+You know what? It doesn't matter. Sandra was the EMOTIONAL component. She was the flaw in the system. Human judgment, human feelings—that's what KILLED my delta divergence trade. I was RIGHT and my emotions made me wrong. So I've eliminated the variable.
+
+*(He opens the ThinkPad with ceremony.)*
+
+**GEORGE:**
+I've built an algorithm.
+
+**JERRY:**
+You've built an algorithm.
+
+**GEORGE:**
+In Python. Automated scalping. It watches the ES on a one-minute chart, calculates the 20-period VWAP—Volume-Weighted Average Price—and when price deviates more than 1.5 standard deviations from the VWAP, it fades the move. Mean reversion. Price goes too far up, it sells. Price goes too far down, it buys. No emotion. No hesitation. No Sandra.
+
+**JERRY:**
+You can't even program your DVR.
+
+**GEORGE:**
+The DVR doesn't offer 500-to-1 intraday leverage.
+
+**JERRY:**
+Five hundred to one? You could lose your apartment in a SNEEZE.
+
+**GEORGE:**
+That's why the algo is disciplined. It takes two ticks and gets out. Every time. Mechanically. Like Danny with the turkey club.
+
+**ELAINE:**
+George, how much money are you putting into this?
+
+**GEORGE:**
+Five thousand dollars. Into a live funded account at a retail futures broker.
+
+**ELAINE:**
+FIVE THOUSAND? Real dollars?
+
+**GEORGE:**
+Elaine, I once lost four thousand dollars on a tip from a guy at a car wash. At least this time there's a MATHEMATICAL FRAMEWORK.
+
+**JERRY:**
+Does the algorithm have a kill switch? Like, if something goes wrong—a flash crash, a news event—does it shut itself off?
+
+**GEORGE:**
+*(brief pause)* ...Define "kill switch."
+
+**JERRY:**
+A way to stop it from trading if it's losing too much money.
+
+**GEORGE:**
+*(longer pause)* I didn't want to put in artificial constraints, Jerry. The beauty of the system is that it's AUTONOMOUS. You give it rules and you set it FREE. A kill switch is like putting a leash on a racehorse.
+
+**JERRY:**
+A leash on a racehorse is called REINS, George. Every racehorse has them. It's the primary feature of horseback riding.
+
+**GEORGE:**
+The algo knows what it's doing.
+
+**JERRY:**
+The algo is YOU. You MADE it. It has YOUR judgment baked into it.
+
+**GEORGE:**
+Exactly! And my judgment identified a legitimate delta divergence that the entire trading floor validated!
+
+**ELAINE:**
+And then lost eighty-five hundred dollars.
+
+**GEORGE:**
+On the EXECUTION. Not the thesis. The algo fixes the execution. *(standing up, clutching the ThinkPad)* Tomorrow morning. Globex session. I'm going live.
+
+*(George exits with purpose. Jerry and Elaine watch him go.)*
+
+**ELAINE:**
+He's going to lose all five thousand dollars, isn't he?
+
+**JERRY:**
+I think the question is how FAST he loses all five thousand dollars.
+
+---
+
+### Scene 12 – J. Peterman's Office (Day)
+
+*(Elaine is at the Bloomberg Terminal. The numbers on the screen are very, very red. She's on the phone, barely holding it together.)*
+
+**ELAINE:**
+*(into phone)* What do you MEAN the April contract settled down four percent?
+
+**BROKER:**
+The USDA Hogs and Pigs Report showed breeding inventory up nine percent year over year. The market sold off aggressively. Your sixty contracts are marked against the CME Lean Hog Index, which closed at 78.40. Your average entry was 86.15.
+
+**ELAINE:**
+In money. Say it in MONEY.
+
+**BROKER:**
+You're currently showing an unrealized loss of approximately $186,000.
+
+**ELAINE:**
+*(hand over mouth)* A hundred... and eighty-six...
+
+**BROKER:**
+Ma'am, First Notice Day is tomorrow. Now, the good news is that lean hog futures switched to cash settlement as of February 2023. So you won't be receiving physical hogs.
+
+**ELAINE:**
+*(nearly crying with relief)* Oh thank God. Oh, thank GOD.
+
+**BROKER:**
+You'll simply receive a cash debit based on the index settlement price.
+
+**ELAINE:**
+Wait. A cash DEBIT? As in they take MORE money?
+
+**BROKER:**
+You're long in a falling market, ma'am. At settlement, the loss crystallizes.
+
+**ELAINE:**
+HOW DO I STOP IT?
+
+**BROKER:**
+You'd need the account holder to authorize closing the position before the end of today's session. Otherwise it goes to final settlement tomorrow and the loss is locked in.
+
+*(Elaine hangs up. She stares at the ceiling. She breathes. She walks into Peterman's office. He's reading a leather-bound book with no title.)*
+
+**ELAINE:**
+Mr. Peterman. I need the account password.
+
+**PETERMAN:**
+You have the account password, Elaine.
+
+**ELAINE:**
+You CHANGED the account password after I tried to close the position last week.
+
+**PETERMAN:**
+A precautionary measure. I sensed wavering conviction.
+
+**ELAINE:**
+We are down a hundred and eighty-six THOUSAND DOLLARS. The pension fund has lost a hundred and eighty-six thousand dollars on LEAN HOGS.
+
+**PETERMAN:**
+*(setting down the book)* Elaine. In 1994, I lost two hundred thousand dollars on a shipment of high-altitude yak wool that turned out to be synthetic. Do you know what I did?
+
+**ELAINE:**
+Learned from it and moved on?
+
+**PETERMAN:**
+I bought MORE yak wool. And the SECOND shipment was authentic. And that yak wool became the lining of the Peterman Urban Sombrero, which sold eleven thousand units.
+
+**ELAINE:**
+The Urban Sombrero nearly BANKRUPTED the company!
+
+**PETERMAN:**
+*(dismissive)* Details, Elaine. The pig is a CYCLE. We are simply in the trough of the cycle. The crest is coming.
+
+**ELAINE:**
+Mr. Peterman. If you do not give me the password, this pension fund will lose EVERYTHING. The employees. The RETIREMENT accounts. Phyllis in accounting is sixty-three years old. She's COUNTING on this money.
+
+**PETERMAN:**
+*(long contemplative pause)* ...Phyllis does good work.
+
+**ELAINE:**
+She does GREAT work.
+
+**PETERMAN:**
+*(another pause)* The password is "BrugesPigFarmer2." I added a "2" because the system required a number.
+
+*(Elaine BOLTS to the terminal.)*
+
+---
+
+### Scene 13 – Jerry's Apartment (Day)
+
+*(The apartment looks like a crime scene of technology. Server rack humming. Monitors glowing. A sharp KNOCK at the door. Jerry opens it. Two people in dark suits stand in the hallway—CFTC ENFORCEMENT AGENTS.)*
+
+**AGENT HARRIS:**
+Good morning. Mr. Kramer?
+
+**JERRY:**
+I'm not Kramer. I'm Jerry. Jerry Seinfeld. I live here. This is MY apartment.
+
+**AGENT HARRIS:**
+We're from the Commodity Futures Trading Commission, Enforcement Division. We received a tip regarding potential spoofing activity on the CME Globex platform, originating from this address.
+
+**JERRY:**
+Of COURSE you did. Come in.
+
+*(The agents enter. They take in the server rack, the six monitors, the Christmas lights, the napkins with "BUY" written on them scattered across the desk.)*
+
+**AGENT MORRIS:**
+*(looking around)* This is the trading operation?
+
+**JERRY:**
+This is my LIVING ROOM. That *(pointing at the server rack)* belongs to my neighbor, who listed my apartment as his—what did he call it—
+
+*(Kramer slides in through the door.)*
+
+**KRAMER:**
+Boutique trading facility!
+
+**AGENT HARRIS:**
+Mr. Kramer. We spoke on the phone. You reported spoofing activity on the MNQ contract, but during the course of our conversation, you also described activity from your own account that raised some... questions.
+
+**KRAMER:**
+Questions? I'm the WHISTLEBLOWER. I'm on YOUR side.
+
+**AGENT MORRIS:**
+Sir, we've reviewed your trading logs. *(She picks up a napkin from the desk.)* Is... is this your order flow analysis?
+
+**KRAMER:**
+That's proprietary.
+
+**AGENT MORRIS:**
+This one just says "BUY" with arrows.
+
+**KRAMER:**
+Those arrows represent MOMENTUM.
+
+**AGENT HARRIS:**
+Mr. Kramer, your fill reports from your brokerage show a total of 847 round-trip trades over the past two weeks on MNQ. All in one-lot or two-lot size. Your cumulative net P&amp;L is negative three hundred and forty-seven dollars.
+
+**KRAMER:**
+And TWELVE cents.
+
+**AGENT HARRIS:**
+Sir, your total trading history suggests you are not, in fact, a high-frequency trader.
+
+**KRAMER:**
+I am HIGH frequency. I trade FREQUENTLY. Every day I'm in there, clicking! You can't tell me 847 round trips in two weeks isn't high frequency!
+
+**AGENT MORRIS:**
+It's high frequency. It's just not... effective.
+
+**AGENT HARRIS:**
+Regarding the spoofing allegation—against yourself, effectively—we've reviewed your order entry patterns. You did cancel a statistically unusual number of orders before they were filled.
+
+**KRAMER:**
+*(brightening)* See? PATTERNS!
+
+**AGENT HARRIS:**
+However, based on our analysis, the cancellations appear to be the result of... accidentally hitting the wrong keys, rather than a deliberate manipulation strategy.
+
+**KRAMER:**
+*(offended)* ACCIDENTALLY? I'll have you know every one of those cancellations was a strategic DECISION—
+
+**JERRY:**
+*(stepping in)* He accepts your finding. He accepts ALL findings. Is there anything else?
+
+*(Agent Morris picks up another napkin. It says "SELL???" with a drawing of what appears to be a rocket ship.)*
+
+**AGENT MORRIS:**
+What's this one?
+
+**KRAMER:**
+Phase three. It's proprietary.
+
+*(The agents look at each other.)*
+
+**AGENT HARRIS:**
+We're going to close this inquiry. Mr. Kramer, you are not being charged, primarily because we can't determine with certainty that any of your trading activity was intentional.
+
+**KRAMER:**
+*(sputtering)* Not INTENTIONAL—
+
+**JERRY:**
+THANK you, agents. He appreciates it. WE appreciate it.
+
+*(The agents head for the door. Agent Morris turns back.)*
+
+**AGENT MORRIS:**
+*(quietly, to Agent Harris)* That's the worst spoofing operation in the history of American finance.
+
+**AGENT HARRIS:**
+Was it even spoofing?
+
+**AGENT MORRIS:**
+I honestly don't know WHAT that was.
+
+*(They exit. Jerry closes the door. Turns to Kramer.)*
+
+**JERRY:**
+The Commodity Futures Trading Commission of the United States government just came to my apartment, Kramer. MY apartment. Because you gave them MY address as your—
+
+**KRAMER:**
+Boutique trading facility.
+
+**JERRY:**
+*(staring)* Get out.
+
+**KRAMER:**
+I can't. My servers are here.
+
+---
+
+**[END OF ACT 4]**
+
+--- END OF ACT 4 ---
+
+--- START OF ACT 5 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 5
+
+---
+
+### Scene 14 – Jerry's Apartment (Early Morning)
+
+*(Pre-dawn. The apartment is dark except for the glow of Kramer's monitors and the Christmas lights. George is sitting at Jerry's kitchen counter with his ThinkPad open, hunched over it like a man defusing a bomb. Jerry shuffles out of the bedroom in a robe, squinting.)*
+
+**JERRY:**
+It's 5:40 in the morning. Why are you in my apartment?
+
+**GEORGE:**
+Globex opens at six for the US day session. I wanted to be near the servers.
+
+**JERRY:**
+KRAMER'S servers? The ones that lost him three hundred and forty-seven dollars?
+
+**GEORGE:**
+And twelve cents. It's about the INFRASTRUCTURE, Jerry. Low latency. Every microsecond.
+
+**JERRY:**
+You're on my kitchen counter on a ThinkPad connected to my Wi-Fi. There is no latency advantage here. A carrier pigeon would be faster.
+
+**GEORGE:**
+*(ignoring him, typing)* Algorithm is loaded. Mean-reversion strategy on the ES one-minute chart. 20-period VWAP with 1.5 standard deviation bands. When price pierces the upper band, it sells. When it pierces the lower band, it buys. Two-tick profit target. Automatic exit. Clean. Mechanical. Beautiful.
+
+**JERRY:**
+And the kill switch?
+
+**GEORGE:**
+*(not making eye contact)* I made a creative decision on the kill switch.
+
+**JERRY:**
+George.
+
+**GEORGE:**
+If I put in a max loss, I'm telling the algorithm I don't BELIEVE in it. You have to trust the system, Jerry. You have to let it breathe.
+
+**JERRY:**
+Algorithms don't breathe. They're not ALIVE.
+
+**GEORGE:**
+This one's alive. I can feel it.
+
+**JERRY:**
+You can feel the algorithm.
+
+**GEORGE:**
+It's got my DNA in it. My logic. My instincts. Without my emotions. It's like a better version of me.
+
+**JERRY:**
+So it's everyone's dream George.
+
+*(The clock hits 6:00 AM. George's screen flickers. The ES chart begins updating with live data.)*
+
+**GEORGE:**
+*(whispering)* We're live. Five thousand dollars. One lot. Here we go.
+
+*(They watch. A beat. The algo places its first trade: Buy 1 ES at 4498.75. A few seconds pass. Sells at 4499.00. Profit: one tick, $12.50.)*
+
+**GEORGE:**
+*(fist pump)* One tick! Twelve-fifty!
+
+**JERRY:**
+Alert the media.
+
+*(Another trade. Buy at 4498.50. Sell at 4498.75. Another tick.)*
+
+**GEORGE:**
+That's two. Twenty-five dollars.
+
+*(A montage of trades. The algo works rhythmically. Buy, sell. Buy, sell. George watches, mesmerized. Jerry makes coffee. Time passes. Eight trades completed.)*
+
+**GEORGE:**
+Eight scalps. Eight for eight. A hundred dollars gross, minus commissions—four-fifty round trip per trade, times eight—thirty-six in commissions. That's sixty-four dollars net profit. *(leaning back, arms spread)* SIXTY-FOUR DOLLARS. And I wasn't even INVOLVED!
+
+**JERRY:**
+Sixty-four dollars in—how long has it been?
+
+**GEORGE:**
+Twenty minutes.
+
+**JERRY:**
+So you're making three dollars and twenty cents a minute. You could earn more returning cans.
+
+**GEORGE:**
+It SCALES, Jerry! This is one lot! Imagine ten lots! A hundred lots!
+
+**JERRY:**
+Imagine the kill switch you didn't build.
+
+**GEORGE:**
+Would you stop with the—
+
+*(Suddenly, George's phone BUZZES. Then buzzes again. Then a cascade of buzzes. The ES chart on his screen lurches violently downward. A massive red candle prints.)*
+
+**GEORGE:**
+What—what is—
+
+**JERRY:**
+What's happening?
+
+**GEORGE:**
+*(frantically scrolling his phone)* The Fed—the FOMC just released an emergency statement. Unscheduled. Something about—inflation expectations—revised guidance—
+
+*(The ES drops 10 points in seconds. Then 15. Then 20. George's algo, following its mean-reversion logic, BUYS. Price is deviating below the VWAP lower band, so the algo sees it as a buying opportunity.)*
+
+**GEORGE:**
+No. No no no. It's BUYING. It thinks it's a dip!
+
+**JERRY:**
+Is it not a dip?
+
+**GEORGE:**
+It's a COLLAPSE, Jerry! The algo doesn't know the difference! It sees price below the band and it BUYS! That's what I TOLD it to do!
+
+*(ES drops another 10 points. The algo buys again—it's now long at a worse price. P&amp;L flashes: -$400. Then -$650. Then -$900.)*
+
+**GEORGE:**
+*(standing up, hands on head)* STOP BUYING! STOP BUYING!
+
+**JERRY:**
+Can you turn it off?
+
+**GEORGE:**
+*(frantically typing)* I'm trying to—the interface is—it's executing FASTER than I can—
+
+*(P&amp;L: -$1,200. -$1,500. The algo buys again on another deviation signal.)*
+
+**JERRY:**
+CLOSE THE LAPTOP!
+
+*(George SLAMS the laptop shut. They both stand there, breathing hard. A beat of silence.)*
+
+**GEORGE:**
+*(quietly)* Okay. Okay. It's off.
+
+**JERRY:**
+Is it off? Is the trade closed?
+
+**GEORGE:**
+I closed the laptop. The program can't run if the laptop is closed.
+
+**JERRY:**
+George. Closing the laptop doesn't close your POSITION. The orders are on the EXCHANGE. The exchange doesn't know or care whether your laptop is open.
+
+*(George stares at Jerry. The color drains from his face. He opens the laptop. P&amp;L: -$1,800. He watches it tick. -$1,950. -$2,100. -$2,200.)*
+
+**GEORGE:**
+*(screaming)* HOW DO I STOP IT?! WHERE'S THE—
+
+**JERRY:**
+The kill switch! The kill switch you creatively decided NOT TO—
+
+**GEORGE:**
+*(hammering keys)* FLATTEN! FLATTEN ALL! WHERE IS FLATTEN ALL?!
+
+*(He finds it. Clicks. "ALL POSITIONS FLATTENED. REALIZED P&amp;L: -$2,247.83.")*
+
+*(Silence. George stares at the screen. Jerry stares at George.)*
+
+**GEORGE:**
+*(barely audible)* Two thousand two hundred and forty-seven dollars. And eighty-three cents.
+
+**JERRY:**
+The eighty-three cents is really the indignity.
+
+**GEORGE:**
+*(turning to Jerry with wild eyes)* There should be a rule. If you close the laptop, the trade STOPS. A lid rule. There should be a LID RULE, Jerry!
+
+**JERRY:**
+You know that's not a thing.
+
+**GEORGE:**
+IT SHOULD BE A THING! I'm writing the SEC! I'm writing my CONGRESSMAN! If I close the lid, I'm saying I'M DONE! The machine should RESPECT the lid!
+
+**JERRY:**
+The machine respected exactly what you told it to respect—which was NOTHING, because you didn't build a kill switch.
+
+*(George closes the laptop gently. Sets it aside. Puts his head on Jerry's kitchen counter.)*
+
+**GEORGE:**
+*(muffled, into the counter)* The delta divergence was still real.
+
+**JERRY:**
+Let it go, George.
+
+---
+
+### Scene 15 – J. Peterman's Office (Day)
+
+*(Elaine is at the Bloomberg Terminal, phone pressed to her ear, typing with her free hand. She has the focused intensity of a surgeon.)*
+
+**ELAINE:**
+*(into phone)* Okay. I'm logged in. I need to close sixty lean hog contracts. But I don't want to just dump them into the market and get horrible slippage. What are my options?
+
+**BROKER:**
+Well, you could execute a straight liquidation—sell sixty contracts at market. But given the current depth on the HE book, you'd likely move price against yourself. Alternatively, you could roll the position—sell the expiring April contract and simultaneously buy the next month's contract. That converts your exposure to the May HE without triggering settlement.
+
+**ELAINE:**
+And then I close the May position when things calm down?
+
+**BROKER:**
+That's the idea. You'd execute it as a calendar spread. One order, two legs.
+
+**ELAINE:**
+Do the roll. Do the roll right now.
+
+**BROKER:**
+Executing. *(pause)* Okay, the roll is filled. April sold, May bought. You picked up about three ticks of calendar spread slippage on the execution—the May contract was trading at a slight premium due to carry costs.
+
+**ELAINE:**
+How much is three ticks of slippage on sixty contracts?
+
+**BROKER:**
+Roughly seven hundred and twenty dollars.
+
+**ELAINE:**
+*(closing her eyes)* Fine. FINE. Now close the May position. ALL of it. I don't care about slippage anymore. Get me OUT of hogs.
+
+**BROKER:**
+Selling sixty May HE at market. *(pause)* Filled. You're flat. No position. The total realized loss on the round trip, including the roll costs, is... ninety-four thousand, three hundred and twelve dollars.
+
+*(Long silence.)*
+
+**ELAINE:**
+Ninety-four thousand dollars. On pigs.
+
+**BROKER:**
+And three hundred and twelve dollars. Yes ma'am.
+
+**ELAINE:**
+Thank you.
+
+*(She hangs up. Sits motionless. Peterman emerges from his office, sensing a disturbance.)*
+
+**PETERMAN:**
+Elaine? The hogs?
+
+**ELAINE:**
+The hogs are gone, Mr. Peterman. I closed the position. We lost ninety-four thousand dollars.
+
+**PETERMAN:**
+*(taking this in, nodding slowly)* Tuition.
+
+**ELAINE:**
+Excuse me?
+
+**PETERMAN:**
+Tuition, Elaine. In the University of Pork. The great traders don't count their losses—they count their LESSONS. And we have just received... a graduate education.
+
+**ELAINE:**
+*(dead inside)* I went to Tufts.
+
+**PETERMAN:**
+And now you've been to the University of Pork. Arguably more prestigious. They don't even have a CAMPUS, Elaine. The world is their campus.
+
+*(Elaine turns back to the Bloomberg Terminal. She slowly, deliberately logs out. She closes the app. She picks up the Post-it note that says "BrugesPigFarmer2," tears it into very small pieces, and drops them into the wastebasket like confetti at the funeral of her dignity.)*
+
+---
+
+### Scene 16 – Monk's Café (Evening)
+
+*(All four at the booth. Elaine has a bourbon. George has his closed ThinkPad sitting next to him like a dead pet. Kramer is wearing a lanyard that reads "CME GROUP — FUTURES FORUM 2024." Jerry has a coffee.)*
+
+**JERRY:**
+Where'd you get the lanyard?
+
+**KRAMER:**
+Futures conference at the Javits Center. I walked right in. Nobody stops a man with a server rack on a dolly. They think you're IT.
+
+**JERRY:**
+You brought the server rack?
+
+**KRAMER:**
+I had to get it out of your apartment before the CFTC came back. It's currently in the coat check at the Javits Center.
+
+**JERRY:**
+You coat-checked a Dell PowerEdge.
+
+**KRAMER:**
+They didn't even blink. I think they thought it was a demo unit.
+
+*(Jerry looks around the table.)*
+
+**JERRY:**
+So let me get this straight. George lost two grand to a computer he built himself. Elaine lost ninety-four thousand dollars on imaginary pigs. And Kramer got investigated by the federal government for three hundred and forty-seven dollars.
+
+**KRAMER:**
+Three hundred and forty-seven dollars and EXPERIENCE, Jerry. You can't put a price on—
+
+**JERRY:**
+Three hundred and forty-seven dollars. You literally just put a price on it.
+
+**ELAINE:**
+*(swirling her bourbon)* You know the worst part? I actually started to understand the Bloomberg Terminal. By the end, I could read the order book. I could see the bids stacking up. I knew what the USDA report meant before the broker told me.
+
+**JERRY:**
+So you learned a highly technical skill that you will never, ever use again.
+
+**ELAINE:**
+Welcome to my entire education.
+
+**GEORGE:**
+*(quietly, staring at the table)* I still think my delta divergence read was right.
+
+**ELAINE:**
+Oh, here we go.
+
+**GEORGE:**
+The cumulative delta WAS falling while price made new highs. That IS absorption. The passive sellers WERE absorbing the aggressive buyers. The move DID reverse. I called it. I called the EXACT top.
+
+**JERRY:**
+And then lost eighty-five hundred dollars.
+
+**GEORGE:**
+On the SIMULATOR.
+
+**JERRY:**
+And then two thousand two hundred on REAL money.
+
+**GEORGE:**
+Because of the FOMC! An UNSCHEDULED Fed statement! That's an exogenous shock! That's not a MARKET event, that's a GOVERNMENT event! My algo was working PERFECTLY until the federal government decided to INTERVENE in my TRADING SESSION!
+
+**ELAINE:**
+Your algo bought every tick of a forty-point drop because you didn't install a kill switch.
+
+**GEORGE:**
+THE LID SHOULD COUNT!
+
+*(Kramer has been studying something on his phone.)*
+
+**KRAMER:**
+You know, the Micro E-mini S&amp;P futures—the MES—have a notional value of about twenty-five thousand dollars, and with margins at roughly twelve hundred, you're looking at almost 20-to-1 leverage. If a guy were to really OPTIMIZE his latency setup—maybe get a dedicated fiber line, bypass the consumer-grade Spectrum infrastructure—
+
+**JERRY:**
+No.
+
+**KRAMER:**
+I'm just SAYING—
+
+**JERRY:**
+No.
+
+**KRAMER:**
+What if I co-located in the hallway? Closer to the junction box—
+
+**JERRY:**
+NO.
+
+*(Beat. They all sit with their respective failures.)*
+
+**GEORGE:**
+*(picking up the ThinkPad, looking at it)* The code is still good. The logic is sound. I just need a kill switch and... maybe a bigger account.
+
+**JERRY:**
+You have LESS money than when you started.
+
+**GEORGE:**
+Which means I have less to LOSE, Jerry. The risk-reward has actually IMPROVED.
+
+*(Jerry stares at him.)*
+
+**JERRY:**
+That is the most George Costanza thing you have ever said.
+
+*(George opens the ThinkPad. The screen glows. He stares at it with something between love and madness.)*
+
+**GEORGE:**
+One more tick. That's all I need. Just one more tick.
+
+*(Elaine finishes her bourbon. Kramer adjusts his lanyard. Jerry shakes his head.)*
+
+---
+
+### Jerry's Closing Stand-up (Comedy Club)
+
+*(Spotlight on Jerry.)*
+
+**JERRY:**
+High-frequency trading—they say the average holding period is half a second. Half a SECOND. You know what I can do in half a second? Nothing. Literally nothing. These people make a living doing nothing faster than I do nothing. They've optimized NOTHING. And somehow, that's worth BILLIONS.
+
+Meanwhile, I'm still holding a stock I bought in 2004 because I "believe in the company." I don't even know what the company DOES anymore. I think they make printers? I believe in printers, apparently.
+
+You know what high-frequency traders believe in? The NEXT half second. That's the whole religion. No church, no hymns, just a server in Aurora, Illinois, doing GOD's work... one tick at a time.
+
+---
+
+**[END OF ACT 5]**
+
+*(BASS LINE. CREDITS.)*
+
+---
+
+*During credits, displayed in Seinfeld font:*
+
+- **ES** = E-mini S&amp;P 500 Futures
+- **1 Tick (ES)** = 0.25 pts = $12.50
+- **Co-location** = Placing servers near exchange matching engines
+- **DOM** = Depth of Market / Order Book Ladder
+- **VPOC** = Volume Point of Control
+- **Spoofing** = Illegal phantom order placement (Dodd-Frank §747)
+- **VWAP** = Volume-Weighted Average Price
+- **First Notice Day** = Deadline before physical/cash delivery
+
+--- END OF EPISODE ---
+</script>
+
+<script type="text/plain" id="raw-final">
+--- START OF ACT 1 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 1
+
+---
+
+### SCENE 1 – JERRY'S APARTMENT / STAND-UP (COLD OPEN)
+
+*(Jerry on stage, spotlight.)*
+
+**JERRY:**
+They say time is money. On the Chicago Mercantile Exchange, one millisecond IS money. These guys are literally upset that light isn't traveling fast enough. Light! The fastest thing in the universe, and some guy in a fleece vest in Chicago is going, "C'mon, MOVE IT!" You're yelling at a photon! A PHOTON! It's doing the best it can! It left the SUN eight minutes ago, traveled ninety-three million miles, and this guy's like, "Yeah, that's not gonna work for us. We need to shave two nanoseconds." Two nanoseconds! I can't shave two minutes off my COMMUTE.
+
+---
+
+### SCENE 2 – MONK'S CAFÉ (DAY)
+
+*(Jerry is mid-coffee. George slides into the booth, vibrating with a manic energy that suggests he hasn't slept.)*
+
+**GEORGE:**
+Jerry. Jerry Jerry Jerry.
+
+**JERRY:**
+That's my name, what are the other words going to be?
+
+**GEORGE:**
+You know Sandra. The woman I've been seeing.
+
+**JERRY:**
+The one you met at the car wash.
+
+**GEORGE:**
+Adjacent to the car wash. I was vacuuming, she was at the air pump. That's ADJACENT.
+
+**JERRY:**
+Fine. The air pump woman.
+
+**GEORGE:**
+She makes forty-eight thousand dollars, Jerry.
+
+**JERRY:**
+Good for her.
+
+**GEORGE:**
+Before LUNCH.
+
+**JERRY:**
+...before lunch?
+
+**GEORGE:**
+Before lunch! She sits at a desk with six monitors and she buys and sells E-mini S&amp;P futures on the CME and she doesn't even HOLD them, Jerry. She buys them and then she sells them like a SECOND later. Sometimes the SAME second.
+
+**JERRY:**
+What's an E-mini S&amp;P future?
+
+**GEORGE:**
+It's the biggest futures contract in the world. ES. You're trading the S&amp;P 500 index, but as a future. One tick—one TINY move—is worth twelve dollars and fifty cents per contract.
+
+**JERRY:**
+Twelve-fifty. That's nothing.
+
+**GEORGE:**
+It's nothing if you trade ONE. She trades HUNDREDS. Simultaneously. Hundreds of contracts, capturing one tick, two ticks, over and over, all day long. They call it scalping.
+
+**JERRY:**
+Sounds painful.
+
+**GEORGE:**
+I once exposed myself to the New Jersey Turnpike for twelve-fifty. Exposed my body to the TURNPIKE, Jerry! The fumes, the sun, the truckers—for a rebate on wiper fluid! This woman makes that in a FRACTION of a second sitting in air conditioning!
+
+**JERRY:**
+So you like her.
+
+**GEORGE:**
+I want to BE her, Jerry. I don't want to date her, I want to INHABIT her life.
+
+**JERRY:**
+You know that requires discipline, right? Focus. Emotional control.
+
+**GEORGE:**
+I have those things.
+
+**JERRY:**
+You once cried because a vending machine gave you Pepsi instead of Coke.
+
+**GEORGE:**
+I SELECTED Coke!
+
+*(George's phone buzzes. He answers, puts it on speaker.)*
+
+**GEORGE:**
+Sandra! You're on speaker. Jerry's here.
+
+**SANDRA** *(on phone):*
+Hi, Jerry.
+
+**JERRY:**
+I hear you're a scalper.
+
+**SANDRA** *(on phone):*
+I prefer "liquidity provider."
+
+**GEORGE:**
+Sandra, I've been thinking about what you told me. About HFT scalping. About the ticks.
+
+**SANDRA** *(on phone):*
+George...
+
+**GEORGE:**
+I want in. I want to learn. Let me come to the floor.
+
+**SANDRA** *(on phone):*
+It's not a floor, it's a server room with desks. And it takes YEARS to—
+
+**GEORGE:**
+I'm a FAST learner.
+
+*(He knocks his coffee over. Frantically mops it with napkins.)*
+
+**GEORGE:**
+*(into phone, mopping)*
+That wasn't anything.
+
+**SANDRA** *(on phone):*
+...I can set you up on a simulator.
+
+**GEORGE:**
+*(fist pump, mouthing "YES" to Jerry)*
+That'd be great. Very casual. Just a simulator. Very low-key.
+
+*(He hangs up. Immediately grabs Jerry's arm.)*
+
+**GEORGE:**
+I'm going to be RICH, Jerry.
+
+**JERRY:**
+You're going to be fascinating to watch. That much I know.
+
+---
+
+### SCENE 3 – JERRY'S APARTMENT (LATER THAT DAY)
+
+*(Jerry is at his desk writing. The door BURSTS open. Kramer enters backward, pulling a hand dolly loaded with a massive decommissioned server rack—black metal, blinking lights, tangled cables. It barely fits through the door.)*
+
+**JERRY:**
+No.
+
+**KRAMER:**
+Just let me—
+
+**JERRY:**
+Whatever THAT is, no.
+
+**KRAMER:**
+Jerry, this is a Dell PowerEdge R740. Dual Xeon processors. This is the same hardware the big boys use. Citadel. Jump Trading. Tower Research.
+
+**JERRY:**
+For what?
+
+**KRAMER:**
+I'm getting into high-frequency trading.
+
+**JERRY:**
+Of course you are.
+
+**KRAMER:**
+*(parking the server rack against the wall, knocking over a lamp)*
+You know what these firms do? They put their computers INSIDE the exchange. Physically inside! Co-location, Jerry. Like a parasite. A beautiful, profitable parasite living in the GUTS of the market.
+
+**JERRY:**
+And you're going to co-locate... in my apartment.
+
+**KRAMER:**
+No no no. The apartment UPSTAIRS. I signed a six-month lease on 5B. It's directly above the main Spectrum trunk line into the building. I measured. I'm going to be four feet closer to the internet backbone than ANYONE on this block.
+
+**JERRY:**
+Four feet.
+
+**KRAMER:**
+Four feet! Jerry, in high-frequency trading, every microsecond counts. I'm talking about latency. Jitter. Packet jitter!
+
+**JERRY:**
+You don't even know what a packet IS.
+
+**KRAMER:**
+I know it jitters, and I don't LIKE it.
+
+**JERRY:**
+What are you even going to trade?
+
+**KRAMER:**
+Micro E-mini Nasdaq-100 futures. MNQ. It's one-tenth the size of the full NQ contract. Two bucks a tick. You gotta start micro to go macro, Jerry.
+
+**JERRY:**
+You're going to day-trade tech futures from a Spectrum internet connection four feet closer to a cable hub.
+
+**KRAMER:**
+*(gripping Jerry's shoulders)*
+The firms in Aurora, Illinois—they're co-located at the CME data center, right next to the matching engine. Their latency is measured in NANOSECONDS. My latency... will be measured in milliseconds. But I'm going to make up the difference with INSTINCT.
+
+**JERRY:**
+Instinct.
+
+**KRAMER:**
+Human instinct, Jerry! The algo sees the number. But I see the STORY.
+
+*(He dramatically gestures at the server rack. One of the panels falls off and clatters to the floor.)*
+
+**KRAMER:**
+That's cosmetic.
+
+*(A THUMP from below. Then another. Then muffled yelling.)*
+
+**JERRY:**
+Newman.
+
+**KRAMER:**
+I may have run the power cable through his ceiling.
+
+---
+
+### SCENE 4 – J. PETERMAN'S OFFICE (DAY)
+
+*(Peterman stands at his window, gazing out like Napoleon surveying a battlefield. Elaine sits across from his desk, notepad ready.)*
+
+**PETERMAN:**
+Elaine, I've made a decision that will redefine the financial architecture of this company.
+
+**ELAINE:**
+Are we finally switching to direct deposit?
+
+**PETERMAN:**
+I'm moving the entire J. Peterman pension fund into CME commodity futures.
+
+**ELAINE:**
+...what?
+
+**PETERMAN:**
+Specifically, lean hog futures. The April HE contract.
+
+**ELAINE:**
+Hog futures. As in... pigs.
+
+**PETERMAN:**
+Nineteen ninety-one. I'm in Bruges. Cobblestones wet with rain. I lock eyes with a pig farmer across the Markt square. Enormous hands. Eyes like two small potatoes. He looked at me and I looked at him and in that moment, Elaine, I saw the FUTURE of capital. It had a snout.
+
+**ELAINE:**
+Mr. Peterman, does anyone in this company have experience trading commodity futures?
+
+**PETERMAN:**
+You do. Starting now.
+
+*(He hands her a Post-it note.)*
+
+**PETERMAN:**
+I've purchased forty contracts. Each contract represents forty thousand pounds of lean hog carcass.
+
+**ELAINE:**
+Forty THOUSAND—
+
+**PETERMAN:**
+Times forty contracts. That's one point six million pounds of American pork, Elaine. Riding on the March of progress.
+
+**ELAINE:**
+One point six million pounds.
+
+**PETERMAN:**
+There's a Bloomberg Terminal being installed at your desk as we speak. The password is BrugesPigFarmer. One word. Capital B, capital P, capital F.
+
+**ELAINE:**
+Mr. Peterman, I don't know how to use a Bloomberg Terminal. I don't know what a lean hog contract—
+
+**PETERMAN:**
+Elaine. I once navigated a spice barge through the Strait of Malacca using nothing but a compass and a jar of turmeric. You'll figure it out.
+
+*(He hands her the Post-it and returns to his window. Elaine stares at the Post-it. Looks up. Looks at nothing.)*
+
+**ELAINE:**
+...Tufts.
+
+---
+
+**[END OF ACT 1]**
+
+--- END OF ACT 1 ---
+
+--- START OF ACT 2 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 2
+
+---
+
+### SCENE 5 – SANDRA'S TRADING FLOOR (DAY)
+
+*(A sleek prop trading office. Rows of desks, each with multiple monitors showing price ladders, charts, and scrolling data. The ambient sound is a low hum of clicking keys and occasional callouts. George stands behind Sandra's chair, wearing a visitor badge clipped to his shirt pocket at an awkward angle. Sandra is seated, calm, focused. A nearby trader, DANNY, mid-30s, eats a turkey club sandwich with one hand while executing trades with the other.)*
+
+**SANDRA:**
+Okay. This is the simulator. It mirrors the live ES book in real time. Same prices, same depth. You just can't hurt anyone.
+
+**GEORGE:**
+*(sitting down, cracking his knuckles)*
+Including myself?
+
+**SANDRA:**
+Especially yourself.
+
+**GEORGE:**
+*(studying the screen intensely)*
+Alright. Alright. So... the green numbers are good and the red numbers are bad.
+
+**SANDRA:**
+No.
+
+**GEORGE:**
+The LEFT side is buying—
+
+**SANDRA:**
+Other way.
+
+**GEORGE:**
+*(squinting)*
+What's the big number in the middle?
+
+**SANDRA:**
+That's the price, George.
+
+**GEORGE:**
+I knew that. I was testing you.
+
+**SANDRA:**
+The column on the left shows resting buy orders at each price level. The bids. The right side shows the sell orders. The offers. We make money by buying on the bid and selling on the offer. That spread between them—that's where we live.
+
+**GEORGE:**
+One tick. Twelve-fifty.
+
+**SANDRA:**
+Per contract. Do it a thousand times a day with size, and it adds up.
+
+**GEORGE:**
+*(nodding rapidly)*
+I'm ready.
+
+**SANDRA:**
+Start with five contracts. Use a LIMIT order. You place it on the bid and you WAIT for someone to sell into you. You do NOT use a market order. A market order crosses the spread—you're giving UP the edge instead of capturing it.
+
+**GEORGE:**
+Limit order. On the bid. Wait. Got it. I'm a patient person.
+
+*(Sandra gives him a look.)*
+
+**GEORGE:**
+I can BE patient.
+
+*(George places his cursor on the bid. Pauses. His knee is bouncing. He glances at Danny, who takes a bite of his turkey club and casually clicks. A fill notification flashes on Danny's screen.)*
+
+**GEORGE:**
+Did he just...
+
+**DANNY:**
+*(chewing)*
+Yep.
+
+**GEORGE:**
+While EATING?
+
+**DANNY:**
+I had a P&amp;L of fourteen grand on Tuesday and I was also eating a turkey club. It was the same turkey club, actually. Took me three hours to finish it.
+
+*(George stares at Danny's sandwich, then back at his screen. His patience visibly snaps. He starts clicking furiously.)*
+
+**SANDRA:**
+George—what are you—
+
+**GEORGE:**
+I'm getting IN. I'm getting in the GAME, Sandra!
+
+**SANDRA:**
+George, that's a MARKET order—you just market ordered two hundred contracts—
+
+**GEORGE:**
+I saw a button that said "BUY" and I BOUGHT!
+
+**SANDRA:**
+You crossed the spread on two hundred lots! You're filled three ticks above where you—George, you just lost seventy-five hundred dollars in simulated money.
+
+**GEORGE:**
+*(staring at the screen)*
+How is it possible to lose money on something I don't understand?
+
+**SANDRA:**
+That's actually the most common way to lose money.
+
+**GEORGE:**
+Why didn't it WARN me? Where was the popup? Where was the "Are you sure?"
+
+**SANDRA:**
+There's a confirmation dialog. You clicked through it.
+
+**GEORGE:**
+Of COURSE I clicked through it! I click through EVERYTHING! Terms of service, privacy policies, organ donor forms—I am POSSIBLY an organ donor, Sandra! I don't KNOW!
+
+*(Danny takes another bite of his turkey club. His screen flashes green.)*
+
+**DANNY:**
+Grabbed two ticks on that move, actually.
+
+**GEORGE:**
+What move?
+
+**DANNY:**
+Your move. Your two hundred lot market order spiked it. I was on the offer.
+
+**GEORGE:**
+*(slowly turning)*
+...was that ME? Did I just... give YOU money?
+
+**DANNY:**
+*(shrugging, chewing)*
+Huh.
+
+*(George looks at Sandra. Sandra pinches the bridge of her nose.)*
+
+---
+
+### SCENE 6 – JERRY'S APARTMENT / KRAMER'S "TRADING FLOOR" (EVENING)
+
+*(The apartment has been transformed. Six monitors are arranged on Jerry's desk and kitchen counter. Christmas lights are strung along the ceiling. A mechanical keyboard sits on a cutting board balanced between two chairs. Kramer sits in a complex arrangement of cushions. Jerry stands behind him, arms crossed.)*
+
+**JERRY:**
+Why are there Christmas lights?
+
+**KRAMER:**
+Ambiance. The institutional guys have fluorescent lighting. Cold. Sterile. I'm creating a NURTURING environment for my trades.
+
+**JERRY:**
+Your trades need to be nurtured.
+
+**KRAMER:**
+Every trade is a living thing, Jerry. It's born, it grows, and if you're not careful, it dies.
+
+**JERRY:**
+What am I looking at here?
+
+**KRAMER:**
+THAT is the DOM. The Depth of Market ladder. Micro E-mini Nasdaq. MNQ. Every price level, you can see how many contracts are sitting on the bid and the offer. Watch.
+
+*(He points at a cluster of numbers on one of the screens.)*
+
+**KRAMER:**
+You see that? Three hundred contracts sitting on the bid at fifteen-eight-sixty. Three hundred! That's been there for two minutes. But HERE'S the thing—
+
+*(He leans in conspiratorially.)*
+
+**KRAMER:**
+—it's not REAL.
+
+**JERRY:**
+The number on the screen isn't real.
+
+**KRAMER:**
+It's an ICEBERG, Jerry. An iceberg order. They show you fifty on the book, but underneath? There could be a THOUSAND. They hide the size so the other algos don't see them coming. Like a submarine. A financial submarine, lurking beneath the surface of the order book.
+
+**JERRY:**
+So your strategy is to spot the submarine.
+
+**KRAMER:**
+I spot the submarine, I swim alongside the submarine, and when the submarine launches its torpedoes, I'm RIGHT there, riding the torpedo.
+
+**JERRY:**
+You want to ride a torpedo.
+
+**KRAMER:**
+To PROFIT, Jerry.
+
+*(He turns back to the screens, positions his fingers over the keyboard with the intensity of a concert pianist.)*
+
+**KRAMER:**
+Okay. Okay. I see refreshing on the bid. Five lots showing but it keeps refilling. That's the iceberg. I'm getting in front of it. Buying ten MNQ right... NOW.
+
+*(He slams a key. Silence. They both stare at the screen.)*
+
+**JERRY:**
+Is something happening?
+
+**KRAMER:**
+It's... moving sideways.
+
+**JERRY:**
+That doesn't seem ideal.
+
+**KRAMER:**
+Sideways is BUILDING, Jerry. It's coiling. Like a spring. Like a—
+
+*(The numbers on screen suddenly shift. Kramer lurches forward.)*
+
+**KRAMER:**
+It's moving! It's— wait. No. That's— the bid is pulling. The iceberg is GONE. Where did the submarine go?!
+
+**JERRY:**
+Maybe it submerged.
+
+**KRAMER:**
+*(clicking frantically)*
+I gotta get out. I gotta flatten. Where's the— Jerry, where's the flatten button—
+
+*(He hits a key. All screens flash. Everything goes to zero. Dead silence.)*
+
+**KRAMER:**
+...I meant to do that.
+
+**JERRY:**
+Was there profit?
+
+**KRAMER:**
+There was EXPERIENCE.
+
+*(Long pause. Kramer reaches for a napkin from Jerry's counter. Pulls out a pen. Draws a large upward arrow. Writes "BUY" next to it. Below that, draws an even LARGER arrow. Writes "BUY AGAIN.")*
+
+**JERRY:**
+What is that?
+
+**KRAMER:**
+Phase one.
+
+**JERRY:**
+What's phase two?
+
+**KRAMER:**
+*(folding the napkin carefully, tucking it into his shirt pocket)*
+Proprietary.
+
+---
+
+### SCENE 7 – MONK'S CAFÉ (NIGHT)
+
+*(Jerry, George, and Elaine in the booth. George has dark circles under his eyes and is hunched over his phone watching a YouTube video titled "ORDER FLOW SECRETS THE PROS DON'T WANT YOU TO KNOW." Elaine stares at her own phone with the hollow expression of someone who has seen the abyss.)*
+
+**JERRY:**
+How was the simulator?
+
+**GEORGE:**
+I don't want to talk about the simulator.
+
+**JERRY:**
+That good.
+
+**GEORGE:**
+I will say THIS. The problem was not the strategy. The problem was the INSTRUMENT. You can't just throw a man in front of a DOM ladder with no preparation and expect—
+
+**JERRY:**
+You begged her to let you try.
+
+**GEORGE:**
+I wasn't READY to try. I was ready to want to try. There's a difference.
+
+*(Beat.)*
+
+**GEORGE:**
+I've been studying. Order flow. Volume profile. The VPOC.
+
+**JERRY:**
+The what?
+
+**GEORGE:**
+Volume Point of Control. It's the price level where the most volume has traded during the session. It's like the center of gravity. Everything gets pulled back to it.
+
+**JERRY:**
+Okay.
+
+**GEORGE:**
+Our relationship has a VPOC, Jerry. Yours and mine. And that VPOC is THIS booth. This is where the most volume is.
+
+**JERRY:**
+You don't have a point of control in ANY relationship.
+
+**GEORGE:**
+I'm learning the LANGUAGE. When I go back to Sandra's floor—
+
+**JERRY:**
+She's letting you go back?
+
+**GEORGE:**
+She doesn't know yet. But when I walk in there speaking the dialect—
+
+**ELAINE:**
+*(not looking up from her phone)*
+I'm going to need everyone to stop talking.
+
+**JERRY:**
+What happened?
+
+**ELAINE:**
+*(holding up her phone)*
+This is my Bloomberg Terminal screen. Peterman bought forty contracts of lean hog futures. April expiration.
+
+**JERRY:**
+Lean hog.
+
+**ELAINE:**
+I was trying to figure out the interface. I've been staring at this thing for six hours. It's like if a spreadsheet had a baby with a cockpit. And at some point I hit something—I was trying to set a stop-loss—
+
+**JERRY:**
+A what?
+
+**ELAINE:**
+An automatic sell order to limit losses! I've been STUDYING, Jerry! But I set it on the wrong side. Instead of a sell stop below the market, I put a buy stop ABOVE the market. Price ticked up and it triggered and now instead of forty contracts, we have EIGHTY.
+
+**JERRY:**
+Eighty contracts of lean hog.
+
+**ELAINE:**
+Each contract is forty thousand pounds.
+
+*(Jerry does the math in his head. His eyebrows rise slowly.)*
+
+**JERRY:**
+That's... three point two million pounds of pork.
+
+**ELAINE:**
+Three point two million pounds, Jerry.
+
+**JERRY:**
+That's every hot dog at Yankee Stadium for a decade.
+
+**ELAINE:**
+What happens when these expire?! Do I get PIGS? Do they bring PIGS to Peterman's office?!
+
+**GEORGE:**
+*(looking up from his phone)*
+When's expiration?
+
+**ELAINE:**
+Two weeks!
+
+**GEORGE:**
+You gotta close the position before First Notice Day or you get assigned delivery against the settlement index.
+
+*(Jerry and Elaine both stare at George.)*
+
+**GEORGE:**
+I've been on YouTube for eleven hours.
+
+**ELAINE:**
+How do I close it? Peterman has the password and he thinks we're executing some kind of genius "pork squeeze." He used the phrase "pork squeeze," Jerry. In a BOARD MEETING.
+
+**JERRY:**
+So you accidentally doubled a massive commodity position and your boss thinks it was a strategic masterstroke.
+
+**ELAINE:**
+*(dropping her head to the table)*
+It's like the Matrix. But with pork.
+
+*(Kramer slides in next to Elaine. He's wearing a new fleece vest and has a lanyard around his neck that reads "FUTURES TRADER" in hand-written marker.)*
+
+**KRAMER:**
+Did someone say pork?
+
+**JERRY:**
+Stay out of the pork, Kramer.
+
+**KRAMER:**
+I'm just saying, lean hog futures have been in a CONTANGO structure for three months. The front month is trading at a discount to the—
+
+**ELAINE:**
+I will PAY you to stop talking.
+
+**KRAMER:**
+How much? Because I had a rough day in the MNQ and I could use the liquidity.
+
+*(George's phone buzzes. He looks at it. His face changes.)*
+
+**GEORGE:**
+Sandra wants to have dinner tomorrow.
+
+**JERRY:**
+That's nice.
+
+**GEORGE:**
+She says we "need to talk about risk management."
+
+**JERRY:**
+In the relationship or in the trading?
+
+**GEORGE:**
+*(staring at the phone)*
+...I genuinely don't know.
+
+---
+
+**[END OF ACT 2]**
+
+--- END OF ACT 2 ---
+
+--- START OF ACT 3 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 3
+
+---
+
+### SCENE 8 – SANDRA'S TRADING FLOOR (DAY)
+
+*(George walks in with a rolled-up piece of paper under his arm like an architect arriving at a construction site. He's wearing a new button-down shirt—still with the fold creases visible—and has a pen behind his ear. Sandra sees him from her desk and closes her eyes briefly.)*
+
+**SANDRA:**
+George, I said dinner. I didn't say come to my office.
+
+**GEORGE:**
+Dinner is for amateurs. I wanted you to see me in my ELEMENT.
+
+**SANDRA:**
+Your element is my office?
+
+**GEORGE:**
+The market is my element. Your office is where the market LIVES. Ergo.
+
+*(He unrolls the paper on her desk. It's a hand-drawn chart on what appears to be a large piece of butcher paper. There is a brown stain on one corner.)*
+
+**SANDRA:**
+What is this?
+
+**GEORGE:**
+That is a cumulative delta divergence footprint chart. I drew it by hand.
+
+**SANDRA:**
+Is that hummus?
+
+**GEORGE:**
+I was eating while I was charting. Sandra, LOOK at it.
+
+*(Sandra looks. Danny rolls his chair over, turkey club in hand.)*
+
+**DANNY:**
+Is that a footprint chart drawn in pen?
+
+**GEORGE:**
+Sharpie. Now look. HERE. *(pointing)* The ES made three consecutive higher highs on the one-minute between 10:15 and 10:22 yesterday morning. Price going up. Everyone's bullish. BUT—
+
+*(He pulls out a second sheet. Also butcher paper. Also stained.)*
+
+**GEORGE:**
+Cumulative delta was FALLING. Every new high, fewer aggressive buyers were hitting the ask. The energy was dying. It's like a party where everyone thinks the place is filling up, but people are actually sneaking out the back door.
+
+**SANDRA:**
+*(pause)*
+...that's actually not wrong.
+
+**GEORGE:**
+Not WRONG? It's a textbook absorption pattern! The passive sellers on the offer were soaking up every aggressive buy. The move was a TRAP. I would have shorted at 4512 and ridden it down four ticks.
+
+**DANNY:**
+*(leaning in, examining the chart)*
+He's reading it right.
+
+**SANDRA:**
+He's reading YESTERDAY right. Yesterday is free.
+
+**GEORGE:**
+Put me on the sim. Right now. I'll find one in real time.
+
+**SANDRA:**
+George...
+
+**GEORGE:**
+I see things, Sandra. I couldn't execute last time because I didn't understand what I was LOOKING at. Now I understand. The delta doesn't lie.
+
+*(Sandra hesitates. Looks at Danny. Danny shrugs and takes a bite of his sandwich.)*
+
+**SANDRA:**
+Sim only. Five contracts max. And you use LIMIT ORDERS.
+
+**GEORGE:**
+Limit orders. On the bid or the offer. Passive fills. I'm a passive person, Sandra. Ask anyone who's ever employed me.
+
+*(George sits at the sim station. He watches the screen with genuine focus. Thirty seconds pass. A minute. His eyes narrow.)*
+
+**GEORGE:**
+There. Right THERE. Price just ticked to a new session high—4512.00—but the delta printed negative on that bar. More contracts hitting the bid than the ask even though price went UP. That's sellers absorbing the move.
+
+**SANDRA:**
+*(watching over his shoulder)*
+Okay...
+
+**GEORGE:**
+I'm going short. Ten contracts. Limit order on the offer at 4512.
+
+*(He places the order carefully. Waits. A beat. The fill notification appears.)*
+
+**GEORGE:**
+*(whispering)*
+I'm in.
+
+*(They watch. The price ticks down. 4511.75. 4511.50. 4511.25. 4511.00. Four ticks. George is up $500 on the sim.)*
+
+**SANDRA:**
+Take the scalp, George.
+
+**GEORGE:**
+...no.
+
+**SANDRA:**
+George. Four ticks. Take it.
+
+**GEORGE:**
+That divergence pattern goes deeper. The absorption was heavy. This is a six-point move. I'm looking at a THREE THOUSAND dollar winner.
+
+**SANDRA:**
+You are looking at a scalp that is begging you to close it.
+
+**GEORGE:**
+I'm not a scalper. I'm a VISIONARY.
+
+*(Price ticks back up. 4511.25. 4511.50. He's now up only two ticks.)*
+
+**SANDRA:**
+George.
+
+**GEORGE:**
+It's a pullback within the larger move!
+
+*(4511.75. 4512.00. He's now flat.)*
+
+**SANDRA:**
+GEORGE.
+
+**GEORGE:**
+*(jaw clenched)*
+I am NOT leaving this trade.
+
+*(4512.25. 4512.50. He's now down two ticks. He clicks—not to exit, but to ADD.)*
+
+**SANDRA:**
+Did you just ADD to this?
+
+**GEORGE:**
+I'm averaging down! My entry is better now!
+
+**SANDRA:**
+You're SHORT twenty contracts above a session high!
+
+**GEORGE:**
+The tape doesn't know who it's DEALING with!
+
+*(4513.00. 4513.50. 4514.00. The loss accelerates. George grips the desk. His knuckles are white.)*
+
+**DANNY:**
+*(not looking up from his screen, chewing)*
+Brutal.
+
+**GEORGE:**
+THANK you, Danny!
+
+*(4514.50. Sandra reaches across and clicks the Flatten button. All positions close. The sim shows a loss of $8,500.)*
+
+**GEORGE:**
+What did you DO?!
+
+**SANDRA:**
+I liquidated your position.
+
+**GEORGE:**
+I was about to be VINDICATED!
+
+**SANDRA:**
+You were about to be down twelve thousand.
+
+**GEORGE:**
+*(standing up, pointing at his butcher paper chart)*
+The divergence was THERE, Sandra! The pattern was REAL! I was RIGHT!
+
+**SANDRA:**
+You were right and you lost eighty-five hundred dollars. Do you understand what that means?
+
+**GEORGE:**
+It means the market is BROKEN.
+
+**SANDRA:**
+It means in HFT, early IS wrong. Four ticks of profit turned into seventeen ticks of loss because you couldn't take the scalp.
+
+**GEORGE:**
+*(breathing heavily, straightening his shirt)*
+I just... I need a bigger canvas.
+
+**DANNY:**
+*(raising his sandwich slightly)*
+For what it's worth, the delta read was excellent. Genuinely. You'd have been a great trader in 1987.
+
+**GEORGE:**
+*(with bitter dignity)*
+Thank you, Danny.
+
+**DANNY:**
+You're welcome. That's also approximately when this sandwich was made, I think.
+
+---
+
+### SCENE 9 – J. PETERMAN'S OFFICE (DAY)
+
+*(Elaine stands before Peterman's desk, holding a printout. She has the demeanor of a doctor delivering a terminal diagnosis.)*
+
+**ELAINE:**
+Mr. Peterman, we need to discuss the hog position.
+
+**PETERMAN:**
+How are our hogs, Elaine?
+
+**ELAINE:**
+Our hogs are DOWN. Significantly. The USDA released a Hogs and Pigs Report showing a massive inventory surplus. Prices have dropped almost four percent since you entered. On eighty contracts—
+
+**PETERMAN:**
+Eighty? I purchased forty.
+
+**ELAINE:**
+*(quickly)*
+The... market... doubled our exposure through a... strategic averaging mechanism I implemented.
+
+**PETERMAN:**
+Brilliant. You're averaging into weakness. That's exactly what Harold Krebbs would have done.
+
+**ELAINE:**
+Who is Harold Krebbs?
+
+**PETERMAN:**
+Nineteen forty-seven. Chicago Board of Trade. Harold Krebbs, the undisputed soybean king of La Salle Street. Everyone told Harold to close his soybean position. His broker. His wife. Harold DOUBLED.
+
+**ELAINE:**
+What happened to Harold?
+
+**PETERMAN:**
+He lost everything and moved to a houseboat in Duluth. But the PRINCIPLE was sound.
+
+**ELAINE:**
+Mr. Peterman, we are down a HUNDRED AND TWENTY THOUSAND DOLLARS on pork.
+
+**PETERMAN:**
+Elaine. The pig is a cyclical animal. It goes down. It comes up. Have you ever seen a pig try to leave a mud pit?
+
+**ELAINE:**
+I have not.
+
+**PETERMAN:**
+It wallows. It STRUGGLES. And then, when you least expect it—it RISES. We hold.
+
+**ELAINE:**
+First Notice Day is in eight trading sessions. If we don't close or roll this position before then—
+
+**PETERMAN:**
+We will NOT be closing. We will be DOUBLING.
+
+**ELAINE:**
+We already doubled!
+
+**PETERMAN:**
+Then we'll be... quadrupling.
+
+**ELAINE:**
+Mr. Peterman—
+
+**PETERMAN:**
+Elaine. I once held a position in Moroccan saffron futures for eleven months while a civil war raged across the Rif Mountains. The saffron came in. It ALWAYS comes in.
+
+**ELAINE:**
+Saffron isn't pork!
+
+**PETERMAN:**
+No. It's better. But pork will do.
+
+*(He waves her out. Elaine stands in the doorway.)*
+
+**ELAINE:**
+I need the account password.
+
+**PETERMAN:**
+What for?
+
+**ELAINE:**
+To... monitor. More closely.
+
+**PETERMAN:**
+You have view access. That's sufficient. I'll handle all executions personally.
+
+**ELAINE:**
+YOU'LL handle—Mr. Peterman, do you know how to place a futures trade?
+
+**PETERMAN:**
+Elaine, I navigated a spice barge through the Strait of—
+
+**ELAINE:**
+—Malacca with a compass and turmeric, yes, you've mentioned it.
+
+**PETERMAN:**
+Then you know I can handle a Bloomberg Terminal.
+
+*(Elaine exits. In the hallway, she pulls out her phone and dials.)*
+
+**ELAINE:**
+*(into phone)*
+Hi, I need to speak with someone in futures margin. I have an account that I need to— what's the authorization code? I don't— it's the J. Peterman Company pension— yes, I'll hold.
+
+*(Hold music. She leans against the wall. Closes her eyes.)*
+
+**ELAINE:**
+*(to herself)*
+Three point two million pounds of hog.
+
+*(A COWORKER walks past.)*
+
+**COWORKER:**
+Did you say hog?
+
+**ELAINE:**
+KEEP WALKING.
+
+---
+
+### SCENE 10 – JERRY'S APARTMENT (EVENING)
+
+*(Kramer is at the monitors, which now have Post-it notes stuck around the bezels with handwritten annotations like "WATCH THIS LEVEL" and "SUBMARINE?" and one that just says "NO." Jerry is on the couch reading a magazine.)*
+
+**KRAMER:**
+Jerry, get over here. You need to see this.
+
+**JERRY:**
+I really don't.
+
+**KRAMER:**
+Someone on the MNQ book is SPOOFING.
+
+**JERRY:**
+Spoofing.
+
+**KRAMER:**
+Spoofing! They put up a huge bid—five hundred contracts on the bid at a support level—all the algos see it and think, oh, big buyer, price is gonna hold, they start buying. Price goes up. Then the spoofer CANCELS the bid and sells into the rally. It's a fake wall, Jerry. A Potemkin bid.
+
+**JERRY:**
+How do you know it's fake?
+
+**KRAMER:**
+Because it keeps happening! Every time price approaches this level, the five hundred lot shows up, nudges everything higher, then vanishes. Poof. Like keyser Söze.
+
+**JERRY:**
+Maybe it's a real buyer who keeps changing their mind.
+
+**KRAMER:**
+FIVE HUNDRED contracts? Changing their mind? Every four minutes? That's not indecision, that's a federal crime! Dodd-Frank, Section 747. Spoofing. You can get ten years!
+
+**JERRY:**
+And you know this because...
+
+**KRAMER:**
+Because I've been studying the regulations to make sure MY strategy is legal.
+
+**JERRY:**
+IS your strategy legal?
+
+**KRAMER:**
+That's not the POINT. The point is this guy is front-running the book with phantom orders and I won't STAND for it. I'm calling the CFTC.
+
+**JERRY:**
+The Commodity Futures Trading Commission.
+
+**KRAMER:**
+They have a tip line. A WHISTLEBLOWER line, Jerry. There might even be a bounty.
+
+**JERRY:**
+Kramer, I don't think you want to invite a regulatory agency to look at ANYTHING you're doing.
+
+**KRAMER:**
+I'm a legitimate market participant! I have a server rack!
+
+*(He picks up the phone, dials. Jerry watches with growing dread.)*
+
+**KRAMER:**
+*(into phone)*
+Yes, hello. I'd like to report suspicious activity on the Micro E-mini Nasdaq-100 futures contract. Specifically, repeated placement and cancellation of large orders on the bid side designed to create a false impression of demand... yes, I'll describe what I've observed.
+
+*(He covers the mouthpiece, whispers to Jerry.)*
+
+**KRAMER:**
+They're taking me very seriously.
+
+*(Back to phone.)*
+
+**KRAMER:**
+So what I do—what I've OBSERVED—is that I watch for these large visible bids on the DOM, and when I see them, I place my orders in front of them to ride the momentum they create. I've been doing this—I mean I've been WATCHING this happen for about two weeks now. Sometimes I'll position ahead of the bid by one tick, let the flow push price up, and then exit when the big order either gets filled or pulls. Yes. Yes, that IS essentially what I'm reporting, but I'm the one who— hello?
+
+*(He stares at the phone.)*
+
+**KRAMER:**
+They put me on hold.
+
+**JERRY:**
+Kramer. What you just described to a federal enforcement agent is that YOU have been front-running large orders on a regulated exchange.
+
+**KRAMER:**
+No, I was reporting the OTHER guy.
+
+**JERRY:**
+You said "what I do." You literally said "WHAT I DO."
+
+**KRAMER:**
+That was a hypothetical!
+
+**JERRY:**
+You said you've been doing it for two weeks!
+
+*(Kramer slowly puts the phone down.)*
+
+**KRAMER:**
+...how much trouble, on a scale of one to ten—
+
+**JERRY:**
+You reported yourself to a federal agency.
+
+**KRAMER:**
+I was a WITNESS, Jerry!
+
+**JERRY:**
+To your OWN crime!
+
+**KRAMER:**
+It's not a crime! I didn't spoof! I traded in front of a spoof! Is that... is that a thing?
+
+**JERRY:**
+I don't know! I don't know what any of these things are! All I know is that a man just called the government and said "here's what I do" and described something and now the government has his PHONE NUMBER!
+
+*(The phone rings. They both stare at it. It rings again.)*
+
+**KRAMER:**
+*(whispering)*
+Don't answer it.
+
+**JERRY:**
+It's MY phone. In MY apartment. Which you listed as your TRADING FLOOR.
+
+*(The answering machine picks up.)*
+
+**MACHINE:**
+*"This is the Division of Enforcement at the Commodity Futures Trading Commission. We'd like to schedule a follow-up regarding tip number 2024-CF-11847. Please call us back at your earliest convenience. Thank you."*
+
+*(Long silence. Kramer looks at Jerry.)*
+
+**KRAMER:**
+...I'm going to need a lawyer.
+
+**JERRY:**
+You're going to need a TIME MACHINE.
+
+---
+
+**[END OF ACT 3]**
+
+--- END OF ACT 3 ---
+
+--- START OF ACT 4 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 4
+
+---
+
+### SCENE 11 – MONK'S CAFÉ (DAY)
+
+*(George sits alone in the booth with a battered ThinkPad open in front of him. The screen shows lines of Python code. He has a legal pad covered in equations and crossed-out formulas. Three empty coffee cups are pushed to the side. Jerry enters and slides in across from him.)*
+
+**JERRY:**
+You look like you're building a bomb.
+
+**GEORGE:**
+Better. I'm building an algorithm.
+
+**JERRY:**
+An algorithm.
+
+**GEORGE:**
+A fully automated mean-reversion scalping algorithm for the ES. No emotion. No hesitation. No human weakness.
+
+**JERRY:**
+No chance.
+
+**GEORGE:**
+You know what my problem was on Sandra's floor? ME. I was the problem. I saw the right trade and I couldn't pull the trigger at the right time because I'm a HUMAN BEING with feelings and fears and a desperate need to be right. So I'm removing myself from the equation.
+
+**JERRY:**
+The equation is better off.
+
+**GEORGE:**
+The algo finds the average price—the VWAP—the volume-weighted average price over the last twenty minutes. And when price gets too far away from the average, it bets that it comes back. Mean reversion. It's like dating, Jerry. You go out with a supermodel—
+
+**JERRY:**
+This has never happened to you.
+
+**GEORGE:**
+HYPOTHETICALLY. You go out with a supermodel, that's unsustainable. You revert to the mean. And the mean is...
+
+*(He gestures at himself.)*
+
+**GEORGE:**
+The algo understands that. When the ES goes too high, it sells. When it goes too low, it buys. And it doesn't get SCARED and it doesn't get GREEDY and it doesn't try to hold for six points because it thinks it's a VISIONARY.
+
+**JERRY:**
+You're describing a robot that does the opposite of everything you would do.
+
+**GEORGE:**
+EXACTLY.
+
+**JERRY:**
+That actually might work.
+
+**GEORGE:**
+I've backtested it on three months of tick data. Profitable. Sixty-two percent win rate. Average winner: 1.8 ticks. Average loser: 2.1 ticks. But the win rate overcomes the negative expectancy per trade and—
+
+**JERRY:**
+I stopped listening. What happens if it goes crazy?
+
+**GEORGE:**
+It won't go crazy.
+
+**JERRY:**
+But if it DID. Can you stop it?
+
+**GEORGE:**
+Why would I stop the thing I built to NOT be stopped?
+
+**JERRY:**
+*(staring)*
+I want you to hear what you just said.
+
+**GEORGE:**
+The WHOLE POINT is it runs without me. That's the beauty. I deploy it, I walk away, and I come back to money. It's the dream, Jerry. The DREAM. Income without involvement. Compensation without participation.
+
+**JERRY:**
+You just described a trust fund.
+
+**GEORGE:**
+It's a DIGITAL trust fund. That I built MYSELF. With Python.
+
+**JERRY:**
+You know Python?
+
+**GEORGE:**
+I know enough Python. I also know a guy on Fiverr who knows the rest of the Python.
+
+**JERRY:**
+How much does this Fiverr guy know about futures trading?
+
+**GEORGE:**
+He's fourteen and he lives in Bangalore. He doesn't need to know about futures trading. He needs to know about API connections and order routing. I handle the THEORY. He handles the syntax.
+
+**JERRY:**
+A fourteen-year-old in India and a forty-year-old in New York who cried about a vending machine are building a high-frequency trading system.
+
+**GEORGE:**
+We prefer "automated execution engine."
+
+**JERRY:**
+How much money are you putting into this?
+
+**GEORGE:**
+I opened a retail futures account. Five thousand dollars. Through one of those online brokers. Intraday margin on one ES contract is only five hundred dollars. That means five thousand gives me leverage on ten contracts.
+
+**JERRY:**
+And if you're wrong?
+
+**GEORGE:**
+The algo is only trading one lot at a time. Small. Controlled. Disciplined.
+
+**JERRY:**
+Does it have a kill switch? Some kind of maximum loss where it shuts itself off?
+
+**GEORGE:**
+*(slight hesitation)*
+...it has a PHILOSOPHY of risk management.
+
+**JERRY:**
+A philosophy.
+
+**GEORGE:**
+If it's losing, it adjusts. It recalibrates. It finds the NEW mean and reverts to THAT.
+
+**JERRY:**
+That's not a kill switch. That's a RATIONALIZATION switch. You built a machine that thinks like you.
+
+**GEORGE:**
+I built a machine that thinks BETTER than me. Tomorrow morning I deploy it on the Globex session and I go to the movies.
+
+**JERRY:**
+The movies.
+
+**GEORGE:**
+What's the point of automation if you're going to SIT there? I'm going to see a matinee. Something long. Maybe a double feature.
+
+**JERRY:**
+You're going to have a trading robot running unsupervised while you watch a double feature.
+
+**GEORGE:**
+*(closing the laptop with satisfaction)*
+The future, Jerry. This is the future.
+
+---
+
+### SCENE 12 – ELAINE'S DESK AT PETERMAN'S OFFICE (DAY)
+
+*(Elaine is on the phone. The Bloomberg Terminal glows behind her. She has a stress ball in her free hand, which she is squeezing rhythmically. The stress ball has a pig face on it—Peterman merchandise.)*
+
+**ELAINE:**
+*(into phone)*
+What do you MEAN the loss has increased?
+
+**BROKER** *(on phone):*
+You're showing eighty long April HE. The Lean Hog Index dropped another one-sixty overnight. Your mark-to-market is currently negative one hundred eighty-six thousand.
+
+**ELAINE:**
+A hundred and eighty-six THOUSAND dollars.
+
+**BROKER** *(on phone):*
+You're also approaching First Notice Day. T-plus-six business days. If you don't offset or roll before then, you'll settle against the index.
+
+**ELAINE:**
+What does settle against the—actually, wait. These are lean hog futures. Is this cash-settled or physical delivery?
+
+**BROKER** *(on phone):*
+Lean hogs went to cash settlement in 2023.
+
+**ELAINE:**
+*(closing her eyes)*
+Oh thank God. Oh thank GOD. So no pigs.
+
+**BROKER** *(on phone):*
+No physical pigs. Just a cash debit or credit based on the CME Lean Hog Index at expiration.
+
+**ELAINE:**
+So we just lose money. Abstract money. Numbers-on-a-screen money.
+
+**BROKER** *(on phone):*
+A hundred and eighty-six thousand dollars of numbers-on-a-screen money. So far. And your account is approaching a margin call. If the position moves against you further, we'll need additional funds or we'll begin liquidating.
+
+**ELAINE:**
+How much additional funds?
+
+**BROKER** *(on phone):*
+At current maintenance margin for eighty HE contracts... you'd need to deposit approximately sixty thousand to maintain the position.
+
+**ELAINE:**
+Sixty thousand dollars.
+
+**BROKER** *(on phone):*
+Will the account holder be authorizing that?
+
+**ELAINE:**
+The account holder is a man who thinks he once saw the future of capitalism in a pig's eyes in Belgium. So... probably yes.
+
+**BROKER** *(on phone):*
+We'll need that authorization by end of business or we start liquidating at market.
+
+**ELAINE:**
+Liquidating at market. Just... selling everything.
+
+**BROKER** *(on phone):*
+Correct.
+
+**ELAINE:**
+*(long pause)*
+...could you just do that? Could you just liquidate it?
+
+**BROKER** *(on phone):*
+Not without the account holder's written authorization.
+
+**ELAINE:**
+What if I TOLD you I was the account holder?
+
+**BROKER** *(on phone):*
+Are you J. Peterman?
+
+**ELAINE:**
+...I could be.
+
+**BROKER** *(on phone):*
+Ma'am.
+
+**ELAINE:**
+I'm not. I'm not J. Peterman. I'm Elaine Benes and I work for J. Peterman and I am watching a hundred and eighty-six thousand pension dollars evaporate into pork mist and I cannot get the password because the man with the password is IN BRUGES.
+
+**BROKER** *(on phone):*
+He's in Bruges right now?
+
+**ELAINE:**
+Not RIGHT now. He's always spiritually in Bruges. He's in his office right now but his SOUL is in Bruges and that soul will not let me close this position!
+
+**BROKER** *(on phone):*
+I see. Well, we'll need authorization by four p.m. Central.
+
+**ELAINE:**
+That's in three hours!
+
+**BROKER** *(on phone):*
+Yes it is.
+
+*(He hangs up. Elaine stares at the phone. She squeezes the pig stress ball so hard it makes a squeak.)*
+
+---
+
+### SCENE 13 – JERRY'S APARTMENT (DAY)
+
+*(Two CFTC ENFORCEMENT AGENTS—AGENT MORRIS, fifties, tired, and AGENT CHEN, thirties, meticulous—stand in Jerry's apartment examining Kramer's trading setup. Jerry sits on the couch with his arms crossed. Kramer stands near the kitchen, trying to look casual and failing comprehensively.)*
+
+**AGENT MORRIS:**
+So this is the trading operation.
+
+**KRAMER:**
+I wouldn't call it an operation. It's more of a... practice.
+
+**AGENT CHEN:**
+You described it as "my trading floor" on the CFTC tip line.
+
+**KRAMER:**
+I was being colorful.
+
+**AGENT MORRIS:**
+*(looking at the Christmas lights)*
+What are these for?
+
+**KRAMER:**
+Ambiance.
+
+**AGENT MORRIS:**
+*(writing in notebook)*
+Ambiance.
+
+**AGENT CHEN:**
+Mr. Kramer, when you called our tip line, you stated—and I'm reading from the transcript—"What I do is I watch for large visible bids on the DOM and I place my orders in front of them to ride the momentum." Is that accurate?
+
+**KRAMER:**
+That was taken out of context.
+
+**JERRY:**
+What context? You called THEM.
+
+**KRAMER:**
+I was reporting someone ELSE. I was using first person for... rhetorical purposes.
+
+**AGENT CHEN:**
+You also said, and I quote, "I've been doing this for about two weeks now."
+
+**KRAMER:**
+Approximately two weeks. Give or take two weeks.
+
+**AGENT MORRIS:**
+We've pulled your trading records from your broker. Would you like to review them?
+
+**KRAMER:**
+I would love to.
+
+*(Agent Morris places a printout on the counter. Kramer picks it up.)*
+
+**AGENT MORRIS:**
+In the past fourteen trading days, you've executed eight hundred and forty-seven round-trip trades in the Micro E-mini Nasdaq-100 contract. Your cumulative net P&amp;L is negative three hundred and forty-seven dollars.
+
+**KRAMER:**
+And twelve cents.
+
+**AGENT CHEN:**
+And twelve cents.
+
+**AGENT MORRIS:**
+Your average position duration was four-point-two seconds. Your largest single trade was three contracts. Your fill quality was consistently at or near the worst price available at the time of execution.
+
+**KRAMER:**
+I was providing liquidity.
+
+**AGENT MORRIS:**
+You were removing it. Every single trade was a market order.
+
+**KRAMER:**
+I'm an aggressive style of trader. I see an opportunity and I SEIZE it.
+
+**AGENT CHEN:**
+Mr. Kramer, the activity you described on the phone—placing orders ahead of large visible bids—could constitute front-running or, depending on intent, a form of spoofing. However...
+
+*(He looks at the printout. Looks at Agent Morris. Looks back at Kramer.)*
+
+**AGENT CHEN:**
+Your actual trading records show no evidence of that strategy whatsoever. You appear to have been buying at random intervals and selling almost immediately at a loss.
+
+**KRAMER:**
+I wouldn't say RANDOM.
+
+**AGENT MORRIS:**
+There's a fourteen-minute gap in your trading every day at eleven-fifteen.
+
+**KRAMER:**
+That's when I make my smoothie.
+
+*(Agent Morris picks up a napkin from the counter. It reads "SELL???" with a drawing of a rocket ship.)*
+
+**AGENT MORRIS:**
+Sir, is this your order flow analysis?
+
+**KRAMER:**
+That's proprietary.
+
+*(Morris shows it to Chen. Chen looks at it. Looks at Morris.)*
+
+**AGENT CHEN:**
+Mr. Kramer, based on our review, we don't believe you've engaged in spoofing.
+
+**KRAMER:**
+*(brightening)*
+Vindicated!
+
+**AGENT CHEN:**
+We're not sure what you've engaged in.
+
+**AGENT MORRIS:**
+We're going to close this inquiry. I would recommend you consider whether high-frequency trading is an appropriate use of your time and capital.
+
+**KRAMER:**
+Absolutely. I'll take that under advisement.
+
+*(The agents move toward the door. Agent Morris pauses.)*
+
+**AGENT MORRIS:**
+*(to Chen, quietly but audibly)*
+That's the worst spoofing operation in the history of American finance.
+
+**AGENT CHEN:**
+Was it even spoofing?
+
+**AGENT MORRIS:**
+I honestly don't know WHAT that was.
+
+*(They exit. Kramer exhales enormously. He turns to Jerry with a grin.)*
+
+**KRAMER:**
+CLEARED, Jerry! CLEARED by the federal government!
+
+**JERRY:**
+They didn't clear you. They gave up trying to categorize you.
+
+**KRAMER:**
+A win is a win. Now, I've been thinking about phase two.
+
+**JERRY:**
+The proprietary phase.
+
+**KRAMER:**
+*(pulling the napkin from his shirt pocket—the one from earlier with "BUY" and "BUY AGAIN")*
+I've made some refinements.
+
+*(He unfolds the napkin. Below "BUY AGAIN" there is now a third arrow, pointing down, with the word "SELL?" and a small question mark.)*
+
+**JERRY:**
+You added a question mark.
+
+**KRAMER:**
+Risk management.
+
+---
+
+**[END OF ACT 4]**
+
+--- END OF ACT 4 ---
+
+--- START OF ACT 5 ---
+
+# SEINFELD: "The Tick"
+
+## ACT 5
+
+---
+
+### SCENE 14 – JERRY'S APARTMENT (MORNING)
+
+*(George is at Jerry's kitchen counter with the ThinkPad open. He's wearing a sport coat over a t-shirt—his version of business attire. Jerry is pouring cereal. The ThinkPad shows a blinking command prompt with green text.)*
+
+**GEORGE:**
+It's ready.
+
+**JERRY:**
+The algorithm.
+
+**GEORGE:**
+The algorithm. Three weeks of development. Two hundred dollars to a teenager in Bangalore. Fourteen YouTube tutorials. And one man's refusal to accept that the market is smarter than him.
+
+**JERRY:**
+Is the market smarter than you?
+
+**GEORGE:**
+Not anymore. Because now I'm not trading. The CODE is trading. And the code doesn't have an ego.
+
+**JERRY:**
+The code was written by your ego.
+
+**GEORGE:**
+The code was written by a fourteen-year-old named Rajesh who has never experienced emotional pain. It's CLEAN code, Jerry. Unsentimental.
+
+*(He presses Enter. The screen flashes. A stream of data begins scrolling.)*
+
+**GEORGE:**
+It's live. One lot ES on Globex. The algorithm is watching the twenty-period VWAP on the one-minute chart. When price deviates far enough from the mean, it fades the move. Buys the dip, sells the rip, captures the reversion.
+
+**JERRY:**
+And you're sure it works.
+
+**GEORGE:**
+Backtested. Sixty-two percent win rate. I showed you the numbers.
+
+**JERRY:**
+You showed me a spreadsheet with yellow highlighting.
+
+**GEORGE:**
+That's how professionals present data.
+
+*(A ding from the laptop.)*
+
+**GEORGE:**
+It just took its first trade. Short one ES at 4508.75.
+
+*(They both lean in. A few seconds pass. Another ding.)*
+
+**GEORGE:**
+Covered at 4508.50. One tick. Twelve dollars and fifty cents minus the round-trip commission of four-fifty. Net eight dollars.
+
+**JERRY:**
+Eight dollars.
+
+**GEORGE:**
+In four SECONDS, Jerry.
+
+**JERRY:**
+You spent two hundred dollars and three weeks to make eight dollars in four seconds.
+
+**GEORGE:**
+It's SCALABLE. Watch.
+
+*(Three more dings in quick succession.)*
+
+**GEORGE:**
+Three more fills. All winners. One tick, one tick, two ticks. That's... *(counting on fingers)* ...thirty-two dollars net.
+
+**JERRY:**
+We're rich.
+
+**GEORGE:**
+In twenty minutes it'll be a hundred. In an hour, four hundred. I'm going to the movies. I'm going to sit in a dark theater and watch something with subtitles and when I come out I'll have made more money than I made last WEEK at my actual job.
+
+*(He stands, buttons his sport coat, and heads for the door.)*
+
+**JERRY:**
+You're really just going to leave it running.
+
+**GEORGE:**
+That is literally the point of automation. If I sit here and watch, I'll INTERFERE. I'll second-guess. I'll override. I need to be AWAY from it. The machine works. I just need to let the machine work.
+
+**JERRY:**
+What if something unexpected happens? Some kind of news event?
+
+**GEORGE:**
+Like what? What's going to happen on a random Wednesday morning?
+
+**JERRY:**
+I don't know. That's what "unexpected" means.
+
+**GEORGE:**
+Nothing's going to happen. I'll be back by two.
+
+*(He exits. Jerry looks at the laptop. The screen scrolls. Another ding. He looks away, eats cereal. Another ding. He glances back. Looks at the numbers. Nods slowly. Goes back to his cereal.)*
+
+---
+
+### SCENE 15 – PETERMAN'S OFFICE (DAY)
+
+*(Elaine bursts through Peterman's door. He is on the phone, speaking what might be Flemish.)*
+
+**PETERMAN:**
+*(into phone)*
+...en dat is waarom het varken de toekomst is. Tot ziens.
+
+*(He hangs up.)*
+
+**ELAINE:**
+Mr. Peterman, we have three hours until the margin call deadline. The broker is going to LIQUIDATE our entire position at market if we don't either deposit sixty thousand dollars or close the trades ourselves.
+
+**PETERMAN:**
+Liquidate. Such an ugly word. Like something you'd do to a failed soup.
+
+**ELAINE:**
+It IS ugly! They will sell all eighty contracts at whatever price is available, which right now would lock in a loss of approximately a hundred and eighty-six thousand dollars of PENSION money!
+
+**PETERMAN:**
+Or.
+
+**ELAINE:**
+Or?
+
+**PETERMAN:**
+Or the hog turns. The hog ALWAYS turns, Elaine.
+
+**ELAINE:**
+The hog has NOT turned! The hog has done the OPPOSITE of turning! The hog has gone in a straight line in the wrong direction for ELEVEN DAYS!
+
+**PETERMAN:**
+I spoke with a contact at the CME this morning.
+
+**ELAINE:**
+You have a contact at the CME?
+
+**PETERMAN:**
+A man I met at a leather goods expo in Antwerp. He tells me there's a way to extend our position without taking settlement. We ROLL it.
+
+**ELAINE:**
+Roll it.
+
+**PETERMAN:**
+We sell the expiring April contract and simultaneously buy the June contract. We move the whole position forward in time. First Notice Day becomes irrelevant.
+
+**ELAINE:**
+*(pausing)*
+That's... actually the correct thing to do.
+
+**PETERMAN:**
+Elaine, I didn't build a catalog empire by being incorrect. I built it by being correct at unusual times.
+
+**ELAINE:**
+But we're still down a hundred and eighty-six thousand dollars. Rolling doesn't fix the LOSS, it just pushes the expiration.
+
+**PETERMAN:**
+It gives the pig time to WALLOW. To rise. I'm authorizing the roll. All eighty contracts. April to June.
+
+**ELAINE:**
+Fine. Fine! But AFTER the roll, I want authorization to close the position entirely. Cut our losses. Walk away. We're down a hundred and eighty-six thousand on a PIG HUNCH.
+
+**PETERMAN:**
+We'll roll. And then we'll see what June brings.
+
+**ELAINE:**
+Mr. Peterman—
+
+**PETERMAN:**
+The pig farmer in Bruges had a saying. "Het varken kent geen haast."
+
+**ELAINE:**
+Which means?
+
+**PETERMAN:**
+"The pig knows no haste."
+
+**ELAINE:**
+GREAT. The pig is PATIENT. We are not patient! We are a CATALOG COMPANY with a pension fund that is currently long three point two million pounds of notional pork!
+
+**PETERMAN:**
+*(picking up the phone, dialing)*
+I'm calling the broker now. We roll to June. And Elaine—
+
+**ELAINE:**
+What.
+
+**PETERMAN:**
+—have a little faith in the hog.
+
+*(Elaine exits into the hallway. Presses her back against the wall. Her phone buzzes. She answers.)*
+
+**ELAINE:**
+*(into phone)*
+Hello? Yes, this is— he's calling you right now to authorize the roll. April to June. All eighty contracts. And I need you to know that the SECOND that roll is complete, I'm going to call you back every single hour until I get authorization to flatten the entire thing. I don't care if— how much slippage on the roll? How many ticks?
+
+*(She listens. Her face falls.)*
+
+**ELAINE:**
+Three ticks of calendar spread slippage? On eighty contracts? What's that in dollars?
+
+*(She listens.)*
+
+**ELAINE:**
+Forty-eight hundred dollars just to ROLL it? We lose forty-eight hundred dollars to move from one month to the NEXT month?
+
+*(She listens.)*
+
+**ELAINE:**
+Yes. Yes, execute the roll. And I'm going to need a drink.
+
+---
+
+### SCENE 16 – JERRY'S APARTMENT (AFTERNOON)
+
+*(Jerry is on the couch. The laptop is still on the counter, still scrolling. Occasional dings. Kramer enters wearing the "CME GROUP" lanyard he got from a conference.)*
+
+**KRAMER:**
+How's George's robot doing?
+
+**JERRY:**
+It keeps making these little dings. I think it's winning. It's kind of pleasant, actually. Like a slot machine that only gives you quarters.
+
+*(Kramer walks over and looks at the screen.)*
+
+**KRAMER:**
+Net P&amp;L... sixty-four dollars. Eight winning scalps. Nice. Real nice.
+
+**JERRY:**
+He went to the movies.
+
+**KRAMER:**
+That's discipline. Let the machine work. Don't interfere. I respect it.
+
+*(Jerry's phone rings. He answers.)*
+
+**JERRY:**
+Hello? Yeah, he's— well, he's at the movies. This is his... this is where the computer is. Who is this?
+
+*(He listens. His face changes.)*
+
+**JERRY:**
+What do you mean "emergency rate statement"?
+
+*(Kramer's head snaps toward Jerry.)*
+
+**KRAMER:**
+What? WHAT?
+
+**JERRY:**
+*(to Kramer, covering phone)*
+Someone named Rajesh says the Federal Reserve just released an emergency FOMC statement.
+
+**KRAMER:**
+*(lunging for the laptop)*
+Oh no. Oh no no no—
+
+*(The laptop starts dinging rapidly. Not pleasant dings anymore. Urgent, cascading dings. The scrolling accelerates.)*
+
+**KRAMER:**
+The ES just dropped eight points! Twelve points! George's algo is BUYING, Jerry! It sees every drop as a deviation from the VWAP so it keeps buying the dip!
+
+**JERRY:**
+*(into phone)*
+Rajesh? Rajesh, how do we stop it?
+
+**KRAMER:**
+It's down twenty points now! Twenty-five! The algo is adding! It bought another lot!
+
+**JERRY:**
+*(into phone)*
+There's no kill switch?! What do you mean there's no— he told you not to ADD one?!
+
+**KRAMER:**
+Thirty points! Jerry, at one lot that's— that's fifteen hundred dollars and it's still GOING!
+
+*(Jerry grabs the laptop. He does the only thing he can think of. He closes the lid. They both stare at the closed laptop.)*
+
+**KRAMER:**
+...did that work?
+
+*(A muffled ding from inside the closed laptop.)*
+
+**JERRY:**
+That didn't work.
+
+**KRAMER:**
+Closing the laptop doesn't close the POSITION, Jerry! The order is on the exchange! The exchange doesn't know the laptop is closed! The exchange doesn't CARE about the laptop!
+
+**JERRY:**
+WELL WHAT DO I DO?!
+
+**KRAMER:**
+Open it! OPEN IT!
+
+*(Jerry opens the laptop. The screen shows the P&amp;L plummeting.)*
+
+**KRAMER:**
+It's down forty points now. That's two thousand on the one lot and— oh. Oh, it bought ANOTHER lot. On that last dip. It's reverted to its mean reversion logic and decided EVERYTHING is a dip.
+
+**JERRY:**
+Can YOU stop it?
+
+**KRAMER:**
+I trade Micro Nasdaqs! This is the full ES! This is the big leagues! I don't even know what platform—
+
+*(The door bursts open. George stands there, wild-eyed, holding a movie theater popcorn.)*
+
+**GEORGE:**
+WHAT HAPPENED?! Rajesh texted me! He texted me IN THE THEATER!
+
+**JERRY:**
+The Federal Reserve released an emergency statement and your algorithm has been buying every dip for the last six minutes!
+
+**GEORGE:**
+*(shoving past Kramer, staring at screen)*
+It's down... twenty-two hundred dollars?! It was UP sixty-four! I was gone for NINETY MINUTES!
+
+**KRAMER:**
+And it bought a second lot on the way down! You're holding two ES long in a freefall!
+
+**GEORGE:**
+HOW DO I STOP IT?!
+
+**JERRY:**
+I closed the laptop!
+
+**GEORGE:**
+Why did you close the LAPTOP?!
+
+**JERRY:**
+I panicked! What was I supposed to do, REASON with it?!
+
+**GEORGE:**
+Closing the laptop doesn't stop the trade! The order lives on the Globex matching engine! The laptop is just a WINDOW!
+
+**JERRY:**
+You know shutting the laptop doesn't stop the trade, right?
+
+**GEORGE:**
+IT SHOULD! THERE SHOULD BE A LID RULE! THERE SHOULD BE A FEDERAL REGULATION THAT WHEN THE LID IS CLOSED, THE TRADE IS DONE!
+
+*(He frantically clicks, trying to flatten the position.)*
+
+**GEORGE:**
+Where's the flatten— where's the— KRAMER, where's the FLATTEN BUTTON?!
+
+**KRAMER:**
+It's the red one! The RED ONE!
+
+*(George clicks. A beat. The dinging stops. Silence.)*
+
+**GEORGE:**
+*(reading the screen)*
+...I'm out. Position closed.
+
+**JERRY:**
+How bad?
+
+**GEORGE:**
+*(quietly)*
+Eighteen hundred. No... wait. Twenty-two hundred. It filled another lot while I was clicking. It bought a THIRD contract on the way down and I closed all three at the bottom.
+
+**KRAMER:**
+Buy high, sell low. Three times in a row.
+
+**GEORGE:**
+*(staring at the screen)*
+I made sixty-four dollars in twenty minutes. And I lost twenty-two hundred dollars in six minutes. Because I went to go see a MOVIE.
+
+**JERRY:**
+What movie?
+
+**GEORGE:**
+I don't know! Something French! I couldn't focus after the third text from Rajesh!
+
+**JERRY:**
+So you lost twenty-two hundred dollars and you don't even know how the movie ends.
+
+**GEORGE:**
+*(slamming the laptop shut, then immediately opening it again)*
+The lid doesn't matter. NOTHING about the lid matters.
+
+*(He slumps onto the couch between Jerry and Kramer. Long silence.)*
+
+**GEORGE:**
+...I still think the mean reversion logic was sound.
+
+**JERRY:**
+Let it go, George.
+
+**GEORGE:**
+In a NORMAL market—
+
+**JERRY:**
+Let it go.
+
+---
+
+### SCENE 17 – MONK'S CAFÉ (EVENING) – FINAL SCENE
+
+*(All four at the booth. George has his head in his hands. Elaine is on her third bourbon—actual glass visible. Kramer is wearing the CME GROUP lanyard and examining his "SELL???" napkin. Jerry surveys the wreckage.)*
+
+**JERRY:**
+So let me get this straight. George lost twenty-two hundred dollars to a computer he built himself.
+
+**GEORGE:**
+Co-built.
+
+**JERRY:**
+Co-built with a fourteen-year-old.
+
+**GEORGE:**
+He's very mature for his age.
+
+**JERRY:**
+Elaine lost ninety-four thousand dollars on imaginary pigs.
+
+**ELAINE:**
+They're not imaginary. They're CASH-SETTLED. There's a difference. The pigs are REAL. The settlement is abstract.
+
+**JERRY:**
+And Peterman let you close it?
+
+**ELAINE:**
+He called it "tuition in the University of Pork." He wants to frame the trade confirmation. He's going to hang it in his office next to the photo of the pig farmer from Bruges.
+
+**JERRY:**
+Ninety-four thousand dollars.
+
+**ELAINE:**
+*(lifting her glass)*
+Tufts.
+
+**JERRY:**
+And Kramer got investigated by the federal government for a total of three hundred and forty-seven dollars.
+
+**KRAMER:**
+Three hundred and forty-seven dollars and EXPERIENCE, Jerry. And I was CLEARED. Fully exonerated.
+
+**JERRY:**
+They didn't exonerate you. They couldn't figure out what to CHARGE you with.
+
+**KRAMER:**
+A technicality in my favor.
+
+*(Silence. George lifts his head.)*
+
+**GEORGE:**
+...I still think my delta divergence read was right.
+
+*(Everyone ignores him. Elaine drinks. Kramer studies his napkin. Jerry shakes his head.)*
+
+**GEORGE:**
+The cumulative delta was FALLING while price was making new highs. That's absorption. That's a REAL signal. I just— the execution was—
+
+**JERRY:**
+George.
+
+**GEORGE:**
+—if I had taken the four ticks—
+
+**JERRY:**
+George.
+
+**GEORGE:**
+—I'd be UP, Jerry. I'd be up five hundred dollars and Sandra would still be—
+
+*(He stops himself. Silence.)*
+
+**ELAINE:**
+Sandra dumped you?
+
+**GEORGE:**
+I don't want to talk about it.
+
+**
+
+--- END OF EPISODE ---
+</script>
+
+<!-- ====== APPLICATION JAVASCRIPT ====== -->
+<script>
+(function() {
+  'use strict';
+
+  // ---- Helpers ----
+  function decodeEntities(text) {
+    var el = document.createElement('textarea');
+    el.innerHTML = text;
+    return el.value;
+  }
+
+  function getRawText(id) {
+    return decodeEntities(document.getElementById(id).textContent.trim());
+  }
+
+  // ---- Script parser ----
+  function parseScript(raw) {
+    var lines = raw.split('\n');
+    var html = '';
+    var sceneCount = 0;
+    var actCount = 0;
+    var scenes = []; // {id, label, actLabel}
+    var currentAct = '';
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var trimmed = line.trim();
+
+      // Skip empty lines
+      if (trimmed === '') {
+        continue;
+      }
+
+      // Skip --- START/END markers
+      if (/^---\s*(START OF ACT|END OF ACT|END OF EPISODE)/i.test(trimmed)) {
+        continue;
+      }
+
+      // Divider line: just ---
+      if (/^---+$/.test(trimmed)) {
+        html += '<hr class="divider">';
+        continue;
+      }
+
+      // Episode title: # TITLE
+      if (/^#\s+[^#]/.test(trimmed)) {
+        var titleText = trimmed.replace(/^#\s+/, '');
+        html += '<h1 class="episode-heading">' + escapeHtml(titleText) + '</h1>';
+        continue;
+      }
+
+      // Act heading: ## ACT X
+      if (/^##\s+[^#]/.test(trimmed)) {
+        actCount++;
+        currentAct = trimmed.replace(/^##\s+/, '');
+        var actId = 'act-' + actCount;
+        html += '<h2 class="act-heading" id="' + actId + '" data-act="' + actCount + '">' + escapeHtml(currentAct) + '</h2>';
+        continue;
+      }
+
+      // Scene heading: ### SCENE X
+      if (/^###\s+/.test(trimmed)) {
+        sceneCount++;
+        var sceneText = trimmed.replace(/^###\s+/, '');
+        var sceneId = 'scene-' + sceneCount;
+        html += '<h3 class="scene-heading" id="' + sceneId + '">' + escapeHtml(sceneText) + '</h3>';
+        scenes.push({ id: sceneId, label: sceneText, actLabel: currentAct });
+        continue;
+      }
+
+      // Character name: **NAME:** or **NAME (direction):** or **NAME** *(direction)*:
+      var charMatch = trimmed.match(/^\*\*([^*]+?)\*\*\s*(.*)/);
+      if (charMatch) {
+        var charName = charMatch[1].trim();
+        var rest = charMatch[2].trim();
+
+        // Remove trailing colon from charName
+        charName = charName.replace(/:$/, '');
+
+        html += '<div class="character-name">' + escapeHtml(charName) + '</div>';
+
+        // If there's remaining text after the character name, render as dialogue
+        if (rest) {
+          rest = rest.replace(/^:\s*/, '');
+          if (rest) {
+            html += '<div class="dialogue">' + formatInline(rest) + '</div>';
+          }
+        }
+        continue;
+      }
+
+      // Full line of stage direction: starts with *( and ends with )* or starts/ends with *
+      if (/^\*\(/.test(trimmed) && /\)\*$/.test(trimmed)) {
+        var sdText = trimmed.slice(2, -2); // Remove *( and )*
+        html += '<div class="stage-direction">(' + escapeHtml(sdText) + ')</div>';
+        continue;
+      }
+
+      if (/^\*[^*]/.test(trimmed) && /[^*]\*$/.test(trimmed) && !trimmed.startsWith('**')) {
+        var dirText = trimmed.slice(1, -1);
+        html += '<div class="stage-direction">' + escapeHtml(dirText) + '</div>';
+        continue;
+      }
+
+      // Fallback: dialogue text
+      html += '<div class="dialogue">' + formatInline(trimmed) + '</div>';
+    }
+
+    return { html: html, scenes: scenes, actCount: actCount };
+  }
+
+  function escapeHtml(text) {
+    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function formatInline(text) {
+    var s = escapeHtml(text);
+    // Convert **bold** to <strong>
+    s = s.replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>');
+    // Convert *italic* to styled spans
+    s = s.replace(/\*([^*]+?)\*/g, '<span class="inline-italic">$1</span>');
+    return s;
+  }
+
+  // ---- Render scripts ----
+  var scripts = {
+    draft1: parseScript(getRawText('raw-draft1')),
+    draft2: parseScript(getRawText('raw-draft2')),
+    final:  parseScript(getRawText('raw-final'))
+  };
+
+  document.getElementById('panel-draft1').innerHTML = scripts.draft1.html;
+  document.getElementById('panel-draft2').innerHTML = scripts.draft2.html;
+  document.getElementById('panel-final').innerHTML = scripts.final.html;
+
+  // ---- Tab switching ----
+  var currentTab = 'draft1';
+
+  window.switchTab = function(tab) {
+    if (tab === currentTab) return;
+    currentTab = tab;
+
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-tab') === tab);
+    });
+
+    document.querySelectorAll('.script-panel').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    document.getElementById('panel-' + tab).classList.add('active');
+
+    window.scrollTo({ top: 0 });
+
+    buildActIndicator();
+    buildNav();
+  };
+
+  // ---- Act indicator (sidebar dots) ----
+  function buildActIndicator() {
+    var container = document.getElementById('actIndicator');
+    var panel = document.getElementById('panel-' + currentTab);
+    var acts = panel.querySelectorAll('.act-heading');
+    container.innerHTML = '';
+    acts.forEach(function(_, idx) {
+      var dot = document.createElement('div');
+      dot.className = 'act-dot';
+      dot.dataset.actIdx = idx;
+      dot.title = 'Act ' + (idx + 1);
+      container.appendChild(dot);
+    });
+    observeActs();
+  }
+
+  var actObserver = null;
+
+  function observeActs() {
+    if (actObserver) actObserver.disconnect();
+    var panel = document.getElementById('panel-' + currentTab);
+    var acts = panel.querySelectorAll('.act-heading');
+    if (acts.length === 0) return;
+
+    var dots = document.querySelectorAll('.act-dot');
+
+    actObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var actIdx = Array.from(acts).indexOf(entry.target);
+          dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === actIdx);
+          });
+        }
+      });
+    }, {
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0
+    });
+
+    acts.forEach(function(a) { actObserver.observe(a); });
+  }
+
+  // ---- Scene navigator ----
+  function buildNav() {
+    var data = scripts[currentTab];
+    var body = document.getElementById('navBody');
+    body.innerHTML = '';
+    var lastAct = '';
+    data.scenes.forEach(function(s) {
+      if (s.actLabel !== lastAct) {
+        lastAct = s.actLabel;
+        var title = document.createElement('div');
+        title.className = 'nav-section-title';
+        title.textContent = lastAct;
+        body.appendChild(title);
+      }
+      var btn = document.createElement('button');
+      btn.className = 'nav-scene-btn';
+      btn.textContent = s.label;
+      btn.onclick = function() {
+        closeNav();
+        var el = document.getElementById(s.id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+      body.appendChild(btn);
+    });
+  }
+
+  window.openNav = function() {
+    buildNav();
+    document.getElementById('navModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeNav = function() {
+    document.getElementById('navModal').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  window.closeNavIfOverlay = function(e) {
+    if (e.target === document.getElementById('navModal')) {
+      closeNav();
+    }
+  };
+
+  // Escape key closes modal
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  // ---- Scroll to top button ----
+  var scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', function() {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // ---- Init ----
+  buildActIndicator();
+  buildNav();
+})();
+</script>
+</body>
 </html>
